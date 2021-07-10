@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'admin'], function() {
     Route::get('latte/create', 'Admin\LatteController@add');
-    Route::get('member/create', 'Admin\MemberController@add');
+    Route::post('latte/create', 'Admin\LatteController@create');
+    Route::get('member/register', 'Admin\MemberController@add');
     Route::get('member/mypage', 'Admin\MemberController@edit');
 });

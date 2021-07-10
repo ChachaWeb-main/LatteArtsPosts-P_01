@@ -9,7 +9,7 @@ class MemberController extends Controller
 {
     //
     public function add() {
-        return view('admin.member.create');
+        return view('admin.member.register');
     }
     public function edit() {
         return view('admin.member.mypage');

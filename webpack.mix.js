@@ -1,5 +1,9 @@
 const mix = require('laravel-mix');
 
+// npm run watch
+// 上記コードを実行のうえCSSコーティングしないと反映されない。終了後は control + c で停止する。
+// ※注 public内のcssファイルでなく、resources内のsassファイルでコーティングすること。
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
