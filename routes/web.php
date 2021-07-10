@@ -17,9 +17,12 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'admin'], function() {
     Route::get('main/index', 'Admin\LatteController@index');
-    Route::get('latte/create', 'Admin\LatteController@add');
-    Route::post('latte/create', 'Admin\LatteController@create');
-    Route::get('member/register', 'Admin\MemberController@add');
-    Route::get('member/mypage', 'Admin\MemberController@edit');
-    Route::get('member/login', 'Admin\MemberController@login');
+    Route::get('latte/create', 'Admin\LatteController@add')->middleware('auth');
+    Route::post('latte/create', 'Admin\LatteController@create')->middleware('auth');
+    Route::get('member/register', 'Admin\MemberController@add')->middleware('auth');
+    Route::get('member/mypage', 'Admin\MemberController@edit')->middleware('auth');
 });
+// ユーザー認証実装
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

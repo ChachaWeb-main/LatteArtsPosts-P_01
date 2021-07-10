@@ -1,13 +1,14 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <title>Myページ</title>
-    </head>
-    <body>
+{{-- layouts/admin.blade.phpを読み込む --}}
+@extends('layouts.admin')
+
+{{-- admin.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
+@section('title', '新規投稿')
+
+{{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
+@section('content')
+
+    <div class="container">
+    
         <h1>Myページ</h1>
         
         <p>(◯◯◯＝ログイン名)　　Logout</p>
@@ -20,5 +21,5 @@
         
         <p>ここに投稿したのものを一覧表示させる</p>
         
-    </body>
-</html>
+    </div>
+    

@@ -14,7 +14,5 @@ class MemberController extends Controller
     public function edit() {
         return view('admin.member.mypage');
     }
-     public function login() {
-        return view('admin.member.login');
-    }
+    
 }
