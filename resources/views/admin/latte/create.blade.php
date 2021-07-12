@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 mx-auto">
-                <h2>あなたのラテアートを皆んなにシェアしよう</h2>
+                <h1>あなたのラテアートを皆んなにシェアしよう</h1>
                 <form action="{{ action('Admin\LatteController@create')}}" method="post" enctype="multipart/form-data">
                     
                     @if (count($errors) > 0)

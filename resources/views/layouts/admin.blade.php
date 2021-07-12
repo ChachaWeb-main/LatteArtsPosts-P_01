@@ -38,7 +38,8 @@
                 <header>
                         <nav class="navbar navbar-light bg-light fixed-top">
                         <!-- タイトル -->
-                        <a class="navbar-brand" href="#">サイトタイトル</a>
+                        <a class="navbar-brand" href="#">P S L A</a>
+                        <p>Post & Sharing Latte Art<br>ラテアートの投稿・共有サイト</p>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                           <span class="navbar-toggler-icon"></span>
                         </button>
@@ -49,13 +50,13 @@
                               <a class="nav-link" href="#">Home</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link" href="#">リンク１</a>
+                              <a class="nav-link" href="#">メンバー登録</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link" href="#">リンク２</a>
+                              <a class="nav-link" href="#">新規投稿</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link" href="#">リンク３</a>
+                              <a class="nav-link" href="#">※※※※※※</a>
                             </li>
                           </ul>
                         </div>
