@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'admin'], function() {
-    Route::get('main/index', 'Admin\LatteController@index');
+    Route::get('main/index', 'Admin\LatteController@index')->middleware('auth');
     Route::get('latte/create', 'Admin\LatteController@add')->middleware('auth');
     Route::post('latte/create', 'Admin\LatteController@create')->middleware('auth');
     Route::get('member/register', 'Admin\MemberController@add')->middleware('auth');

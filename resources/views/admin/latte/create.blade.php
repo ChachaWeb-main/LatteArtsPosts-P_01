@@ -12,7 +12,7 @@
             <div class="col-md-12 mx-auto">
                 <h1>あなたのラテアートを皆んなにシェアしよう</h1>
                 <form action="{{ action('Admin\LatteController@create')}}" method="post" enctype="multipart/form-data">
-                    
+                    {{-- 以下で投稿データ保存設定・カラム・マイグレーション --}}
                     @if (count($errors) > 0)
                       <ul>
                           @foreach($errors->all() as $e)
@@ -54,8 +54,10 @@
                         </div>
                     </div>
                     
-                    {{ csrf_field() }}
-                    <input type="submit" class="btn btn-primary" value="投稿">
+                    <div class="form-button">
+                        {{ csrf_field() }}
+                        <input type="submit" class="btn btn-primary" value="投稿">
+                    </div>
                 </form> 
             </div>
         </div>
