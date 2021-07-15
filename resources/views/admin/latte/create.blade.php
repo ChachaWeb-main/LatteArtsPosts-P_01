@@ -1,7 +1,7 @@
 {{-- layouts/admin.blade.phpを読み込む --}}
 @extends('layouts.admin')
 
-{{-- admin.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
+{{-- admin.blade.phpの@yield('title')に'ラテアートの新規作成'を埋め込む --}}
 @section('title', '新規投稿')
 
 {{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
@@ -44,7 +44,7 @@
                     <div class="form-group row">
                         <label class="col-md-2">フリーテキスト</label>
                         <div class="col-md-10">
-                            <textarea class="col-md-10" name="body" rows="10">{{ old('body') }}</textarea>-->
+                            <textarea class="col-md-10" name="body" rows="10">{{ old('body') }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">

@@ -15,9 +15,10 @@ class CreateLatteTable extends Migration
     {
         Schema::create('latte', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title'); //ラテデザインのタイトルを保存するカラム
-            $table->string('body'); //描き方とフリーテキストを保存するカラム
-            $table->string('image_path'); //画像のパスを保存するカラム
+            $table->string('design'); //ラテデザインのタイトルを保存するカラム
+            $table->string('draw'); //描き方を保存するカラム
+            $table->string('text'); //フリーテキストを保存するカラム
+            $table->string('image_path'); //画像or動画のパスを保存するカラム
             $table->timestamps();
         });
     }
