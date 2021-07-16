@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLatteTable extends Migration
+class CreateLattesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateLatteTable extends Migration
      */
     public function up()
     {
-        Schema::create('latte', function (Blueprint $table) {
+        Schema::create('lattes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('design'); //ラテデザインのタイトルを保存するカラム
             $table->string('draw'); //描き方を保存するカラム
@@ -30,6 +30,6 @@ class CreateLatteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('latte');
+        Schema::dropIfExists('lattes');
     }
 }

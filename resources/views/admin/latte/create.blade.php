@@ -20,18 +20,18 @@
                           @endforeach    
                       </ul>
                     @endif
+                    
                     <div class="form-group row">
                         <label class="col-md-2">デザイン</label>
                         <div class="col-md-10">
-                            <input type="text" class="col-md-5" name="title" value="{{ old('title') }}">
+                            <input type="text" class="col-md-5" name="design" value="{{ old('design') }}">
                         </div>
                     </div>
                     
                     <div class="form-group row">
                         <label class="col-md-2">描き方</label>
                         <div class="col-md-10">
-                            <!--<textarea class="form-control" name="body" rows="20">{{ old('body') }}</textarea>-->
-                            <select>-->
+                            <select name="draw">
                                 <option value="">--選択してください--</option>
                                 <option value="フリーポア">フリーポア</option>
                                 <option value="エッチング">エッチング</option>
@@ -44,7 +44,7 @@
                     <div class="form-group row">
                         <label class="col-md-2">フリーテキスト</label>
                         <div class="col-md-10">
-                            <textarea class="col-md-10" name="body" rows="10">{{ old('body') }}</textarea>
+                            <textarea class="col-md-10" name="text" rows="10">{{ old('text') }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">

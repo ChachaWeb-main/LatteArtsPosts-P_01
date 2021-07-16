@@ -12,13 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::group(['prefix' => 'admin'], function() {
     Route::get('latte/create', 'Admin\LatteController@add')->middleware('auth');
     Route::post('latte/create', 'Admin\LatteController@create')->middleware('auth');
-    Route::get('admin', 'Admin\LatteController@index')->middleware('auth');
+    Route::post('latte/edit', 'Admin\LatteController@edit')->middleware('auth');
+    Route::post('latte/delete', 'Admin\LatteController@delete')->middleware('auth');
+    Route::get('latte', 'Admin\LatteController@index')->middleware('auth');
+
     
     Route::get('member/register', 'Admin\MemberController@add')->middleware('auth');
     Route::get('member/mypage', 'Admin\MemberController@edit')->middleware('auth');

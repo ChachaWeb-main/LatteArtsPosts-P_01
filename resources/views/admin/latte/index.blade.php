@@ -9,7 +9,7 @@
     
     <div class="container">
         <div class="row">
-            <h2>全メンバーのラテアート投稿一覧</h2>
+            <h2>ラテアート投稿一覧</h2>
         </div>
         <div class="row">
             <div class="col-md-4">
@@ -53,7 +53,7 @@
                                     <th>{{ $latte->id }}</th>
                                     <td>{{ \Str::limit($latte->design, 100) }}</td>
                                     <td>{{ \Str::limit($latte->draw, 250) }}</td>
-                                    <td>{{ \Str::limit($lattte->text, 250) }}</td>
+                                    <td>{{ \Str::limit($latte->text, 250) }}</td>
                                     <td>
                                         <div>
                                             <a href = "{{action('Admin\LatteController@edit', ['id' => $latte -> id]) }}" >編集</a>

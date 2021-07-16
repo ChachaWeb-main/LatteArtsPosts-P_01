@@ -54,4 +54,19 @@ class LatteController extends Controller
             return view('admin.latte.index', ['posts' => $posts, 'cond_title' => $cond_title]
         );
     }
+    
+    public function edit()
+    {
+         // News Modelからデータを取得する
+    //   $latte = Latte::find($request->id);
+    //   if (empty($latte)) {
+    //     abort(404);    
+    //   }
+    //   return view('admin.latte.edit', ['latte_form' => $latte]);
+    }
+    
+    public function delete()
+    {
+        
+    }
 }
