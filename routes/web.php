@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('top');
 });
 
 Route::group(['prefix' => 'admin'], function() {
@@ -24,7 +24,7 @@ Route::group(['prefix' => 'admin'], function() {
 
     
     Route::get('member/register', 'Admin\MemberController@add')->middleware('auth');
-    Route::get('member/mypage', 'Admin\MemberController@edit')->middleware('auth');
+    Route::get('member/mypage', 'Admin\MemberController@main')->middleware('auth');
 });
 // ユーザー認証実装
 Auth::routes();

@@ -8,10 +8,10 @@ use App\Http\Controllers\Controller;
 class MemberController extends Controller
 {
     //
-    public function add() {
-        return view('admin.member.register');
-    }
-    public function edit() {
+    // public function add() {
+    //     return view('admin.member.register');
+    // }
+    public function main() {
         return view('admin.member.mypage');
     }
     
