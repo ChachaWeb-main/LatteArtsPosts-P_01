@@ -8,10 +8,14 @@ use App\Http\Controllers\Controller;
 class MemberController extends Controller
 {
     //
-    // public function add() {
-    //     return view('admin.member.register');
-    // }
-    public function main() {
+    public function create(Request $request) 
+    {
+        // admin/member/createにリダイレクトする
+        return redirect('admin/member/create');
+    } 
+    
+    public function mypage() 
+    {
         return view('admin.member.mypage');
     }
     

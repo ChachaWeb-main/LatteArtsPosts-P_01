@@ -11,20 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('top');
-});
+Route::get('/', function () { return view('main');});
 
-Route::group(['prefix' => 'admin'], function() {
-    Route::get('latte/create', 'Admin\LatteController@add')->middleware('auth');
-    Route::post('latte/create', 'Admin\LatteController@create')->middleware('auth');
-    Route::post('latte/edit', 'Admin\LatteController@edit')->middleware('auth');
-    Route::post('latte/delete', 'Admin\LatteController@delete')->middleware('auth');
-    Route::get('latte', 'Admin\LatteController@index')->middleware('auth');
-
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+    Route::get('latte/create', 'Admin\LatteController@add');
+    Route::post('latte/create', 'Admin\LatteController@create');
+    Route::get('latte', 'Admin\LatteController@index');
+    Route::get('latte/edit', 'Admin\LatteController@edit');
+    Route::post('latte/delete', 'Admin\LatteController@delete');
     
-    Route::get('member/register', 'Admin\MemberController@add')->middleware('auth');
-    Route::get('member/mypage', 'Admin\MemberController@main')->middleware('auth');
+    Route::post('member/create', 'Admin\MemberController@create');
+    Route::get('member/mypage', 'Admin\MemberController@main');
 });
 // ユーザー認証実装
 Auth::routes();
