@@ -19,14 +19,14 @@
                       </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-2">ニックネーム</label>
+                        <label class="col-md-3">ニックネーム</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="name" value="{{ old('name') }}">
                         </div>
                     </div>
                     
                     <div class="form-group row">
-                        <label class="col-md-2">性別 (Gender)</label>
+                        <label class="col-md-3">性別 (Gender)</label>
                         <div class="col-md-10">
                             <div>
                               <input type="radio" id="男性 (Male)" name="gender" value="男性 (Male)" checked>
@@ -40,20 +40,22 @@
                     </div>
                     
                     <div class="form-group row">
-                        <label class="col-md-2">会得ラテアート</label>
+                        <label class="col-md-3">会得ラテアート</label>
                         <div class="col-md-10">
                             <textarea class="form-control" name="latteart" rows="2">{{ old('latteart') }}</textarea>
                         </div>
                     </div>
                     
                     <div class="form-group row">
-                        <label class="col-md-2">自己紹介 (Introduction)</label>
+                        <label class="col-md-3">自己紹介 (Introduction)</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="introduction" rows="15">{{ old('introduction') }}</textarea>
+                            <textarea class="form-control" name="introduction" rows="10">{{ old('introduction') }}</textarea>
                     </div>
                     
-                    {{ csrf_field() }}
-                    <input type="submit" class="btn btn-primary" value="登録">
+                    <div class="form-button">
+                        {{ csrf_field() }}
+                        <input type="submit" class="btn btn-primary" value="登録">
+                    </div>
                 </form> 
             </div>
         </div>

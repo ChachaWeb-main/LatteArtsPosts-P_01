@@ -20,6 +20,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('latte/edit', 'Admin\LatteController@edit');
     Route::post('latte/delete', 'Admin\LatteController@delete');
     
+    Route::get('member/create', 'Admin\MemberController@add');
     Route::post('member/create', 'Admin\MemberController@create');
     Route::get('member/mypage', 'Admin\MemberController@main');
 });
