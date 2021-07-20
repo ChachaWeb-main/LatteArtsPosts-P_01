@@ -2,7 +2,7 @@
 @extends('layouts.admin')
 
 {{-- admin.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
-@section('title', 'メイン・ラテアート投稿一覧')
+@section('title', 'メインページ')
 
 {{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
 @section('content')
