@@ -36,39 +36,39 @@
     
     <body>
         <div id="app">
-                <header>
-                    <nav class="navbar navbar-light bg-light fixed-top">
-                        <!-- タイトル -->
-                        <a class="navbar-brand" href="#">P S L A</a>
-                        <p>Post & Sharing Latte Art<br>ラテアートの投稿・共有サイト</p>
-                        
-                        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                            <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-                        </form>
-                        
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                          <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <!-- ナビゲーションメニュー -->
-                        
-                        <div class="collapse navbar-collapse" id="navbarNav">
-                          <ul class="navbar-nav">
-                            <li class="nav-item active">
-                              <a class="nav-link" href="#">Home</a>
-                            </li>
-                            <li class="nav-item">
-                              <a class="nav-link" href="#">ログイン</a>
-                            </li>
-                            <li class="nav-item">
-                              <a class="nav-link" href="#">メンバー登録</a>
-                            </li>
-                            <li class="nav-item">
-                              <a class="nav-link" href="#">新規投稿</a>
-                            </li>
-                          </ul>
-                        </div>
-                  </nav>
-                </header>
+            <header>
+                <nav class="navbar navbar-light bg-light fixed-top">
+                    <!-- タイトル -->
+                    <a class="navbar-brand" href="#">P S L A</a>
+                    <p>Post & Sharing Latte Art<br>ラテアートの投稿・共有サイト</p>
+                    
+                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                        <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+                    </form>
+                    
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <!-- ナビゲーションメニュー -->
+                    
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                      <ul class="navbar-nav">
+                        <li class="nav-item active">
+                          <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">ログイン</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">メンバー登録</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">新規投稿</a>
+                        </li>
+                      </ul>
+                    </div>
+              </nav>
+            </header>
             {{-- 画面上部に表示するナビゲーションバーです。 --}}
             <nav class="navbar navbar-expand-md navbar-dark navbar-laravel">
                 <div class="container">
@@ -123,7 +123,7 @@
             </main>
         </div>
     </body>
-         
+    
     <footer>
         <p>フッターテスト フッターテスト フッターテスト フッターテスト フッターテスト フッターテスト</p>
     </footer>
