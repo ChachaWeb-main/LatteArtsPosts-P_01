@@ -10,8 +10,8 @@ use App\Latte; //Latte Modelが使えるようになる
 class LatteController extends Controller
 {
     //
-    
-    public function add() {
+    public function add()
+    {
         return view('admin.latte.create');
     }
     
@@ -23,7 +23,8 @@ class LatteController extends Controller
         $form = $request->all();
       
       // フォームから画像が送信されてきたら保存して、$latte->image_path に画像のパスを保存する
-        if (isset($form['image'])) {
+        if (isset($form['image'])) 
+        {
             $path = $request->file('image')->store('public/image');
             $latte->image_path = basename($path);
         } else {
@@ -55,18 +56,38 @@ class LatteController extends Controller
         );
     }
     
-    public function edit()
+    public function edit(Request $request)
     {
-         // News Modelからデータを取得する
-    //   $latte = Latte::find($request->id);
-    //   if (empty($latte)) {
-    //     abort(404);    
-    //   }
-    //   return view('admin.latte.edit', ['latte_form' => $latte]);
+        // Latte Modelからデータを取得する
+      $latte = Latte::find($request->id);
+      if (empty($latte)) {
+        abort(404);    
+      }
+      return view('admin.latte.edit', ['latte_form' => $latte]);
     }
     
-    public function delete()
+    public function update(Request $request)
     {
-        
+      // Validationをかける
+      $this->validate($request, Latte::$rules);
+      // News Modelからデータを取得する
+      $latte = Latte::find($request->id);
+      // 送信されてきたフォームデータを格納する
+      $latte_form = $request->all();
+      unset($latte_form['_token']);
+
+      // 該当するデータを上書きして保存する
+      $lattes->fill($latte_form)->save();
+
+      return redirect('admin/latte/');
+     }
+    
+    public function delete(Request $request)
+    {
+        // 該当するLatte Modelを取得
+      $latte = Latte::find($request->id);
+      // 削除する
+      $latte->delete();
+      return redirect('admin/lattte/');
     }
 }

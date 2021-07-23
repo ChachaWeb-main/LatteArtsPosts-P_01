@@ -18,12 +18,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::post('latte/create', 'Admin\LatteController@create');
     Route::get('latte', 'Admin\LatteController@index');
     Route::get('latte/edit', 'Admin\LatteController@edit');
-    Route::post('latte/delete', 'Admin\LatteController@delete');
+    Route::post('latte/edit', 'Admin\LatteController@update');
+    Route::get('latte/delete', 'Admin\LatteController@delete');
     
-    Route::get('member/mypage', 'Admin\MemberController@main');
     Route::get('member/create', 'Admin\MemberController@add');
     Route::post('member/create', 'Admin\MemberController@create');
     Route::get('member', 'Admin\MemberController@index');
+    Route::get('member/edit', 'Admin\MemberController@edit');
+    Route::post('member/edit', 'Admin\MemberController@update');
+    Route::get('member/delete', 'Admin\MemeberController@delete');
+    
+    Route::get('mypage', 'Admin\MemberController@mypage');
 });
 // ユーザー認証実装
 Auth::routes();

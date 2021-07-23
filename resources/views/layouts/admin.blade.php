@@ -20,6 +20,7 @@
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
         
+        
         <!--bootstrap読み込み-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <!-- JavaScript Bundle with Popper -->
@@ -40,7 +41,7 @@
                 <nav class="navbar navbar-light bg-light fixed-top">
                     <!-- タイトル -->
                     <a class="navbar-brand" href="#">P S L A</a>
-                    <p>Post & Sharing Latte Art<br>ラテアートの投稿・共有サイト</p>
+                    <p>Post & Sharing Latte Arts<br>ラテアートの投稿・共有サイト</p>
                     
                     <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                         <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
@@ -50,7 +51,6 @@
                       <span class="navbar-toggler-icon"></span>
                     </button>
                     <!-- ナビゲーションメニュー -->
-                    
                     <div class="collapse navbar-collapse" id="navbarNav">
                       <ul class="navbar-nav">
                         <li class="nav-item active">
@@ -69,6 +69,8 @@
                     </div>
               </nav>
             </header>
+            
+            <!-- Laravelのログイン -->
             {{-- 画面上部に表示するナビゲーションバーです。 --}}
             <nav class="navbar navbar-expand-md navbar-dark navbar-laravel">
                 <div class="container">
@@ -110,7 +112,7 @@
                                     </form>
                                 </div>
                             </li>
-                            @endguest
+                        @endguest
                         </ul>
                     </div>
                 </div>
