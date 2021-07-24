@@ -15,13 +15,13 @@ class LatteController extends Controller
         return view('admin.latte.create');
     }
     
+    
     public function create(Request $request)
     {
       // validationを行う
         $this->validate($request, Latte::$rules); 
         $latte = new latte;
         $form = $request->all();
-      
       // フォームから画像が送信されてきたら保存して、$latte->image_path に画像のパスを保存する
         if (isset($form['image'])) 
         {
@@ -41,6 +41,7 @@ class LatteController extends Controller
             return redirect('admin/latte/create');
     }  
     
+    
     public function index(Request $request) 
     {
         // 投稿を表示する
@@ -56,6 +57,7 @@ class LatteController extends Controller
         );
     }
     
+    
     public function edit(Request $request)
     {
         // Latte Modelからデータを取得する
@@ -66,21 +68,32 @@ class LatteController extends Controller
       return view('admin.latte.edit', ['latte_form' => $latte]);
     }
     
+    
     public function update(Request $request)
     {
-      // Validationをかける
-      $this->validate($request, Latte::$rules);
-      // News Modelからデータを取得する
-      $latte = Latte::find($request->id);
-      // 送信されてきたフォームデータを格納する
-      $latte_form = $request->all();
-      unset($latte_form['_token']);
-
-      // 該当するデータを上書きして保存する
-      $lattes->fill($latte_form)->save();
-
-      return redirect('admin/latte/');
-     }
+        // Validationをかける
+        $this->validate($request, Latte::$rules);
+        // News Modelからデータを取得する
+        $latte = Latte::find($request->id);
+        // 送信されてきたフォームデータを格納する
+        $latte_form = $request->all();
+      
+        if (isset($latte_form['image'])) 
+        {
+            $path = $request->file('image')->store('public/image');
+            $latte->image_path = basename($path);
+        } else {
+            $latte->image_path = null;
+        }
+        // フォームから送信されてきた _token を削除する
+        unset($latte_form['_token']);
+        // フォームから送信されてきた image を削除する
+        unset($latte_form['image']);   // 該当するデータを上書きして保存する
+        $latte->fill($latte_form)->save();
+        
+        return redirect('admin/latte/');
+    }
+    
     
     public function delete(Request $request)
     {

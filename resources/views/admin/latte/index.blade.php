@@ -65,27 +65,27 @@
                                     <td>{{ \Str::limit($latte->text, 250) }}</td>
                                     <td><img src="{{ asset('storage/image/' . $latte->image_path) }}" width="50px"></td>
                                     <td>
-                                        <!-- ハンバーガーメニュー実装下書き -->
-                                        <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">-->
-                                        <!--  <span class="navbar-toggler-icon"></span>-->
-                                        <!--</button>-->
-                                        <!-- ナビゲーションメニュー -->
-                                        <!--<div class="collapse navbar-collapse" id="navbarNav">-->
-                                        <!--  <ul class="navbar-nav">-->
-                                        <!--    <li class="nav-item active">-->
-                                        <!--      <a class="nav-link" href="{{action('Admin\LatteController@edit', ['id' => $latte -> id]) }}" >編集/Edit</a>-->
-                                        <!--    </li>-->
-                                        <!--    <li class="nav-item">-->
-                                        <!--      <a class="nav-link" href="{{action('Admin\LatteController@delete', ['id' => $latte -> id]) }}">削除/Delete</a>-->
-                                        <!--  </ul>-->
-                                        <!--</div>-->
+                                         <!--ハンバーガーメニュー実装下書き -->
+                                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                          <span class="navbar-toggler-icon"></span>
+                                        </button>
+                                         <!--ナビゲーションメニュー -->
+                                        <div class="collapse navbar-collapse" id="navbarNav">
+                                          <ul class="navbar-nav">
+                                            <li class="nav-item active">
+                                              <a class="nav-link" href="{{action('Admin\LatteController@edit', ['id' => $latte -> id]) }}" >編集/Edit</a>
+                                            </li>
+                                            <li class="nav-item">
+                                              <a class="nav-link" href="{{action('Admin\LatteController@delete', ['id' => $latte -> id]) }}">削除/Delete</a>
+                                          </ul>
+                                        </div>
                                         
-                                        <div>
-                                            <a href = "{{action('Admin\LatteController@edit', ['id' => $latte -> id]) }}" >編集</a>
-                                        </div>
-                                        <div>
-                                            <a href = "{{action('Admin\LatteController@delete', ['id' => $latte -> id]) }}">削除</a>
-                                        </div>
+                                        <!--<div>-->
+                                        <!--    <a href = "{{action('Admin\LatteController@edit', ['id' => $latte -> id]) }}" >編集</a>-->
+                                        <!--</div>-->
+                                        <!--<div>-->
+                                        <!--    <a href = "{{action('Admin\LatteController@delete', ['id' => $latte -> id]) }}">削除</a>-->
+                                        <!--</div>-->
                                     </td>
                                 </tr>
                             @endforeach

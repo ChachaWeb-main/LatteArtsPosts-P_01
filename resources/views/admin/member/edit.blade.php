@@ -18,6 +18,9 @@
                           @endforeach    
                       </ul>
                     @endif
+                    
+                    <input type="hidden" name="id" value="{{ $member_form->id }}">
+                    
                     <div class="form-group row">
                         <label class="col-md-3">ニックネーム</label>
                         <div class="col-md-10">
@@ -54,7 +57,7 @@
                     
                     <div class="form-button">
                         {{ csrf_field() }}
-                        <input type="submit" class="btn btn-primary" value="登録">
+                        <input type="submit" class="btn btn-primary" value="更新">
                     </div>
                 </form> 
             </div>

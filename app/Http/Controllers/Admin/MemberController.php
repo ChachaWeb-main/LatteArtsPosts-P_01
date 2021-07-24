@@ -65,7 +65,7 @@ class MemberController extends Controller
       $member_form = $request->all();
       unset($member_form['_token']);
 
-      $members->fill($member_form)->save();
+      $member->fill($member_form)->save();
 
       return redirect('admin/member/');
      }

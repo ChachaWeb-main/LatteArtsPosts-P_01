@@ -16,6 +16,7 @@
                             　　<th width="5%">性別</th>
                             　　<th width="20%">会得ラテアート</th>
                                 <th width="50%">自己紹介</th>
+                                <th width="10%">操作</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -24,7 +25,7 @@
                                     <td>{{ \Str::limit($member->name, 20) }}</td>
                                     <td>{{$gender[$member->gender]}}</td>
                                     <td>{{ \Str::limit($member->latteart, 50) }}</td>
-                                    <td>{{ \Str::limit($member->introduction, 50) }}</td>
+                                    <td>{{ \Str::limit($member->introduction, 100) }}</td>
                                     <td>
                                         <div>
                                             <a href = "{{action('Admin\MemberController@edit', ['id' => $member -> id]) }}" >編集</a>
