@@ -21,7 +21,7 @@
                     <div class="form-group row">
                         <label class="col-md-3">ニックネーム</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+                            <input type="text" class="form-control" name="name" value="{{ $member_form->name }}">
                         </div>
                     </div>
                     
@@ -29,11 +29,11 @@
                         <label class="col-md-3">性別 (Gender)</label>
                         <div class="col-md-10">
                             <div>
-                              <input type="radio" id="男性 (Male)" name="gender" value="男性 (Male)" checked>
+                              <input type="radio" id="男性 (Male)" name="gender" value= "0" @if ($member_form->gender == "0") checked @endif>
                               <label for="男性 (Male)">男性 (Male)</label>
                             </div>
                             <div>
-                              <input type="radio" id="女性 (Female)" name="gender" value="女性 (Female)">
+                              <input type="radio" id="女性 (Female)" name="gender" value="1"@if ($member_form->gender == "1") checked @endif>
                               <label for="女性 (Female)">女性 (Female)</label>
                             </div>
                         </div>
@@ -42,14 +42,14 @@
                     <div class="form-group row">
                         <label class="col-md-3">会得ラテアート</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="latteart" rows="2">{{ old('latteart') }}</textarea>
+                            <textarea class="form-control" name="latteart" rows="2">{{ $member_form->latteart }}</textarea>
                         </div>
                     </div>
                     
                     <div class="form-group row">
                         <label class="col-md-3">自己紹介 (Introduction)</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="introduction" rows="10">{{ old('introduction') }}</textarea>
+                            <textarea class="form-control" name="introduction" rows="10">{{ $member_form->introduction }}</textarea>
                     </div>
                     
                     <div class="form-button">

@@ -3,6 +3,7 @@
 @section('title', 'メンバーページ')
 
 @section('content')
+
  
     <div class="container">
         <div class="row">
@@ -20,10 +21,10 @@
                         <tbody>
                             @foreach($posts as $member)
                                 <tr>
-                                    <td>{{ \Str::limit($member->name, 100) }}</td>
-                                    <td>{{ \Str::limit($member->gender, 100) }}</td>
-                                    <td>{{ \Str::limit($member->latteart, 200) }}</td>
-                                    <td>{{ \Str::limit($member->introduction, 200) }}</td>
+                                    <td>{{ \Str::limit($member->name, 20) }}</td>
+                                    <td>{{$gender[$member->gender]}}</td>
+                                    <td>{{ \Str::limit($member->latteart, 50) }}</td>
+                                    <td>{{ \Str::limit($member->introduction, 50) }}</td>
                                     <td>
                                         <div>
                                             <a href = "{{action('Admin\MemberController@edit', ['id' => $member -> id]) }}" >編集</a>

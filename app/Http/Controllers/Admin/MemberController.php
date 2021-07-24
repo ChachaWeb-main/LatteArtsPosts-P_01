@@ -9,6 +9,9 @@ use App\Member;
 class MemberController extends Controller
 {
     //
+    // 配列で変換
+    public $gender = array('0'=>'男性(male)', '1'=>'女性(female)');
+    
     public function mypage() 
     {
         return view('admin.mypage');
@@ -36,18 +39,19 @@ class MemberController extends Controller
     
     public function index(Request $request) 
     {
+        // dump($this->gender);
         $cond_title = $request -> cond_title;
         if ($cond_title != '') {
             $posts = Member::where('title', $cond_title) -> get();
         } else {
             $posts = Member::all();
         }
-        return view('admin.member.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+        return view('admin.member.index', ['posts' => $posts, 'cond_title' => $cond_title, 'gender' => $this->gender]);
     }
     
-    public function edit()
+    public function edit(Request $request)
     {
-      $member = Memeber::find($request->id);
+      $member = Member::find($request->id);
       if (empty($member)) {
         abort(404);    
       }

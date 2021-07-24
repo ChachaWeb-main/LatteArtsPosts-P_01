@@ -29,11 +29,11 @@
                         <label class="col-md-3">性別 (Gender)</label>
                         <div class="col-md-10">
                             <div>
-                              <input type="radio" id="男性 (Male)" name="gender" value="男性 (Male)" checked>
+                              <input type="radio" id="男性 (Male)" name="gender" value="0" checked>
                               <label for="男性 (Male)">男性 (Male)</label>
                             </div>
                             <div>
-                              <input type="radio" id="女性 (Female)" name="gender" value="女性 (Female)">
+                              <input type="radio" id="女性 (Female)" name="gender" value="1">
                               <label for="女性 (Female)">女性 (Female)</label>
                             </div>
                         </div>

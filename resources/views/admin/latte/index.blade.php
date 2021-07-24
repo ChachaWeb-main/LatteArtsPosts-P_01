@@ -52,6 +52,8 @@
                                 <th width="15%">デザイン</th>
                             　　<th width="10%">描き方</th>
                             　　<th width="50%">フリーテキスト</th>
+                            　　<th width="10%">ラテアート</th> 
+                            　　<th with="10%">操作</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -61,6 +63,7 @@
                                     <td>{{ \Str::limit($latte->design, 100) }}</td>
                                     <td>{{ \Str::limit($latte->draw, 250) }}</td>
                                     <td>{{ \Str::limit($latte->text, 250) }}</td>
+                                    <td><img src="{{ asset('storage/image/' . $latte->image_path) }}" width="50px"></td>
                                     <td>
                                         <!-- ハンバーガーメニュー実装下書き -->
                                         <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">-->
