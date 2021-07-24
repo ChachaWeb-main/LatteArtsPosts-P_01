@@ -11,16 +11,22 @@
     <section class="py-5 text-center container">
         <div class="row py-lg-5">
             <div class="col-lg-6 col-md-8 mx-auto">
-                <h1 class="fw-light">投稿ラテアート一覧️</h1>
+                <h1 class="fw-light">みんなのラテアート作品️</h1>
                 <p class="lead text-muted">このサイトは皆さんが描いたラテアートを投稿シェアする場です。<br>
                  さあ、あなたのラテアートを見てもらいましょう！！
                 </p>
                 <p>
-                 <a href="#" class="btn btn-primary my-2">ラテアート投稿</a>
+                 <a href="/admin/latte/create" class="btn btn-primary my-2">ラテアート投稿</a>
                 </p>
             </div>
         </div>
     </section>
+    
+    <div class="search">
+      <form class="col-12 col-lg-5 mb-3 mb-lg-0 me-lg-3">
+          <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+      </form>
+    </div>
     
     <div class="album py-5 bg-light">
       <div class="container">

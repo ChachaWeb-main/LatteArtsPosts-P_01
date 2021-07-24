@@ -7,15 +7,15 @@
  
     <div class="container">
         <div class="row">
-            <div class="list-member col-md-9 mx-auto">
+            <div class="list-member col-md-10 mx-auto">
                 <div class="row">
                     <table class="table table-dark">
                         <thead>
                             <tr>
                                 <th width="15%">ニックネーム</th>
                             　　<th width="5%">性別</th>
-                            　　<th width="20%">会得ラテアート</th>
-                                <th width="50%">自己紹介</th>
+                            　　<th width="30%">会得ラテアート</th>
+                                <th width="35%">自己紹介</th>
                                 <th width="10%">操作</th>
                             </tr>
                         </thead>

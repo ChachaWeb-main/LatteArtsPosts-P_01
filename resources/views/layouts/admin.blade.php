@@ -40,53 +40,16 @@
             <header>
                 <nav class="navbar navbar-light bg-light fixed-top">
                     <!-- タイトル -->
-                    <a class="navbar-brand" href="#">P S L A</a>
+                    <a class="navbar-brand" href="/">P S L A</a>
                     <p>Post & Sharing Latte Arts<br>ラテアートの投稿・共有サイト</p>
-                    
-                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                        <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-                    </form>
                     
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                     </button>
-                    <!-- ナビゲーションメニュー -->
+                    
+                    <!-- Laravelのログイン -->
                     <div class="collapse navbar-collapse" id="navbarNav">
                       <ul class="navbar-nav">
-                        <li class="nav-item active">
-                          <a class="nav-link" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#">ログイン</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#">メンバー登録</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#">新規投稿</a>
-                        </li>
-                      </ul>
-                    </div>
-              </nav>
-            </header>
-            
-            <!-- Laravelのログイン -->
-            {{-- 画面上部に表示するナビゲーションバーです。 --}}
-            <nav class="navbar navbar-expand-md navbar-dark navbar-laravel">
-                <div class="container">
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                     
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav mr-auto">
-                     
-                        </ul>
-                     
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
                             <!-- Authentication Links -->
@@ -114,6 +77,40 @@
                             </li>
                         @endguest
                         </ul>
+                        <li class="nav-item active">
+                          <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">ログイン</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/admin/member/create">メンバー登録</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/admin/latte/create">新規投稿</a>
+                        </li>
+                      </ul>
+                    </div>
+              </nav>
+            </header>
+            
+            <!-- Laravelのログイン -->
+            {{-- 画面上部に表示するナビゲーションバー --}}
+            <nav class="navbar navbar-expand-md navbar-dark navbar-laravel">
+                <div class="container">
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        {{ config('app.name', 'Laravel') }}
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                     
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <!-- Left Side Of Navbar -->
+                        <ul class="navbar-nav mr-auto">
+                     
+                        </ul>
+                     
                     </div>
                 </div>
             </nav>
