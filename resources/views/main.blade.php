@@ -21,7 +21,8 @@
             </div>
         </div>
     </section>
-    
+    <span class="glyphicon glyphicon-search" aria-hidden="true">検索</span>
+    <!--<h2><i class="fas fa-search"></i> 検索</h2>-->
     <div class="search">
       <form class="col-12 col-lg-5 mb-3 mb-lg-0 me-lg-3">
           <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">

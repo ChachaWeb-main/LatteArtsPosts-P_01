@@ -38,10 +38,11 @@
     <body>
         <div id="app">
             <header>
-                <nav class="navbar navbar-light bg-light fixed-top">
+            // 「navbar-色名」「bg-色名」を指定するだけで、色を変更することができる。
+                <nav class="navbar navbar-dark bg-secondary fixed-top">
                     <!-- タイトル -->
                     <a class="navbar-brand" href="/">P S L A</a>
-                    <p>Post & Sharing Latte Arts<br>ラテアートの投稿・共有サイト</p>
+                    <h3> Post & Sharing Latte Arts<br>ラテアートの投稿・共有サイト</h3>
                     
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
@@ -55,7 +56,7 @@
                             <!-- Authentication Links -->
                         {{-- ログインしていなかったらログイン画面へのリンクを表示 --}}
                         @guest
-                            <li><a class="nav-link" href="">{{ __('Login') }}</a></li>
+                            <li><a class="nav-link" href="/login">{{ __('Login') }}</a></li>
                         {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
                         @else
                             <li class="nav-item dropdown">
@@ -77,19 +78,19 @@
                             </li>
                         @endguest
                         </ul>
-                        <li class="nav-item active">
-                          <a class="nav-link" href="/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#">ログイン</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="/admin/member/create">メンバー登録</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="/admin/latte/create">新規投稿</a>
-                        </li>
-                      </ul>
+                            <li class="nav-item active">
+                              <a class="nav-link" href="/">Home</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="/login">ログイン</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="/admin/member/create">メンバー登録</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="/admin/latte/create">新規投稿</a>
+                            </li>
+                        </ul>
                     </div>
               </nav>
             </header>
