@@ -16,7 +16,7 @@ class MemberController extends Controller
     
     public function mypage(Request $request) 
     {
-        $members = Member::find($request->id);
+        $members = Member::all();
         $lattes = Latte::all();
         
         return view('admin.mypage', ['members' => $members, 'lattes' => $lattes, 'gender' => $this->gender]);
