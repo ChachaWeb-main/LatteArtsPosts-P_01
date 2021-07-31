@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Member;
+use App\Latte;
 
 class MemberController extends Controller
 {
@@ -12,15 +13,20 @@ class MemberController extends Controller
     // 配列で変換
     public $gender = array('0'=>'男性(male)', '1'=>'女性(female)');
     
-    public function mypage() 
+    
+    public function mypage(Request $request) 
     {
-        return view('admin.mypage');
+        $members = Member::find($request->id);
+        $lattes = Latte::all();
+        
+        return view('admin.mypage', ['members' => $members, 'lattes' => $lattes, 'gender' => $this->gender]);
     }
     
     
     public function add(){
         return view('admin.member.create');
     }
+    
     
     public function create(Request $request) 
     {
@@ -37,6 +43,7 @@ class MemberController extends Controller
         return redirect('admin/member/create');
     }
     
+    
     public function index(Request $request) 
     {
         // dump($this->gender);
@@ -49,6 +56,7 @@ class MemberController extends Controller
         return view('admin.member.index', ['posts' => $posts, 'cond_title' => $cond_title, 'gender' => $this->gender]);
     }
     
+    
     public function edit(Request $request)
     {
       $member = Member::find($request->id);
@@ -57,6 +65,7 @@ class MemberController extends Controller
       }
       return view('admin.member.edit', ['member_form' => $member]);
     }
+    
     
     public function update(Request $request)
     {
@@ -69,6 +78,7 @@ class MemberController extends Controller
 
       return redirect('admin/member/');
      }
+    
     
     public function delete(Request $request)
     {

@@ -42,7 +42,7 @@
                 <nav class="navbar navbar-dark bg-secondary fixed-top">
                     <!-- タイトル -->
                     <a class="navbar-brand" href="/">P S L A</a>
-                    <h3> Post & Sharing Latte Arts<br>ラテアートの投稿・共有サイト</h3>
+                    <h3>Post & Sharing Latte Arts<br>ラテアートの投稿・共有サイト</h3>
                     
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
@@ -125,6 +125,6 @@
     </body>
     
     <footer>
-        <p>フッターテスト フッターテスト フッターテスト フッターテスト フッターテスト フッターテスト</p>
+         <p class="copyright">&copy; 2021-<?php echo date('Y') ?> Post & Sharing Latte Arts.</p>
     </footer>
 </html>
