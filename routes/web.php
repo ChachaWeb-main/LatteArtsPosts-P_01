@@ -28,10 +28,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::post('member/edit', 'Admin\MemberController@update');//登録情報の更新
     Route::get('member/delete', 'Admin\MemberController@delete');//登録情報の削除
     
-    Route::get('mypage', 'Admin\MemberController@mypage');//マイページ表示
+    Route::get('mypage', 'Admin\MemberController@mypage');//ユーザーマイページ表示
     
 });
-// ユーザー認証実装
-Auth::routes();
+
+Auth::routes();// ユーザー認証実装
 
 Route::get('/home', 'HomeController@index')->name('home');
