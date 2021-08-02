@@ -82,10 +82,10 @@
                               <a class="nav-link" href="/">Home</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link" href="/login">ログイン</a>
+                              <a class="nav-link" href="/admin/member/create">メンバー登録</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link" href="/admin/member/create">メンバー登録</a>
+                              <a class="nav-link" href="/admin/mypage">マイページ</a>
                             </li>
                             <li class="nav-item">
                               <a class="nav-link" href="/admin/latte/create">新規投稿</a>

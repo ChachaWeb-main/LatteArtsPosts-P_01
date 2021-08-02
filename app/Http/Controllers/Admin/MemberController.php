@@ -9,9 +9,15 @@ use App\Latte;
 
 class MemberController extends Controller
 {
-    //
     // 配列で変換
     public $gender = array('0'=>'男性(male)', '1'=>'女性(female)');
+    
+    
+    //一覧 DBのEloquent
+    public function select(){
+    $members = \App\Member::all();
+    return view('admin.mypage')->with('members',$members);
+    }
     
     
     public function mypage(Request $request) 
