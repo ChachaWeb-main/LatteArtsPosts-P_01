@@ -22,16 +22,16 @@
                         <div class="col-md-3">
                             <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}">
                         </div>
-                        <!--<label class="col-md-2">描き方</label>-->
-                        <!--<div class="col-md-3">-->
-                        <!--    <select name="draw">-->
-                        <!--        <option value="">--選択してください--</option>-->
-                        <!--        <option value="フリーポア">フリーポア</option>-->
-                        <!--        <option value="エッチング">エッチング</option>-->
-                        <!--        <option value="3D">3D</option>-->
-                        <!--        <option value="その他">その他</option>-->
-                        <!--    </select>-->
-                        <!--</div>-->
+                        <label class="col-md-2">描き方</label>
+                        <div class="col-md-3">
+                            <select name="draw">
+                                <option value="">--選択してください--</option>
+                                <option value="フリーポア">フリーポア</option>
+                                <option value="エッチング">エッチング</option>
+                                <option value="3D">3D</option>
+                                <option value="その他">その他</option>
+                            </select>
+                        </div>
                         <div class="col-md-2">
                             {{ csrf_field() }}
                             <input type="submit" class="btn btn-primary" value="検索">
