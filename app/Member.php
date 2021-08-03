@@ -10,19 +10,9 @@ class Member extends Model
     //timestamps利用しない
     public $timestamps = false;
     
-    protected $fillable = ['name','gender', 'latteart', 'introduction'];
-    
-    //primaryKeyの変更
-    protected $primaryKey = "member_id";
-    
-    //hasMany設定
-    public function user()
-    {
-    return $this->hasMany('App\User');
-    }
+    protected $fillable = ['name','user_id','gender', 'latteart', 'introduction'];
     
     
-    //
     protected $guarded = array('id');
     //
     public static $rules = array(

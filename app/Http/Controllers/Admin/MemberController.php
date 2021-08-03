@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Member;
 use App\Latte;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class MemberController extends Controller
 {
@@ -14,22 +16,24 @@ class MemberController extends Controller
     
     
     //一覧 DBのEloquent
-    public function select(){
-    $members = \App\Member::all();
-    return view('admin.mypage')->with('members',$members);
-    }
+    // public function select(){
+    // $members = \App\Member::all();
+    // return view('admin.mypage')->with('members',$members);
+    // }
     
     
+    // プロフィールとラテ投稿一覧を表示
     public function mypage(Request $request) 
     {
-        $members = Member::all();
+        $users = User::all();
         $lattes = Latte::all();
-        
-        return view('admin.mypage', ['members' => $members, 'lattes' => $lattes, 'gender' => $this->gender]);
+        return view('admin.mypage', ['users' => $users, 'lattes' => $lattes, 'gender' => $this->gender]);
     }
     
     
     public function add(){
+        $member = Auth::user()->member;
+        // dump($member);
         return view('admin.member.create');
     }
     
@@ -44,6 +48,9 @@ class MemberController extends Controller
         unset($form['_token']);
         
         $member->fill($form);
+        $member->fill(['user_id' => Auth::user()->id]);
+        // dump(Auth::user());
+        // return;
         $member->save();
        
         return redirect('admin/member/create');

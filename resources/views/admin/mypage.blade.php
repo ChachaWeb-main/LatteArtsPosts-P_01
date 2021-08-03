@@ -42,16 +42,22 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($members as $member)
-                                {{$member->user->user_id." ".$member->id}}<br>
-                                    <div>
-                                        <a href = "{{action('Admin\MemberController@edit', ['id' => $member -> id]) }}" >編集</a>
-                                    </div>
-                                    <div>
-                                        <a href = "{{action('Admin\MemberController@delete', ['id' => $member -> id]) }}">削除</a>
-                                    </div>
+                                @foreach($users as $user)
+                                <tr>
+                                    <td>{{ \Str::limit($user->name, 20) }}</td>
+                                    <td>{{ \Str::limit($gender[$user->member->gender], 20) }}</td>
+                                    <td>{{ \Str::limit($user->member->latteart, 50) }}</td>
+                                    <td>{{ \Str::limit($user->member->introduction, 100) }}</td>
+                                    <td>
+                                        <div>
+                                            <a href = "{{action('Admin\MemberController@edit', ['id' => $user -> id]) }}" >編集</a>
+                                        </div>
+                                        <div>
+                                            <a href = "{{action('Admin\MemberController@delete', ['id' => $user -> id]) }}">削除</a>
+                                        </div>
+                                    </td>
+                                </tr>
                                 @endforeach
-                               
                             </tbody>
                         </table>
                     </div>
