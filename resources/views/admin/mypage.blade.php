@@ -36,7 +36,7 @@
                                 <th width="15%">ニックネーム</th>
                             　　<th width="5%">性別</th>
                             　　<th width="30%">会得ラテアート</th>
-                                <th width="35%">自己紹介</th>
+                                <th width="40%">自己紹介</th>
                                 <th width="10%">操作</th>
                             </tr>
                         </thead>
@@ -50,10 +50,10 @@
                                 <td>{{ \Str::limit($user->member->introduction, 100) }}</td>
                                 <td>
                                     <div>
-                                        <a href = "{{action('Admin\MemberController@edit', ['id' => $user -> id]) }}" >編集</a>
+                                        <a href = "{{action('Admin\MemberController@edit', ['id' => $user -> id]) }}" >編集/<br>Edit</a>
                                     </div>
                                     <div>
-                                        <a href = "{{action('Admin\MemberController@delete', ['id' => $user -> id]) }}">削除</a>
+                                        <a href = "{{action('Admin\MemberController@delete', ['id' => $user -> id]) }}">削除/<br>Delete</a>
                                     </div>
                                 </td>
                             </tr>
