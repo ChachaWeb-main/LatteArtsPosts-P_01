@@ -83,10 +83,10 @@
                                             </div>
                                             
                                             <!--<div>-->
-                                            <!--    <a href = "{{action('Admin\LatteController@edit', ['id' => $latte -> id]) }}" >編集</a>-->
+                                            <!--    <a href = "{{action('Admin\LatteController@edit', ['id' => $latte -> id]) }}" >削除/<br>Delete</a>-->
                                             <!--</div>-->
                                             <!--<div>-->
-                                            <!--    <a href = "{{action('Admin\LatteController@delete', ['id' => $latte -> id]) }}">削除</a>-->
+                                            <!--    <a href = "{{action('Admin\LatteController@delete', ['id' => $latte -> id]) }}">削除/<br>Delete</a>-->
                                             <!--</div>-->
                                         </td>
                                 </tr>

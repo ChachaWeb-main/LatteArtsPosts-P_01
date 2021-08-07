@@ -4,14 +4,16 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
 use App\Latte; //Latte Modelが使えるようになる
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class LatteController extends Controller
 {
-    //
     public function add()
     {
+        // Userとのリレーション
+        $latte = Auth::user()->latte;
         return view('admin.latte.create');
     }
     
@@ -36,6 +38,8 @@ class LatteController extends Controller
             unset($form['image']);
             //データベースに保存する
             $latte->fill($form);
+            // Userとのリレーション
+            $latte->fill(['user_id' => Auth::user()->id]);
             $latte->save();
             // admin/latte/createにリダイレクトする
             return redirect('admin/latte/create');

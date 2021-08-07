@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Member;
 use App\Latte;
 use App\User;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth; //Eloquentリレーションの際に追加した
 
 class MemberController extends Controller
 {
@@ -31,7 +31,9 @@ class MemberController extends Controller
     }
     
     
-    public function add(){
+    public function add()
+    {
+        // Userとのリレーション
         $member = Auth::user()->member;
         // dump($member);
         return view('admin.member.create');
@@ -48,6 +50,7 @@ class MemberController extends Controller
         unset($form['_token']);
         
         $member->fill($form);
+        // Userとのリレーション
         $member->fill(['user_id' => Auth::user()->id]);
         // dump(Auth::user());
         // return;

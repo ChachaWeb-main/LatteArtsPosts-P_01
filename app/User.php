@@ -11,11 +11,21 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     
-    // hasMany設定
+    // 「１対１」→ メソッド名は単数形
     public function member()
     {
-    return $this->hasOne('App\Member');
+        // Memberモデルのデータを引っ張てくる
+        return $this->hasOne('App\Member');
     }
+    
+    
+    // 「１対多」の「多」側 → メソッド名は複数形
+    public function lattes()
+    {
+        
+        return $this->hasMany('App\Lattes');
+    }
+    
     
     
     use Notifiable;
