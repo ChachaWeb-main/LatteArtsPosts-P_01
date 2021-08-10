@@ -23,7 +23,7 @@ class User extends Authenticatable
     public function lattes()
     {
         
-        return $this->hasMany('App\Lattes');
+        return $this->hasMany('App\Latte');
     }
     
     

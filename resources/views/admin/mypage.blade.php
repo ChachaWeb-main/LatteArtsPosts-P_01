@@ -115,14 +115,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($users as $use)
+                            @foreach($logged_in_user->lattes as $latte)
                                 <tr>
-                                    <th>{{ $latte->id }}</th>
-                                        <td>{{ \Str::limit($user->latte->created_at, 50) }}</td>
-                                        <td><img src="{{ asset('storage/image/' . $user->latte->image_path) }}" width="50px"></td>
-                                        <td>{{ \Str::limit($user->latte->design, 50) }}</td>
-                                        <td>{{ \Str::limit($user->latte->draw, 100) }}</td>
-                                        <td>{{ \Str::limit($user->latte->text, 100) }}</td>
+                                    <th>{{ $logged_in_user->id }}</th>
+                                        @php
+                                            $row_date = \Carbon\Carbon::parse($latte->created_at);
+                                            $row_date->setToStringFormat('Y/m/d H:i');
+                                        @endphp
+                                        <td>{{ \Str::limit($row_date, 50) }}</td>
+                                        <td><img src="{{ asset('storage/image/' . $latte->image_path) }}" width="50px"></td>
+                                        <td>{{ \Str::limit($latte->design, 50) }}</td>
+                                        <td>{{ \Str::limit($latte->draw, 100) }}</td>
+                                        <td>{{ \Str::limit($latte->text, 100) }}</td>
                                     <td>
                                          <!--ハンバーガーメニュー実装下書き -->
                                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -132,18 +136,18 @@
                                         <div class="collapse navbar-collapse" id="navbarNav">
                                           <ul class="navbar-nav">
                                             <li class="nav-item active">
-                                              <a class="nav-link" href="{{action('Admin\LatteController@edit', ['id' => $user -> id]) }}" >編集/<br>Edit</a>
+                                              <a class="nav-link" href="{{action('Admin\LatteController@edit', ['id' => $logged_in_user -> id]) }}" >編集/<br>Edit</a>
                                             </li>
                                             <li class="nav-item">
-                                              <a class="nav-link" href="{{action('Admin\LatteController@delete', ['id' => $user -> id]) }}">削除/<br>Delete</a>
+                                              <a class="nav-link" href="{{action('Admin\LatteController@delete', ['id' => $logged_in_user -> id]) }}">削除/<br>Delete</a>
                                           </ul>
                                         </div>
                                         
                                         <!--<div>-->
-                                        <!--    <a href = "{{action('Admin\LatteController@edit', ['id' => $user -> id]) }}" >編集/<br>Edit</a>-->
+                                        <!--    <a href = "{{action('Admin\LatteController@edit', ['id' => $logged_in_user -> id]) }}" >編集/<br>Edit</a>-->
                                         <!--</div>-->
                                         <!--<div>-->
-                                        <!--    <a href = "{{action('Admin\LatteController@delete', ['id' => $user -> id]) }}">削除/<br>Delete-->
+                                        <!--    <a href = "{{action('Admin\LatteController@delete', ['id' => $logged_in_user -> id]) }}">削除/<br>Delete-->
                                         <!--</div>-->
                                     </td>
                                 </tr>
