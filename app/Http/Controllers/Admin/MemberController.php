@@ -7,21 +7,13 @@ use App\Http\Controllers\Controller;
 use App\Member;
 use App\Latte;
 use App\User;
-use Carbon\Carbon;
+use Carbon\Carbon; //保存日時
 use Illuminate\Support\Facades\Auth; //Eloquentリレーションの際に追加した
 
 class MemberController extends Controller
 {
     // 配列で変換
     public $gender = array('0'=>'男性(male)', '1'=>'女性(female)');
-    
-    
-    //一覧 DBのEloquent
-    // public function select(){
-    // $members = \App\Member::all();
-    // return view('admin.mypage')->with('members',$members);
-    // }
-    
     
     // プロフィールとラテ投稿一覧を表示
     public function mypage(Request $request) 
@@ -72,7 +64,6 @@ class MemberController extends Controller
     
     public function index(Request $request) 
     {
-        // dump($this->gender);
         $cond_title = $request -> cond_title;
         if ($cond_title != '') {
             $posts = Member::where('title', $cond_title) -> get();
