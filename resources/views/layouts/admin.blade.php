@@ -124,7 +124,19 @@
         </div>
     </body>
     
-    <footer>
-         <p class="copyright">&copy; 2021-<?php echo date('Y') ?> Post & Sharing Latte Arts.</p>
+    <!--<footer class="py-5 bg-dark">-->
+    <!--    <p class="copyright","m-0 text-center text-white">&copy; 2021-<?php echo date('Y') ?> Post & Sharing Latte Arts.</p>-->
+    <!--    <div class="container">-->
+    <!--    <p class="float-end mb-1">-->
+    <!--    <a href="#">ページ上部へ</a>-->
+    <!--    </div>-->
+    <!--</footer>-->
+     <!-- Footer-->
+    <footer class="py-5 bg-secondary">
+        <div class="container"><p class="m-0 text-center text-white">&copy; 2021-<?php echo date('Y') ?> Post & Sharing Latte Arts.</p></div>
+        <div class="container">
+            <p class="float-end mb-1">
+            <a href="#">ページ上部へ</a>
+        </div>
     </footer>
 </html>

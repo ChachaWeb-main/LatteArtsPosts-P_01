@@ -7,7 +7,7 @@
 {{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
 @section('content')
         
-<main>
+  <main>
     <section class="py-5 text-center container">
         <div class="row py-lg-5">
             <div class="col-lg-6 col-md-8 mx-auto">
@@ -16,21 +16,14 @@
                  さあ、あなたのラテアートを見てもらいましょう！！
                 </p>
                 <p>
-                 <a href="/admin/latte/create" class="btn btn-primary my-2">ラテアート投稿</a>
+                 <a href="/admin/latte/create" class="btn btn-primary my-2">ラテアート新規投稿</a>
                 </p>
             </div>
         </div>
     </section>
-    <span class="glyphicon glyphicon-search" aria-hidden="true">検索</span>
-    <!--<h2><i class="fas fa-search"></i> 検索</h2>-->
-    <div class="search">
-      <form class="col-12 col-lg-5 mb-3 mb-lg-0 me-lg-3">
-          <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-      </form>
-    </div>
-    
+      
     <div class="row">
-        <div class="list-latte col-md-12 mx-auto">
+        <div class="list-latte col-md-10 mx-auto">
             <div class="row">
                 
                 <table class="table table-dark">
@@ -55,27 +48,27 @@
                                     <td>{{ \Str::limit($latte->draw, 100) }}</td>
                                     <td>{{ \Str::limit($latte->text, 100) }}</td>
                                     <td>
-                                         <!--ハンバーガーメニュー実装下書き -->
-                                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                                          <span class="navbar-toggler-icon"></span>
-                                        </button>
-                                         <!--ナビゲーションメニュー -->
-                                        <div class="collapse navbar-collapse" id="navbarNav">
-                                          <ul class="navbar-nav">
-                                            <li class="nav-item active">
-                                              <a class="nav-link" href="{{action('Admin\LatteController@edit', ['id' => $latte -> id]) }}" >編集/<br>Edit</a>
-                                            </li>
-                                            <li class="nav-item">
-                                              <a class="nav-link" href="{{action('Admin\LatteController@delete', ['id' => $latte -> id]) }}">削除/<br>Delete</a>
-                                          </ul>
-                                        </div>
+                                        <!--ハンバーガーメニュー実装下書き -->
+                                        <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">-->
+                                        <!--  <span class="navbar-toggler-icon"></span>-->
+                                        <!--</button>-->
+                                        <!--ナビゲーションメニュー -->
+                                        <!--<div class="collapse navbar-collapse" id="navbarNav">-->
+                                        <!--  <ul class="navbar-nav">-->
+                                        <!--    <li class="nav-item active">-->
+                                        <!--      <a class="nav-link" href="{{action('Admin\LatteController@edit', ['id' => $latte -> id]) }}" >編集/<br>Edit</a>-->
+                                        <!--    </li>-->
+                                        <!--    <li class="nav-item">-->
+                                        <!--      <a class="nav-link" href="{{action('Admin\LatteController@delete', ['id' => $latte -> id]) }}">削除/<br>Delete</a>-->
+                                        <!--  </ul>-->
+                                        <!--</div>-->
                                         
-                                        <!--<div>-->
-                                        <!--    <a href = "{{action('Admin\LatteController@edit', ['id' => $latte -> id]) }}" >削除/<br>Delete</a>-->
-                                        <!--</div>-->
-                                        <!--<div>-->
-                                        <!--    <a href = "{{action('Admin\LatteController@delete', ['id' => $latte -> id]) }}">削除/<br>Delete</a>-->
-                                        <!--</div>-->
+                                        <div>
+                                            <a href = "{{action('Admin\LatteController@edit', ['id' => $latte -> id]) }}" >削除/<br>Delete</a>
+                                        </div>
+                                        <div>
+                                            <a href = "{{action('Admin\LatteController@delete', ['id' => $latte -> id]) }}">削除/<br>Delete</a>
+                                        </div>
                                     </td>
                             </tr>
                         @endforeach
@@ -84,105 +77,133 @@
             </div>
         </div>
     </div>
-    
-    <!--Bootstrp-->
-    <div class="album py-5 bg-light">
+    <br>
+    <br>
+    <!--見つけたNewデザイン-->
+    <!-- Page header with logo and tagline-->
+    <body>
+      <!-- Page content-->
       <div class="container">
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            <div class="col">
-              <div class="card shadow-sm">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                  <div class="card-body">
-                        <p class="card-text">デザイン、描き方、フリーテキストを表示</p>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-sm btn-outline-secondary">イイねボタン</button>
-                        </div>
+          <div class="row">
+              <!-- Blog entries-->
+              <div class="col-lg-8">
+                  <!-- Featured blog post-->
+                  <div class="card mb-4">
+                      <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                      <div class="card-body">
+                          <div class="small text-muted">January 1, 2021</div>
+                          <h2 class="card-title">Featured Post Title</h2>
+                          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                          <a class="btn btn-primary" href="#!">Read more →</a>
                       </div>
+                  </div>
+                  <!-- Nested row for non-featured blog posts-->
+                  <div class="row">
+                      <div class="col-lg-6">
+                          <!-- Blog post-->
+                          <div class="card mb-4">
+                              <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                              <div class="card-body">
+                                  <div class="small text-muted">January 1, 2021</div>
+                                  <h2 class="card-title h4">Post Title</h2>
+                                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
+                                  <a class="btn btn-primary" href="#!">Read more →</a>
+                              </div>
+                          </div>
+                          <!-- Blog post-->
+                          <div class="card mb-4">
+                              <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                              <div class="card-body">
+                                  <div class="small text-muted">January 1, 2021</div>
+                                  <h2 class="card-title h4">Post Title</h2>
+                                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
+                                  <a class="btn btn-primary" href="#!">Read more →</a>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-lg-6">
+                          <!-- Blog post-->
+                          <div class="card mb-4">
+                              <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                              <div class="card-body">
+                                  <div class="small text-muted">January 1, 2021</div>
+                                  <h2 class="card-title h4">Post Title</h2>
+                                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
+                                  <a class="btn btn-primary" href="#!">Read more →</a>
+                              </div>
+                          </div>
+                          <!-- Blog post-->
+                          <div class="card mb-4">
+                              <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                              <div class="card-body">
+                                  <div class="small text-muted">January 1, 2021</div>
+                                  <h2 class="card-title h4">Post Title</h2>
+                                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam.</p>
+                                  <a class="btn btn-primary" href="#!">Read more →</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- Pagination-->
+                  <nav aria-label="Pagination">
+                      <hr class="my-0" />
+                      <ul class="pagination justify-content-center my-4">
+                          <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
+                          <li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li>
+                          <li class="page-item"><a class="page-link" href="#!">2</a></li>
+                          <li class="page-item"><a class="page-link" href="#!">3</a></li>
+                          <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
+                          <li class="page-item"><a class="page-link" href="#!">15</a></li>
+                          <li class="page-item"><a class="page-link" href="#!">Older</a></li>
+                      </ul>
+                  </nav>
+              </div>
+              <!-- Side widgets-->
+              <div class="col-lg-4">
+                  <!-- Search widget-->
+                  <div class="card mb-4">
+                      <div class="card-header">Search</div>
+                      <div class="card-body">
+                          <div class="input-group">
+                              <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
+                              <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- Categories widget-->
+                  <div class="card mb-4">
+                      <div class="card-header">Categories</div>
+                      <div class="card-body">
+                          <div class="row">
+                              <div class="col-sm-6">
+                                  <ul class="list-unstyled mb-0">
+                                      <li><a href="#!">Web Design</a></li>
+                                      <li><a href="#!">HTML</a></li>
+                                      <li><a href="#!">Freebies</a></li>
+                                  </ul>
+                              </div>
+                              <div class="col-sm-6">
+                                  <ul class="list-unstyled mb-0">
+                                      <li><a href="#!">JavaScript</a></li>
+                                      <li><a href="#!">CSS</a></li>
+                                      <li><a href="#!">Tutorials</a></li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- Side widget-->
+                  <div class="card mb-4">
+                      <div class="card-header">Side Widget</div>
+                      <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
                   </div>
               </div>
-            </div>
-        
-            <div class="col">
-              <div class="card shadow-sm">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                  <div class="card-body">
-                        <p class="card-text">デザイン、描き方、フリーテキストを表示</p>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-sm btn-outline-secondary">イイねボタン</button>
-                        </div>
-                      </div>
-                  </div>
-              </div>
-            </div>
-            
-            <div class="col">
-              <div class="card shadow-sm">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                  <div class="card-body">
-                        <p class="card-text">デザイン、描き方、フリーテキストを表示</p>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-sm btn-outline-secondary">イイねボタン</button>
-                        </div>
-                      </div>
-                  </div>
-              </div>
-            </div>
-    
-            <div class="col">
-              <div class="card shadow-sm">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                  <div class="card-body">
-                        <p class="card-text">デザイン、描き方、フリーテキストを表示</p>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-sm btn-outline-secondary">イイねボタン</button>
-                        </div>
-                      </div>
-                  </div>
-              </div>
-            </div>
-            
-            <div class="col">
-              <div class="card shadow-sm">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                  <div class="card-body">
-                        <p class="card-text">デザイン、描き方、フリーテキストを表示</p>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-sm btn-outline-secondary">イイねボタン</button>
-                        </div>
-                      </div>
-                  </div>
-              </div>
-            </div>
-            
-            <div class="col">
-               <div class="card shadow-sm">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                  <div class="card-body">
-                        <p class="card-text">デザイン、描き方、フリーテキストを表示</p>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-sm btn-outline-secondary">イイねボタン</button>
-                        </div>
-                      </div>
-                  </div>
-               </div>
-            </div>
-        </div>
-    </div>
-</main>
-    
-    <footer class="text-muted py-5">
-        <div class="container">
-            <p class="float-end mb-1">
-            <a href="#">ページ上部へ</a>
-        </div>
-    </footer>
-    
+          </div>
+      </div>
+    </body>
+      
     <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+  
+  </main>
+    
 @endsection
