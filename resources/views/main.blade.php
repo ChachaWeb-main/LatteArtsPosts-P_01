@@ -29,6 +29,63 @@
       </form>
     </div>
     
+    <div class="row">
+        <div class="list-latte col-md-12 mx-auto">
+            <div class="row">
+                
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th width="5%">ID</th>
+                        　　<th width="5%">投稿日</th>
+                        　　<th width="10%">ラテアート</th> 
+                            <th width="10%">デザイン</th>
+                        　　<th width="10%">描き方</th>
+                        　　<th width="50%">フリーテキスト</th>
+                        　　<th with="5%">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($posts as $latte)
+                            <tr>
+                                <th>{{ $latte->id }}</th>
+                                    <td>{{ \Str::limit($latte->created_at, 50) }}</td>
+                                    <td><img src="{{ asset('storage/image/' . $latte->image_path) }}" width="50px"></td>
+                                    <td>{{ \Str::limit($latte->design, 50) }}</td>
+                                    <td>{{ \Str::limit($latte->draw, 100) }}</td>
+                                    <td>{{ \Str::limit($latte->text, 100) }}</td>
+                                    <td>
+                                         <!--ハンバーガーメニュー実装下書き -->
+                                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                          <span class="navbar-toggler-icon"></span>
+                                        </button>
+                                         <!--ナビゲーションメニュー -->
+                                        <div class="collapse navbar-collapse" id="navbarNav">
+                                          <ul class="navbar-nav">
+                                            <li class="nav-item active">
+                                              <a class="nav-link" href="{{action('Admin\LatteController@edit', ['id' => $latte -> id]) }}" >編集/<br>Edit</a>
+                                            </li>
+                                            <li class="nav-item">
+                                              <a class="nav-link" href="{{action('Admin\LatteController@delete', ['id' => $latte -> id]) }}">削除/<br>Delete</a>
+                                          </ul>
+                                        </div>
+                                        
+                                        <!--<div>-->
+                                        <!--    <a href = "{{action('Admin\LatteController@edit', ['id' => $latte -> id]) }}" >削除/<br>Delete</a>-->
+                                        <!--</div>-->
+                                        <!--<div>-->
+                                        <!--    <a href = "{{action('Admin\LatteController@delete', ['id' => $latte -> id]) }}">削除/<br>Delete</a>-->
+                                        <!--</div>-->
+                                    </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <!--Bootstrp-->
     <div class="album py-5 bg-light">
       <div class="container">
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">

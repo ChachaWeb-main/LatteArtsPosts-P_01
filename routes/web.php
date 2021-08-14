@@ -11,6 +11,10 @@
 |
 */
 
+Auth::routes();// ユーザー認証実装
+
+Route::get('/main', 'HomeController@index')->name('main');//ホーム・メインページ
+
 Route::get('/', function () { return view('main');});//ホーム・メインページ
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
@@ -32,6 +36,3 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     
 });
 
-Auth::routes();// ユーザー認証実装
-
-Route::get('/home', 'HomeController@index')->name('home');

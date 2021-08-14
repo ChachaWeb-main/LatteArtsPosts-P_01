@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Latte;
 
 class HomeController extends Controller
 {
@@ -21,8 +22,17 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('main');
+        // 投稿を表示する
+        $cond_title = $request->cond_title;
+        if ($cond_title != '') {
+            // 検索されたら検索結果を取得する
+            $posts = Latte::where('title', $cond_title)->get();
+        } else {
+            // それ以外は全てを取得する
+            $posts = Latte::all();
+        }
+            return view('main', ['posts' => $posts, 'cond_title' => $cond_title]);
     }
 }
