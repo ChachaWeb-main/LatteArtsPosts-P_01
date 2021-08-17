@@ -18,18 +18,8 @@ class MemberController extends Controller
     // プロフィールとラテ投稿一覧を表示
     public function mypage(Request $request) 
     {
-        $users = User::all();
-        $lattes = Latte::all();
-        // $sample_date = Carbon::parse($lattes[0]->created_at);
-        // echo $sample_date;
-        // $sample_date->setToStringFormat('Y/m/d H:i');
-        // echo $sample_date;
-        // $objDateTime = new DateTime(lattes[0]->created_at);
-        // echo $objDateTime->format('Y-m-d H:i:s a')."<br/>\n";
-        // dump($users[0]->member);
-        // return;
         $logged_in_user = Auth::user();
-        return view('admin.mypage', ['users' => $users, 'lattes' => $lattes, 'gender' => $this->gender, 'logged_in_user' => $logged_in_user]);
+        return view('admin.mypage', ['gender' => $this->gender, 'logged_in_user' => $logged_in_user]);
     }
     
     

@@ -41,23 +41,21 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($users as $user)
                                 <tr>
                                     <!--memberから指定した値を都度取得 User → Member １対１のリレーション-->
-                                    <td>{{ \Str::limit($user->member->name, 20) }}</td>
-                                    <td>{{ \Str::limit($gender[$user->member->gender], 20) }}</td>
-                                    <td>{{ \Str::limit($user->member->latteart, 50) }}</td>
-                                    <td>{{ \Str::limit($user->member->introduction, 100) }}</td>
+                                    <td>{{ \Str::limit($logged_in_user->member->name, 20) }}</td>
+                                    <td>{{ \Str::limit($gender[$logged_in_user->member->gender], 20) }}</td>
+                                    <td>{{ \Str::limit($logged_in_user->member->latteart, 50) }}</td>
+                                    <td>{{ \Str::limit($logged_in_user->member->introduction, 100) }}</td>
                                     <td>
                                         <div>
-                                            <a href = "{{action('Admin\MemberController@edit', ['id' => $user -> id]) }}" >編集/<br>Edit</a>
+                                            <a href = "{{action('Admin\MemberController@edit', ['id' => $logged_in_user->member -> id]) }}" >編集/<br>Edit</a>
                                         </div>
                                         <div>
-                                            <a href = "{{action('Admin\MemberController@delete', ['id' => $user -> id]) }}">削除/<br>Delete</a>
+                                            <a href = "{{action('Admin\MemberController@delete', ['id' => $logged_in_user->member -> id]) }}">削除/<br>Delete</a>
                                         </div>
                                     </td>
                                 </tr>
-                                @endforeach
                             </tbody>
                         </table>
                     </div>

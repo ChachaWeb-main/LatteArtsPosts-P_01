@@ -33,6 +33,8 @@ class HomeController extends Controller
             // それ以外は全てを取得する
             $posts = Latte::all();
         }
-            return view('main', ['posts' => $posts, 'cond_title' => $cond_title]);
+        // dump($posts);
+        // return;
+        return view('main', ['posts' => $posts, 'cond_title' => $cond_title]);
     }
 }
