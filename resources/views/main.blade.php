@@ -11,12 +11,14 @@
     <section class="py-5 text-center container">
         <div class="row py-lg-5">
             <div class="col-lg-6 col-md-8 mx-auto">
-                <h1 class="fw-light">みんなのラテアート作品️</h1>
+                <h1 class="fw-light">みんなのラテアート作品️<br>Everyone's Latte Art</h1>
                 <p class="lead text-muted">このサイトは皆さんが描いたラテアートを投稿シェアする場です。<br>
-                 さあ、あなたのラテアートを見てもらいましょう！！
+                 さあ、あなたのラテアートを見てもらいましょう！！<br>
+                 This site is a place to post and share the latte art you drew.<br>
+                 Let's have a look at your latte art! !!
                 </p>
                 <p>
-                 <a href="/admin/latte/create" class="btn btn-primary my-2">ラテアート新規投稿</a>
+                 <a href="/admin/latte/create" class="btn btn-primary my-2">ラテアート新規投稿/New Post for LatteArt</a>
                 </p>
             </div>
         </div>
@@ -64,7 +66,7 @@
                                         <!--</div>-->
                                         
                                         <div>
-                                            <a href = "{{action('Admin\LatteController@edit', ['id' => $latte -> id]) }}" >削除/<br>Delete</a>
+                                            <a href = "{{action('Admin\LatteController@edit', ['id' => $latte -> id]) }}" >編集/<br>Edit</a>
                                         </div>
                                         <div>
                                             <a href = "{{action('Admin\LatteController@delete', ['id' => $latte -> id]) }}">削除/<br>Delete</a>
@@ -148,13 +150,13 @@
                   <nav aria-label="Pagination">
                       <hr class="my-0" />
                       <ul class="pagination justify-content-center my-4">
-                          <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
+                          <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">新規/Newer</a></li>
                           <li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li>
                           <li class="page-item"><a class="page-link" href="#!">2</a></li>
                           <li class="page-item"><a class="page-link" href="#!">3</a></li>
                           <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
-                          <li class="page-item"><a class="page-link" href="#!">15</a></li>
-                          <li class="page-item"><a class="page-link" href="#!">Older</a></li>
+                          <li class="page-item"><a class="page-link" href="#!">10</a></li>
+                          <li class="page-item"><a class="page-link" href="#!">過去/Older</a></li>
                       </ul>
                   </nav>
               </div>
@@ -162,7 +164,7 @@
               <div class="col-lg-4">
                   <!-- Search widget-->
                   <div class="card mb-4">
-                      <div class="card-header">Search</div>
+                      <div class="card-header">検索/Search</div>
                       <div class="card-body">
                           <div class="input-group">
                               <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
@@ -172,21 +174,21 @@
                   </div>
                   <!-- Categories widget-->
                   <div class="card mb-4">
-                      <div class="card-header">Categories</div>
+                      <div class="card-header">用語/Terminology</div>
                       <div class="card-body">
                           <div class="row">
                               <div class="col-sm-6">
                                   <ul class="list-unstyled mb-0">
-                                      <li><a href="#!">Web Design</a></li>
-                                      <li><a href="#!">HTML</a></li>
-                                      <li><a href="#!">Freebies</a></li>
+                                      <li><a href="#!">フリーポア</a></li>
+                                      <li><a href="#!">エッチング</a></li>
+                                      <li><a href="#!">3D</a></li>
                                   </ul>
                               </div>
                               <div class="col-sm-6">
                                   <ul class="list-unstyled mb-0">
-                                      <li><a href="#!">JavaScript</a></li>
-                                      <li><a href="#!">CSS</a></li>
-                                      <li><a href="#!">Tutorials</a></li>
+                                      <li><a href="#!">******</a></li>
+                                      <li><a href="#!">******</a></li>
+                                      <li><a href="#!">******</a></li>
                                   </ul>
                               </div>
                           </div>
@@ -195,7 +197,7 @@
                   <!-- Side widget-->
                   <div class="card mb-4">
                       <div class="card-header">Side Widget</div>
-                      <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
+                      <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!<br>これらのサイドウィジェットの中には、好きなものを入れることができます。 それらは使いやすく、Bootstrap 5カードコンポーネントを備えています！</</div>
                   </div>
               </div>
           </div>

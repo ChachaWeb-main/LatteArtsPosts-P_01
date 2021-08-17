@@ -22,6 +22,8 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+     
+    //全てのラテ投稿データをメインページに表示
     public function index(Request $request)
     {
         // 投稿を表示する
@@ -33,8 +35,6 @@ class HomeController extends Controller
             // それ以外は全てを取得する
             $posts = Latte::all();
         }
-        // dump($posts);
-        // return;
         return view('main', ['posts' => $posts, 'cond_title' => $cond_title]);
     }
 }

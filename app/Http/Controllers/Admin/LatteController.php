@@ -42,7 +42,7 @@ class LatteController extends Controller
             $latte->fill(['user_id' => Auth::user()->id]);
             $latte->save();
             // admin/latte/createにリダイレクトする
-            return redirect('admin/latte/create');
+            return redirect('/main');
     }  
     
     
@@ -95,7 +95,7 @@ class LatteController extends Controller
         unset($latte_form['image']);   // 該当するデータを上書きして保存する
         $latte->fill($latte_form)->save();
         
-        return redirect('admin/latte/');
+        return redirect('admin/mypage');
     }
     
     
@@ -105,6 +105,6 @@ class LatteController extends Controller
       $latte = Latte::find($request->id);
       // 削除する
       $latte->delete();
-      return redirect('admin/lattte/');
+      return redirect('admin/mypage');
     }
 }

@@ -8,17 +8,11 @@
 @section('content')
 
     <div class="container">
-        <h1>Myページ</h1>
-        <br>
-        <br>
-        <br>
-        
-        <p>◯◯◯</p>
-        登録したニックネームを表示させたい
-        <!--<div class="form-button">-->
-        <!--    {{ csrf_field() }}-->
-        <!--    <input type="submit" value="ログアウト/Log Out">-->
-        <!--</div>-->
+        <h1>{{ \Str::limit($logged_in_user->member->name, 20) }} さんのマイページ</h1>
+        <div class="form-button">
+            {{ csrf_field() }}
+            <input type="submit" value="ログアウト/Log Out">
+        </div>
         
         <br>
         <br>
@@ -28,15 +22,15 @@
         <!-- views/admin/member/index.blade.php -->
         <div class="container">
             <div class="row">
-                <div class="list-member col-md-10 mx-auto">
+                <div class="list-member col-md-11 mx-auto">
                     <div class="row">
                         <table class="table table-dark">
                             <thead>
                                 <tr>
-                                    <th width="15%">ニックネーム</th>
+                                    <th width="20%">ニックネーム</th>
                                 　　<th width="5%">性別</th>
                                 　　<th width="30%">会得ラテアート</th>
-                                    <th width="40%">自己紹介</th>
+                                    <th width="30%">自己紹介</th>
                                     <th width="10%">操作</th>
                                 </tr>
                             </thead>
@@ -68,7 +62,7 @@
         <!-- vies/admin/latte/index.blade.php-->
         <div class="container">
             <div class="row">
-                <h2>ラテアート投稿一覧</h2>
+                <h3>ラテアート投稿一覧</h3>
             </div>
             <div class="row">
                 <div class="col-md-4">
@@ -103,12 +97,13 @@
                         <table class="table table-dark">
                             <thead>
                                 <tr>
-                                    <th width="5%">ID</th>
+                                    <th width="3%">ID</th>
+                                    <th witdh="20%">ニックネーム</th>
                                 　　<th width="5%">投稿日</th>
                                 　　<th width="10%">ラテアート</th> 
-                                    <th width="10%">デザイン</th>
+                                    <th width="15%">デザイン</th>
                                 　　<th width="10%">描き方</th>
-                                　　<th width="50%">フリーテキスト</th>
+                                　　<th width="30%">フリーテキスト</th>
                                 　　<th with="5%">操作</th>
                                 </tr>
                             </thead>
@@ -116,6 +111,7 @@
                                 @foreach($logged_in_user->lattes as $latte)
                                     <tr>
                                         <th>{{ $logged_in_user->id }}</th>
+                                            <td>{{ \Str::limit($logged_in_user->member->name, 20) }}</td>
                                             @php
                                                 $row_date = \Carbon\Carbon::parse($latte->created_at);
                                                 $row_date->setToStringFormat('Y/m/d H:i');
@@ -156,11 +152,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    
-    <div class="container">
-        <p class="float-end mb-1">
-        <a href="#">ページ上部へ</a>
     </div>
 
 @endsection
