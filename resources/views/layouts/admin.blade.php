@@ -59,16 +59,12 @@
                             <li><a class="nav-link" href="/login">{{ __('Login') }}</a></li>
                         {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                   <p>ようこそ {{ Auth::user()->name }} さん <span class="caret"></span></p>
-                                </a>
+                            <li>
+                               <p>ようこそ " {{ Auth::user()->name }} " さん </p>
                                 
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href=""
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                <div>
+                                    <a href="" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                        {{ __('ログアウト/Logout') }}
                                     </a>
                                      
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
