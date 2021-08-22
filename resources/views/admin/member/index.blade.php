@@ -7,12 +7,14 @@
  
     <div class="container">
         <div class="row">
-            <div class="list-member col-md-10 mx-auto">
+            <h2>登録メンバー</h2>
+            <div class="list-member col-md-11 mx-auto">
                 <div class="row">
                     <table class="table table-dark">
                         <thead>
                             <tr>
                                 <th width="15%">ニックネーム</th>
+                                <th width="5%">登録日</th>
                             　　<th width="5%">性別</th>
                             　　<th width="30%">会得ラテアート</th>
                                 <th width="35%">自己紹介</th>
@@ -23,6 +25,11 @@
                             @foreach($posts as $member)
                                 <tr>
                                     <td>{{ \Str::limit($member->name, 20) }}</td>
+                                    @php
+                                        $row_date = \Carbon\Carbon::parse($member->created_at);
+                                        $row_date->setToStringFormat('Y/m/d H:i');
+                                    @endphp
+                                    <td>{{ \Str::limit($row_date, 50) }}</td>
                                     <td>{{$gender[$member->gender]}}</td>
                                     <td>{{ \Str::limit($member->latteart, 50) }}</td>
                                     <td>{{ \Str::limit($member->introduction, 100) }}</td>

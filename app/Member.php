@@ -8,7 +8,7 @@ class Member extends Model
 {
     
     //timestamps利用しない
-    public $timestamps = false;
+    // public $timestamps = false;
     
     protected $fillable = ['name','user_id','gender', 'latteart', 'introduction'];
     

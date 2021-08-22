@@ -28,6 +28,7 @@
                             <thead>
                                 <tr>
                                     <th width="20%">ニックネーム</th>
+                                    <th width="5%">登録日</th>
                                 　　<th width="5%">性別</th>
                                 　　<th width="30%">会得ラテアート</th>
                                     <th width="30%">自己紹介</th>
@@ -38,6 +39,12 @@
                                 <tr>
                                     <!--memberから指定した値を都度取得 User → Member １対１のリレーション-->
                                     <td>{{ \Str::limit($logged_in_user->member->name, 20) }}</td>
+                                    <!--登録日実装 ※何故か日時がコード実装日で表示される-->
+                                    @php
+                                        $row_date = \Carbon\Carbon::parse($logged_in_user->member->created_at);
+                                        $row_date->setToStringFormat('Y/m/d H:i');
+                                    @endphp
+                                    <td>{{ \Str::limit($row_date, 50) }}</td>
                                     <td>{{ \Str::limit($gender[$logged_in_user->member->gender], 20) }}</td>
                                     <td>{{ \Str::limit($logged_in_user->member->latteart, 50) }}</td>
                                     <td>{{ \Str::limit($logged_in_user->member->introduction, 100) }}</td>
@@ -98,7 +105,7 @@
                             <thead>
                                 <tr>
                                     <th width="3%">ID</th>
-                                    <th witdh="20%">ニックネーム</th>
+                                    <!--<th witdh="20%">ニックネーム</th>-->
                                 　　<th width="5%">投稿日</th>
                                 　　<th width="10%">ラテアート</th> 
                                     <th width="15%">デザイン</th>
@@ -110,17 +117,17 @@
                             <tbody>
                                 @foreach($logged_in_user->lattes as $latte)
                                     <tr>
-                                        <th>{{ $logged_in_user->id }}</th>
-                                            <td>{{ \Str::limit($logged_in_user->member->name, 20) }}</td>
-                                            @php
-                                                $row_date = \Carbon\Carbon::parse($latte->created_at);
-                                                $row_date->setToStringFormat('Y/m/d H:i');
-                                            @endphp
-                                            <td>{{ \Str::limit($row_date, 50) }}</td>
-                                            <td><img src="{{ asset('storage/image/' . $latte->image_path) }}" width="50px"></td>
-                                            <td>{{ \Str::limit($latte->design, 50) }}</td>
-                                            <td>{{ \Str::limit($latte->draw, 100) }}</td>
-                                            <td>{{ \Str::limit($latte->text, 100) }}</td>
+                                        <td>{{ $latte->id }}</td>
+                                        <!--<td>{{ \Str::limit($logged_in_user->member->name, 20) }}</td>-->
+                                        @php
+                                            $row_date = \Carbon\Carbon::parse($latte->created_at);
+                                            $row_date->setToStringFormat('Y/m/d H:i');
+                                        @endphp
+                                        <td>{{ \Str::limit($row_date, 50) }}</td>
+                                        <td><img src="{{ asset('storage/image/' . $latte->image_path) }}" width="50px"></td>
+                                        <td>{{ \Str::limit($latte->design, 50) }}</td>
+                                        <td>{{ \Str::limit($latte->draw, 100) }}</td>
+                                        <td>{{ \Str::limit($latte->text, 100) }}</td>
                                         <td>
                                              <!--ハンバーガーメニュー実装下書き -->
                                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

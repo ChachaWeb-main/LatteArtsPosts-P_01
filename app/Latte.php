@@ -18,6 +18,9 @@ class Latte extends Model
         'text' => 'required'
     );
     
+    public function user() {
+        return $this->belongsTo('App\User');
+    }
     
     
 }

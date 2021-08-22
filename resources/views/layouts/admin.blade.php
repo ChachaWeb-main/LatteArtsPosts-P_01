@@ -32,7 +32,6 @@
         {{-- この章の後半で作成するCSSを読み込みます --}}
         <link href="{{ secure_asset('css/admin.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/style.css') }}" rel="stylesheet">
-        
     </head>
     
     <body>
@@ -73,6 +72,7 @@
                                 </div>
                             </li>
                         @endguest
+                        
                         </ul>
                             <li class="nav-item active">
                               <a class="nav-link" href="/">Home</a>
@@ -88,31 +88,9 @@
                             </li>
                         </ul>
                     </div>
-              </nav>
+                </nav>
             </header>
             
-            <!-- Laravelのログイン -->
-            {{-- 画面上部に表示するナビゲーションバー --}}
-            <nav class="navbar navbar-expand-md navbar-dark navbar-laravel">
-                <div class="container">
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                     
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav mr-auto">
-                     
-                        </ul>
-                     
-                    </div>
-                </div>
-            </nav>
-            {{-- ここまでナビゲーションバー --}}
-                
             <main class="py-4">
                 {{-- コンテンツをここに入れるため、@yieldで空けておきます。 --}}
                 @yield('content')

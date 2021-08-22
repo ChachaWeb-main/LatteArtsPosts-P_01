@@ -23,7 +23,8 @@
             </div>
         </div>
     </section>
-      
+    
+    <!--全てのラテ投稿データ-->
     <div class="row">
         <div class="list-latte col-md-10 mx-auto">
             <div class="row">
@@ -32,31 +33,31 @@
                     <thead>
                         <tr>
                             <th width="5%">ID</th>
-                        　　<th width="5%">投稿日</th>
+                        　　<th width="10%">投稿日</th>
                         　　<th width="10%">ラテアート</th> 
                             <th width="10%">デザイン</th>
                         　　<th width="10%">描き方</th>
                         　　<th width="50%">フリーテキスト</th>
-                        　　<th with="5%">操作</th>
+                        　　<!--<th with="5%">操作</th>-->
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($posts as $latte)
                             <tr>
-                                <th>{{ $latte->id }}</th>
+                                <td>{{ $latte->id }}</td>
                                 <td>{{ \Str::limit($latte->created_at, 50) }}</td>
                                 <td><img src="{{ asset('storage/image/' . $latte->image_path) }}" width="50px"></td>
                                 <td>{{ \Str::limit($latte->design, 50) }}</td>
                                 <td>{{ \Str::limit($latte->draw, 100) }}</td>
                                 <td>{{ \Str::limit($latte->text, 100) }}</td>
-                                <td>
-                                    <div>
-                                        <a href = "{{action('Admin\LatteController@edit', ['id' => $latte -> id]) }}" >編集/<br>Edit</a>
-                                    </div>
-                                    <div>
-                                        <a href = "{{action('Admin\LatteController@delete', ['id' => $latte -> id]) }}">削除/<br>Delete</a>
-                                    </div>
-                                </td>
+                                <!--<td>-->
+                                <!--    <div>-->
+                                <!--        <a href = "{{action('Admin\LatteController@edit', ['id' => $latte -> id]) }}" >編集/<br>Edit</a>-->
+                                <!--    </div>-->
+                                <!--    <div>-->
+                                <!--        <a href = "{{action('Admin\LatteController@delete', ['id' => $latte -> id]) }}">削除/<br>Delete</a>-->
+                                <!--    </div>-->
+                                <!--</td>-->
                             </tr>
                         @endforeach
                     </tbody>
