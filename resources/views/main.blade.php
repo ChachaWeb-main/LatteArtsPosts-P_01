@@ -6,7 +6,7 @@
 
 {{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
 @section('content')
-        
+
   <main>
     <section class="py-5 text-center container">
         <div class="row py-lg-5">
@@ -24,44 +24,52 @@
         </div>
     </section>
     
-    <!--全てのラテ投稿データ-->
     <div class="row">
         <div class="list-latte col-md-10 mx-auto">
             <div class="row">
-                
+                <!--全てのラテ投稿データ-->
                 <table class="table table-dark">
-                    <thead>
-                        <tr>
-                            <th width="5%">ID</th>
-                        　　<th width="10%">投稿日</th>
-                        　　<th width="10%">ラテアート</th> 
-                            <th width="10%">デザイン</th>
-                        　　<th width="10%">描き方</th>
-                        　　<th width="50%">フリーテキスト</th>
-                        　　<!--<th with="5%">操作</th>-->
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($posts as $latte)
+                        <thead>
                             <tr>
-                                <td>{{ $latte->id }}</td>
-                                <td>{{ \Str::limit($latte->created_at, 50) }}</td>
-                                <td><img src="{{ asset('storage/image/' . $latte->image_path) }}" width="50px"></td>
-                                <td>{{ \Str::limit($latte->design, 50) }}</td>
-                                <td>{{ \Str::limit($latte->draw, 100) }}</td>
-                                <td>{{ \Str::limit($latte->text, 100) }}</td>
-                                <!--<td>-->
-                                <!--    <div>-->
-                                <!--        <a href = "{{action('Admin\LatteController@edit', ['id' => $latte -> id]) }}" >編集/<br>Edit</a>-->
-                                <!--    </div>-->
-                                <!--    <div>-->
-                                <!--        <a href = "{{action('Admin\LatteController@delete', ['id' => $latte -> id]) }}">削除/<br>Delete</a>-->
-                                <!--    </div>-->
-                                <!--</td>-->
+                                <th width="3%">ID</th>
+                                <th witdh="20%">ユーザー名</th>
+                            　　<th width="5%">投稿日</th>
+                            　　<th width="10%">ラテアート</th> 
+                                <th width="15%">デザイン</th>
+                            　　<th width="10%">描き方</th>
+                            　　<th width="30%">フリーテキスト</th>
+                            　　<th with="5%">操作</th>
                             </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach($posts as $latte)
+                                <tr>
+                                    <td>{{ $latte->id }}</td>
+                                    <td>{{ \Str::limit($latte->user->name, 50) }}</td>
+                                    <td>{{ \Str::limit($latte->created_at, 50) }}</td>
+                                    <td><img src="{{ asset('storage/image/' . $latte->image_path) }}" width="50px"></td>
+                                    <td>{{ \Str::limit($latte->design, 50) }}</td>
+                                    <td>{{ \Str::limit($latte->draw, 100) }}</td>
+                                    <td>{{ \Str::limit($latte->text, 100) }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                
+                <!--BootsStrapのcardを利用してラテ投稿一覧を表示-->
+                @foreach($posts as $latte)
+                    <div class="card col-3">
+                        <a href="#!"><img class="card-img-top" src="{{ asset('storage/image/' . $latte->image_path) }}" width="300%" height="300" alt="..." /></a>
+                        <div class="card-body">
+                            <div class="small text-muted">{{ $latte->created_at }}</div>
+                                <h2 class="card-title h4">デザイン：{{ $latte->design }}</h2>
+                                <p class="card-text">描き方：{{ \Str::limit($latte->draw, 50) }}</p>
+                                <p class="card-text">{{ \Str::limit($latte->text, 100) }}</p>
+                                <a class="btn btn-primary" href="#!">Read more →</a>
+                        </div>
+                    </div>
+                @endforeach
+                
             </div>
         </div>
     </div>
@@ -77,12 +85,12 @@
               <div class="col-lg-8">
                   <!-- Featured blog post-->
                   <div class="card mb-4">
-                      <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                     <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
                       <div class="card-body">
-                          <div class="small text-muted">January 1, 2021</div>
-                          <h2 class="card-title">Featured Post Title</h2>
-                          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                          <a class="btn btn-primary" href="#!">Read more →</a>
+                        　<div class="small text-muted">January 1, 2021</div>
+                              <h2 class="card-title h4">Post Title</h2>
+                              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
+                              <a class="btn btn-primary" href="#!">Read more →</a>
                       </div>
                   </div>
                   <!-- Nested row for non-featured blog posts-->
@@ -182,8 +190,9 @@
                   </div>
                   <!-- Side widget-->
                   <div class="card mb-4">
-                      <div class="card-header">Side Widget</div>
-                      <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!<br>これらのサイドウィジェットの中には、好きなものを入れることができます。 それらは使いやすく、Bootstrap 5カードコンポーネントを備えています！</</div>
+                      <div class="card-header">登録メンバー　※ここに人数カウンターも実装したい</div>
+                      <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!<br>これらのサイドウィジェットの中には、好きなものを入れることができます。 それらは使いやすく、Bootstrap 5カードコンポーネントを備えています！<br></div>
+                        <p>ここにはニックネームのみ表示させ、名をクリックでメンバー一覧ページへ飛ぶリンクを</p>
                   </div>
               </div>
           </div>
