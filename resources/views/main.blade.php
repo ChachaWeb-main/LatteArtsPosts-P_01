@@ -31,14 +31,13 @@
                 <table class="table table-dark">
                         <thead>
                             <tr>
-                                <th width="3%">ID</th>
-                                <th witdh="20%">ユーザー名</th>
+                                <th width="5%">ID</th>
+                                <th witdh="15%">ユーザー名</th>
                             　　<th width="5%">投稿日</th>
                             　　<th width="10%">ラテアート</th> 
                                 <th width="15%">デザイン</th>
                             　　<th width="10%">描き方</th>
                             　　<th width="30%">フリーテキスト</th>
-                            　　<th with="5%">操作</th>
                             </tr>
                         </thead>
                         <tbody>
