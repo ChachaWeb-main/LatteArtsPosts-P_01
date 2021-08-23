@@ -130,26 +130,26 @@
                                         <td>{{ \Str::limit($latte->text, 100) }}</td>
                                         <td>
                                              <!--ハンバーガーメニュー実装下書き -->
-                                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                                              <span class="navbar-toggler-icon"></span>
-                                            </button>
+                                            <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">-->
+                                            <!--  <span class="navbar-toggler-icon"></span>-->
+                                            <!--</button>-->
                                              <!--ナビゲーションメニュー -->
-                                            <div class="collapse navbar-collapse" id="navbarNav">
-                                              <ul class="navbar-nav">
-                                                <li class="nav-item active">
-                                                  <a class="nav-link" href="{{action('Admin\LatteController@edit', ['id' => $logged_in_user -> id]) }}" >編集/<br>Edit</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                  <a class="nav-link" href="{{action('Admin\LatteController@delete', ['id' => $logged_in_user -> id]) }}">削除/<br>Delete</a>
-                                              </ul>
-                                            </div>
+                                            <!--<div class="collapse navbar-collapse" id="navbarNav">-->
+                                            <!--  <ul class="navbar-nav">-->
+                                            <!--    <li class="nav-item active">-->
+                                            <!--      <a class="nav-link" href="{{action('Admin\LatteController@edit', ['id' => $logged_in_user -> id]) }}" >編集/<br>Edit</a>-->
+                                            <!--    </li>-->
+                                            <!--    <li class="nav-item">-->
+                                            <!--      <a class="nav-link" href="{{action('Admin\LatteController@delete', ['id' => $logged_in_user -> id]) }}">削除/<br>Delete</a>-->
+                                            <!--  </ul>-->
+                                            <!--</div>-->
                                             
-                                            <!--<div>-->
-                                            <!--    <a href = "{{action('Admin\LatteController@edit', ['id' => $logged_in_user -> id]) }}" >編集/<br>Edit</a>-->
-                                            <!--</div>-->
-                                            <!--<div>-->
-                                            <!--    <a href = "{{action('Admin\LatteController@delete', ['id' => $logged_in_user -> id]) }}">削除/<br>Delete-->
-                                            <!--</div>-->
+                                            <div>
+                                                <a href = "{{action('Admin\LatteController@edit', ['id' => $logged_in_user -> id]) }}" >編集/<br>Edit</a>
+                                            </div>
+                                            <div>
+                                                <a href = "{{action('Admin\LatteController@delete', ['id' => $logged_in_user -> id]) }}">削除/<br>Delete
+                                            </div>
                                         </td>
                                     </tr>
                                 @endforeach

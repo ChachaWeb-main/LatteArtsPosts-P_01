@@ -57,14 +57,15 @@
                 
                 <!--BootsStrapのcardを利用してラテ投稿一覧を表示-->
                 @foreach($posts as $latte)
-                    <div class="card col-3">
-                        <a href="#!"><img class="card-img-top" src="{{ asset('storage/image/' . $latte->image_path) }}" width="300%" height="300" alt="..." /></a>
+                    <div class="card col-4">
+                        <a href="#!"><img class="card-img-top" src="{{ asset('storage/image/' . $latte->image_path) }}" width="350%" height="350" alt="..." /></a>
                         <div class="card-body">
-                            <div class="small text-muted">{{ $latte->created_at }}</div>
-                                <h2 class="card-title h4">デザイン：{{ $latte->design }}</h2>
-                                <p class="card-text">描き方：{{ \Str::limit($latte->draw, 50) }}</p>
-                                <p class="card-text">{{ \Str::limit($latte->text, 100) }}</p>
-                                <a class="btn btn-primary" href="#!">Read more →</a>
+                            <div class="small text-muted">{{ \Str::limit($latte->created_at) }}</div>
+                                <h2 class="card-title h4">投稿者：{{ \Str::limit($latte->user->name) }}</h2>
+                                <h3 class="card-title h5">デザイン：{{ \Str::limit($latte->design) }}</h3>
+                                <p class="card-text">描き方：{{ \Str::limit($latte->draw) }}</p>
+                                <p class="card-text">{{ \Str::limit($latte->text) }}</p>
+                                <!--<a class="btn btn-primary" href="#!">Read more →</a>-->
                         </div>
                     </div>
                 @endforeach
