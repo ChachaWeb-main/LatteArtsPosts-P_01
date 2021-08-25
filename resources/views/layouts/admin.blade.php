@@ -53,27 +53,18 @@
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
                             <!-- Authentication Links -->
-                        {{-- ログインしていなかったらログイン画面へのリンクを表示 --}}
-                        @guest
-                            <li><a class="nav-link" href="/login">{{ __('Login') }}</a></li>
-                        {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
-                        @else
-                            <li>
-                               <p>ようこそ " {{ Auth::user()->name }} " さん </p>
-                                
-                                <div>
-                                    <a href="" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                        {{ __('ログアウト/Logout') }}
-                                    </a>
-                                     
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                        
+                            {{-- ログインしていなかったらログイン画面へのリンクを表示 --}}
+                            @guest
+                                <li><a class="nav-link" href="/login">{{ __('Login') }}</a></li>
+                            {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
+                            @else
+                                <li>
+                                    <a href="" class="btn btn-primary my-0" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('ログアウト/Logout') }}</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
+                                </li>
+                            @endguest
                         </ul>
+                        <ul>
                             <li class="nav-item active">
                               <a class="nav-link" href="/">Home</a>
                             </li>

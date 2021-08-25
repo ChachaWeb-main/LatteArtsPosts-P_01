@@ -11,15 +11,24 @@
     <section class="py-5 text-center container">
         <div class="row py-lg-5">
             <div class="col-lg-6 col-md-8 mx-auto">
-                <h1 class="fw-light">みんなのラテアート作品️<br>Everyone's Latte Art</h1>
+                @guest
+                    <a class="nav-link" href="/login">{{ __('Login') }}</a>
+                {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
+                @else
+                    <h1>ようこそ " {{ Auth::user()->name }} " さん </h1>
+                    <a href="" class="btn btn-primary my-2" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('ログアウト/Logout') }}</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
+                @endguest
+                <br>
+                <br>
+                <h1 class="fw-light">Everyone's Latte Art</h1>
                 <p class="lead text-muted">このサイトは皆さんが描いたラテアートを投稿シェアする場です。<br>
                  さあ、あなたのラテアートを見てもらいましょう！！<br>
                  This site is a place to post and share the latte art you drew.<br>
                  Let's have a look at your latte art! !!
                 </p>
-                <p>
-                 <a href="/admin/latte/create" class="btn btn-primary my-2">ラテアート新規投稿/New Post for LatteArt</a>
-                </p>
+                <a href="/admin/latte/create" class="btn btn-primary my-2">ラテアート新規投稿/New Post for LatteArt</a>
+                
             </div>
         </div>
     </section>
