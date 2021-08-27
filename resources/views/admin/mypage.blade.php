@@ -10,13 +10,13 @@
     <div class="container">
         <h1>{{ \Str::limit($logged_in_user->member->name, 20) }} さんのマイページ</h1>
             <div>
-                <a href="" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                    {{ __('ログアウト/Logout') }}
-                </a>
-                 
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
+                @guest
+                    <a class="nav-link" href="/login">{{ __('Login') }}</a>
+                {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
+                @else
+                    <a href="" class="btn btn-secondary my-2" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('ログアウト/Logout') }}</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
+                @endguest
             </div>
         <!--<div class="form-button">-->
         <!--    {{ csrf_field() }}-->

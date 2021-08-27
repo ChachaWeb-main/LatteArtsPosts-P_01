@@ -37,47 +37,19 @@
     <body>
         <div id="app">
             <header>
-            // 「navbar-色名」「bg-色名」を指定するだけで、色を変更することができる。
-                <nav class="navbar navbar-dark bg-secondary fixed-top">
-                    <!-- タイトル -->
-                    <a class="navbar-brand" href="/">P S L A</a>
-                    <h3>Post & Sharing Latte Arts<br>ラテアートの投稿・共有サイト</h3>
-                    
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                    </button>
-                    
-                    <!-- Laravelのログイン -->
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                      <ul class="navbar-nav">
-                        <!-- Right Side Of Navbar -->
-                        <ul class="navbar-nav ml-auto">
-                            <!-- Authentication Links -->
-                            {{-- ログインしていなかったらログイン画面へのリンクを表示 --}}
-                            @guest
-                                <li><a class="nav-link" href="/login">{{ __('Login') }}</a></li>
-                            {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
-                            @else
-                                <li>
-                                    <a href="" class="btn btn-primary my-0" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('ログアウト/Logout') }}</a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
-                                </li>
-                            @endguest
-                        </ul>
-                        <ul>
-                            <li class="nav-item active">
-                              <a class="nav-link" href="/">Home</a>
-                            </li>
-                            <li class="nav-item">
-                              <a class="nav-link" href="/admin/member/create">メンバー登録</a>
-                            </li>
-                            <li class="nav-item">
-                              <a class="nav-link" href="/admin/mypage">マイページ</a>
-                            </li>
-                            <li class="nav-item">
-                              <a class="nav-link" href="/admin/latte/create">新規投稿</a>
-                            </li>
-                        </ul>
+            
+                <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+                    <div class="container">
+                        <a class="navbar-brand" href="/">Post & Sharing Latte Arts<br>☕️ラテアートの投稿・共有サイト☕️</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/admin/member/create">メンバー登録</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/admin/mypage">マイページ</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/admin/latte/create">新規投稿</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </nav>
                 
@@ -87,22 +59,19 @@
                 {{-- コンテンツをここに入れるため、@yieldで空けておきます。 --}}
                 @yield('content')
             </main>
+            
         </div>
+        
+            <footer class="py-5 bg-secondary"> <!--py-5 bg-dark-->
+                <div class="container">
+                    <p class="float-end mb-1">
+                    <a href="#">ページ上部へ<br>Back to top</a>
+                </div>
+                <div class="container">
+                    <p class="m-0 text-center text-white">&copy; 2021-<?php echo date('Y') ?> Post & Sharing Latte Arts.</p>
+                </div>
+            </footer>
+            
     </body>
     
-    <!--<footer class="py-5 bg-dark">-->
-    <!--    <p class="copyright","m-0 text-center text-white">&copy; 2021-<?php echo date('Y') ?> Post & Sharing Latte Arts.</p>-->
-    <!--    <div class="container">-->
-    <!--    <p class="float-end mb-1">-->
-    <!--    <a href="#">ページ上部へ</a>-->
-    <!--    </div>-->
-    <!--</footer>-->
-     <!-- Footer-->
-    <footer class="py-5 bg-secondary">
-        <div class="container"><p class="m-0 text-center text-white">&copy; 2021-<?php echo date('Y') ?> Post & Sharing Latte Arts.</p></div>
-        <div class="container">
-            <p class="float-end mb-1">
-            <a href="#">ページ上部へ</a>
-        </div>
-    </footer>
 </html>
