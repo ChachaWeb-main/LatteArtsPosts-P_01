@@ -86,9 +86,9 @@ class LatteController extends Controller
         if (isset($latte_form['image'])) 
         {
             $path = $request->file('image')->store('public/image');
-            $latte->image_path = basename($path);
+            $latte_form["image_path"] = basename($path);
         } else {
-            $latte->image_path = null;
+            $latte_form["image_path"] = $latte->image_path;
         }
         // フォームから送信されてきた _token を削除する
         unset($latte_form['_token']);

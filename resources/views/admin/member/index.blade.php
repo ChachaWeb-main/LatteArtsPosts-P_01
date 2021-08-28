@@ -28,7 +28,7 @@
                                     $row_date = \Carbon\Carbon::parse($member->created_at);
                                     $row_date->setToStringFormat('Y/m/d H:i');
                                 @endphp
-                                <td>{{ \Str::limit($row_date, 50) }}</td>
+                                <td>{{ \Str::limit($member->created_at, 50) }}</td>
                                 <td>{{$gender[$member->gender]}}</td>
                                 <td>{{ \Str::limit($member->latteart, 50) }}</td>
                                 <td>{{ \Str::limit($member->introduction, 100) }}</td>

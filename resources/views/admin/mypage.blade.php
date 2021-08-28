@@ -123,9 +123,9 @@
                                         <h3 class="card-title h5">デザイン：{{ \Str::limit($latte->design) }}</h3>
                                         <p class="card-text">描き方：{{ \Str::limit($latte->draw) }}</p>
                                         <p class="card-text">{{ \Str::limit($latte->text) }}</p>
-                                        <a href = "{{action('Admin\LatteController@edit', ['id' => $logged_in_user -> id]) }}" >編集/Edit</a>
+                                        <a href = "{{action('Admin\LatteController@edit', ['id' => $latte -> id]) }}" >編集/Edit</a>
                                         <br>
-                                        <a href = "{{action('Admin\LatteController@delete', ['id' => $logged_in_user -> id]) }}">削除/Delete</a>
+                                        <a href = "{{action('Admin\LatteController@delete', ['id' => $latte -> id]) }}">削除/Delete</a>
                                         <!--<a class="btn btn-primary" href="#!">Read more →</a>-->
                                 </div>
                             </div>

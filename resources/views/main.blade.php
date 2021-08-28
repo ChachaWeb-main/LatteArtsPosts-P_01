@@ -11,7 +11,7 @@
     <section class="py-5 text-center container">
         <div class="row py-lg-5">
             <div class="col-lg-6 col-md-8 mx-auto">
-                <h1>ようこそ " {{ Auth::user()->name }} " さん </h1>
+                <h1>@guest @else ようこそ " {{ Auth::user()->name }} " さん @endguest  </h1>
                 <br>
                 <br>
                 <h1 class="fw-light">Everyone's Latte Art</h1>
