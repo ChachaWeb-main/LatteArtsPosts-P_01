@@ -8,10 +8,10 @@
 @section('content')
 
 <main>
-    <section class="py-5 text-center container">
+    <section class="py-1 text-center container">
         <div class="row py-lg-5">
             <div class="col-lg-6 col-md-8 mx-auto">
-                <h1>@guest @else ようこそ " {{ Auth::user()->name }} " さん @endguest  </h1>
+                <h1>@guest ようこそ " ゲスト/ Guest " さん @else ようこそ " {{ Auth::user()->name }} " さん☕️ @endguest</h1>
                 <br>
                 <br>
                 <h1 class="fw-light">Everyone's Latte Art</h1>
@@ -21,7 +21,7 @@
                  Let's have a look at your latte art! !!
                 </p>
                 @guest
-                    <a class="nav-link" href="/login">{{ __('Login') }}</a>
+                    <a href="/login" class="btn btn-secondary my-2" >{{ __('ログイン/Login') }}</a>
                 {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
                 @else
                     <a href="" class="btn btn-secondary my-2" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('ログアウト/Logout') }}</a>
@@ -36,7 +36,7 @@
         <div class="list-latte col-md-10 mx-auto">
             <div class="row">
                 <!--全てのラテ投稿データ-->
-                <table class="table table-dark">
+                <table class="table table-secondary">
                         <thead>
                             <tr>
                                 <th width="5%">ID</th>
