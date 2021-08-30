@@ -22,3 +22,31 @@ footer {
   text-align: center;
 }
 
+.container-footer {
+  margin-right: 50px;
+}
+
+.container-footer a:hover {
+  background-color: white;
+}
+
+/* ---------- javascript ----------*/
+
+.pagetop {
+  display: none;
+  padding: 40px 10px;
+  background-color: #ffcc99;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+.pagetop:hover {
+  color: #fff;
+  filter: drop-shadow(2px 2px 2px silver);
+  cursor: pointer;
+}
+
