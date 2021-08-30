@@ -1,12 +1,24 @@
+/* ---------- body ----------*/
+
+/* ---------- container ---------- */
+
+.container {
+  margin-top: 20px;
+}
+
+.container a:hover {
+  filter: drop-shadow(2px 2px 2px silver);
+}
+
+/* ---------- form ----------*/
+
 .form-button {
   margin: 20px auto;
 }
 
+/* ---------- footer ---------- */
+
 footer {
   text-align: center;
-}
-
-.container {
-  margin-top: 20px;
 }
 
