@@ -4,6 +4,8 @@
 
 .container {
   margin-top: 20px;
+  opacity: 0.9;
+  letter-spacing: 1px;
 }
 
 .container a:hover {

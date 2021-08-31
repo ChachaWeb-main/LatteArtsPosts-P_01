@@ -15,10 +15,11 @@
                 <br>
                 <br>
                 <h1 class="fw-light">Everyone's Latte Art</h1>
-                <p class="lead text-muted">このサイトは皆さんが描いたラテアートを投稿シェアする場です。<br>
-                 さあ、あなたのラテアートを見てもらいましょう！！<br>
-                 This site is a place to post and share the latte art you drew.<br>
-                 Let's have a look at your latte art! !!
+                <p class="lead text-muted">このサイトでは皆さんが<br>
+                    描いたラテアートを投稿シェアすることが出来ます。<br>
+                    さあ、あなたのラテアートを見てもらいましょう！！<br>
+                    This site is a place to post and share the latte art you drew.<br>
+                    Let's have a look at your latte art! !!
                 </p>
                 @guest
                     <a href="/login" class="btn btn-secondary my-2" >{{ __('ログイン/Login') }}</a>
