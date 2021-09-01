@@ -38,46 +38,35 @@
             <div class="row">
                 <!--全てのラテ投稿データ-->
                 <table class="table table-secondary">
-                        <thead>
+                    <thead>
+                        <tr>
+                            <th width="5%">ID</th>
+                            <th witdh="15%">ユーザー名</th>
+                        　　<th width="5%">投稿日</th>
+                        　　<th width="10%">ラテアート</th> 
+                            <th width="15%">デザイン</th>
+                        　　<th width="10%">描き方</th>
+                        　　<th width="30%">フリーテキスト</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($posts as $latte)
                             <tr>
-                                <th width="5%">ID</th>
-                                <th witdh="15%">ユーザー名</th>
-                            　　<th width="5%">投稿日</th>
-                            　　<th width="10%">ラテアート</th> 
-                                <th width="15%">デザイン</th>
-                            　　<th width="10%">描き方</th>
-                            　　<th width="30%">フリーテキスト</th>
+                                <td>{{ $latte->id }}</td>
+                                <td>{{ \Str::limit($latte->user->name, 50) }}</td>
+                                @php
+                                    $row_date = \Carbon\Carbon::parse($latte->created_at);
+                                    $row_date->setToStringFormat('Y/m/d H:i');
+                                @endphp
+                                <td>{{ \Str::limit($row_date, 50) }}</td>
+                                <td><img src="{{ asset('storage/image/' . $latte->image_path) }}" width="50px"></td>
+                                <td>{{ \Str::limit($latte->design, 50) }}</td>
+                                <td>{{ \Str::limit($latte->draw, 100) }}</td>
+                                <td>{{ \Str::limit($latte->text, 100) }}</td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($posts as $latte)
-                                <tr>
-                                    <td>{{ $latte->id }}</td>
-                                    <td>{{ \Str::limit($latte->user->name, 50) }}</td>
-                                    <td>{{ \Str::limit($latte->created_at, 50) }}</td>
-                                    <td><img src="{{ asset('storage/image/' . $latte->image_path) }}" width="50px"></td>
-                                    <td>{{ \Str::limit($latte->design, 50) }}</td>
-                                    <td>{{ \Str::limit($latte->draw, 100) }}</td>
-                                    <td>{{ \Str::limit($latte->text, 100) }}</td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                
-                <!--BootsStrapのcardを利用してラテ投稿一覧を表示-->
-                @foreach($posts as $latte)
-                    <div class="card col-4">
-                        <a href="#!"><img class="card-img-top" src="{{ asset('storage/image/' . $latte->image_path) }}" width="350%" height="350" alt="..." /></a>
-                        <div class="card-body">
-                            <div class="small text-muted">{{ \Str::limit($latte->created_at) }}</div>
-                                <h2 class="card-title h4">投稿者：{{ \Str::limit($latte->user->name) }}</h2>
-                                <h3 class="card-title h5">デザイン：{{ \Str::limit($latte->design) }}</h3>
-                                <p class="card-text">描き方：{{ \Str::limit($latte->draw) }}</p>
-                                <p class="card-text">{{ \Str::limit($latte->text) }}</p>
-                                <!--<a class="btn btn-primary" href="#!">Read more →</a>-->
-                        </div>
-                    </div>
-                @endforeach
+                        @endforeach
+                    </tbody>
+                </table>
                 
             </div>
         </div>
@@ -93,14 +82,16 @@
             <div class="row">
                 <!-- Blog entries-->
                 <div class="col-lg-8">
-                    <!-- Featured blog post-->
+                     <!--Featured blog post-->
                     <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                        <a href="#!"><img class="card-img-top" src="{{ asset('storage/image/' . $latte->image_path) }}" width="700" height="350" alt="..." /></a>
                         <div class="card-body">
-                          　<div class="small text-muted">January 1, 2021</div>
-                                <h2 class="card-title h4">Post Title</h2>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                                <a class="btn btn-primary" href="#!">Read more →</a>
+                          　<div class="small text-muted">{{ \Str::limit($latte->created_at) }}</div>
+                            <h2 class="card-title h4">投稿者：{{ \Str::limit($latte->user->name) }}</h2>
+                            <h3 class="card-title h5">デザイン：{{ \Str::limit($latte->design) }}</h3>
+                            <p class="card-text">描き方：{{ \Str::limit($latte->draw) }}</p>
+                            <p class="card-text">{{ \Str::limit($latte->text) }}</p>
+                            <a class="btn btn-primary" href="#!">Read more →</a>
                         </div>
                     </div>
                     <!-- Nested row for non-featured blog posts-->
@@ -108,44 +99,26 @@
                         <div class="col-lg-6">
                             <!-- Blog post-->
                             <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                                <a href="#!"><img class="card-img-top" src="{{ asset('storage/image/' . $latte->image_path) }}" width="700" height="250" alt="..." /></a>
                                 <div class="card-body">
-                                    <div class="small text-muted">January 1, 2021</div>
-                                    <h2 class="card-title h4">Post Title</h2>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                                    <a class="btn btn-primary" href="#!">Read more →</a>
+                                    <div class="small text-muted">{{ \Str::limit($latte->created_at) }}</div>
+                                    <h2 class="card-title h4">投稿者：{{ \Str::limit($latte->user->name) }}</h2>
+                                    <h3 class="card-title h5">デザイン：{{ \Str::limit($latte->design) }}</h3>
+                                    <p class="card-text">描き方：{{ \Str::limit($latte->draw) }}</p>
+                                    <p class="card-text">{{ \Str::limit($latte->text) }}</p>
+                                    <!--<a class="btn btn-primary" href="#!">Read more →</a>-->
                                 </div>
                             </div>
                             <!-- Blog post-->
                             <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                                <a href="#!"><img class="card-img-top" src="{{ asset('storage/image/' . $latte->image_path) }}" width="600" height="250" alt="..." /></a>
                                 <div class="card-body">
-                                    <div class="small text-muted">January 1, 2021</div>
-                                    <h2 class="card-title h4">Post Title</h2>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                                    <a class="btn btn-primary" href="#!">Read more →</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <!-- Blog post-->
-                            <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                                <div class="card-body">
-                                    <div class="small text-muted">January 1, 2021</div>
-                                    <h2 class="card-title h4">Post Title</h2>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                                    <a class="btn btn-primary" href="#!">Read more →</a>
-                                </div>
-                            </div>
-                            <!-- Blog post-->
-                            <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                                <div class="card-body">
-                                    <div class="small text-muted">January 1, 2021</div>
-                                    <h2 class="card-title h4">Post Title</h2>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam.</p>
-                                    <a class="btn btn-primary" href="#!">Read more →</a>
+                                    <div class="small text-muted">{{ \Str::limit($latte->created_at) }}</div>
+                                    <h2 class="card-title h4">投稿者：{{ \Str::limit($latte->user->name) }}</h2>
+                                    <h3 class="card-title h5">デザイン：{{ \Str::limit($latte->design) }}</h3>
+                                    <p class="card-text">描き方：{{ \Str::limit($latte->draw) }}</p>
+                                    <p class="card-text">{{ \Str::limit($latte->text) }}</p>
+                                    <!--<a class="btn btn-primary" href="#!">Read more →</a>-->
                                 </div>
                             </div>
                         </div>

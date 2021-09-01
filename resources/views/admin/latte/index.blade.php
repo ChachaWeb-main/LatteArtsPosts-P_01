@@ -59,7 +59,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($posts as $latte)
+                        @foreach ($posts as $latte)
                             <tr>
                                 <td>{{ $latte->id }}</td>
                                 <td>{{ \Str::limit($latte->user->name, 50) }}</td>

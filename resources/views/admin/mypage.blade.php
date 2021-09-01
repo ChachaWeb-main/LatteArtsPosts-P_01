@@ -47,7 +47,6 @@
                                 <tr>
                                     <!--memberから指定した値を都度取得 User → Member １対１のリレーション-->
                                     <td>{{ \Str::limit($logged_in_user->member->name, 20) }}</td>
-                                    <!--登録日実装 ※何故か日時がコード実装日で表示される-->
                                     @php
                                         $row_date = \Carbon\Carbon::parse($logged_in_user->member->created_at);
                                         $row_date->setToStringFormat('Y/m/d H:i');
