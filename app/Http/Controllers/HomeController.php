@@ -32,9 +32,17 @@ class HomeController extends Controller
             // 検索されたら検索結果を取得する
             $posts = Latte::where('title', $cond_title)->get();
         } else {
-            // それ以外は全てを取得する
-            $posts = Latte::all();
+            // それ以外は全てを取得する。orderBy以降で新着順に表示設定＝ソート
+            $posts = Latte::orderBy('created_at', 'DESC')->get();
         }
-        return view('main', ['posts' => $posts, 'cond_title' => $cond_title]);
+        /*カリキュラムlaravel19 $headline = $posts->shift();では、
+        　新着投稿を変数$headlineに代入し、$postsは代入された新着投稿以外が格納されている*/
+        if (count($posts) > 0) {
+            $headline = $posts->shift();
+        } else {
+            $headline = null;
+        }
+        
+        return view('main', ['posts' => $posts, 'cond_title' => $cond_title, 'headline' => $headline]);
     }
 }

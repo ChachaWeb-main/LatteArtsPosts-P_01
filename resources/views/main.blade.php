@@ -8,6 +8,7 @@
 @section('content')
 
 <main>
+    
     <section class="py-1 text-center container">
         <div class="row py-lg-5">
             <div class="col-lg-6 col-md-8 mx-auto">
@@ -74,56 +75,48 @@
     <br>
     <br>
     
-    <!--見つけたNewデザイン-->
-    <!-- Page header with logo and tagline-->
+
     <body>
-        <!-- Page content-->
+        
         <div class="container">
             <div class="row">
-                <!-- Blog entries-->
                 <div class="col-lg-8">
-                     <!--Featured blog post-->
                     <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="{{ asset('storage/image/' . $latte->image_path) }}" width="700" height="350" alt="..." /></a>
+                        <a href="#!"><img class="card-img-top" src="{{ asset('storage/image/' . $headline->image_path) }}" width="700" height="350" alt="..." /></a>
                         <div class="card-body">
-                          　<div class="small text-muted">{{ \Str::limit($latte->created_at) }}</div>
-                            <h2 class="card-title h4">投稿者：{{ \Str::limit($latte->user->name) }}</h2>
-                            <h3 class="card-title h5">デザイン：{{ \Str::limit($latte->design) }}</h3>
-                            <p class="card-text">描き方：{{ \Str::limit($latte->draw) }}</p>
-                            <p class="card-text">{{ \Str::limit($latte->text) }}</p>
-                            <a class="btn btn-primary" href="#!">Read more →</a>
+                          　<div class="small text-muted">{{ \Str::limit($headline->created_at) }}</div>
+                            <h2 class="card-title h4">投稿者：{{ \Str::limit($headline->user->name) }}</h2>
+                            <h3 class="card-title h5">デザイン：{{ \Str::limit($headline->design) }}</h3>
+                            <p class="card-text">描き方：{{ \Str::limit($headline->draw) }}</p>
+                            <p class="card-text">{{ \Str::limit($headline->text) }}</p>
                         </div>
                     </div>
-                    <!-- Nested row for non-featured blog posts-->
+                    
                     <div class="row">
-                        <div class="col-lg-6">
-                            <!-- Blog post-->
-                            <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="{{ asset('storage/image/' . $latte->image_path) }}" width="700" height="250" alt="..." /></a>
-                                <div class="card-body">
-                                    <div class="small text-muted">{{ \Str::limit($latte->created_at) }}</div>
-                                    <h2 class="card-title h4">投稿者：{{ \Str::limit($latte->user->name) }}</h2>
-                                    <h3 class="card-title h5">デザイン：{{ \Str::limit($latte->design) }}</h3>
-                                    <p class="card-text">描き方：{{ \Str::limit($latte->draw) }}</p>
-                                    <p class="card-text">{{ \Str::limit($latte->text) }}</p>
-                                    <!--<a class="btn btn-primary" href="#!">Read more →</a>-->
-                                </div>
-                            </div>
-                            <!-- Blog post-->
-                            <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="{{ asset('storage/image/' . $latte->image_path) }}" width="600" height="250" alt="..." /></a>
-                                <div class="card-body">
-                                    <div class="small text-muted">{{ \Str::limit($latte->created_at) }}</div>
-                                    <h2 class="card-title h4">投稿者：{{ \Str::limit($latte->user->name) }}</h2>
-                                    <h3 class="card-title h5">デザイン：{{ \Str::limit($latte->design) }}</h3>
-                                    <p class="card-text">描き方：{{ \Str::limit($latte->draw) }}</p>
-                                    <p class="card-text">{{ \Str::limit($latte->text) }}</p>
-                                    <!--<a class="btn btn-primary" href="#!">Read more →</a>-->
-                                </div>
+                        <div class="col-lg-12">
+                            <div class="row">
+                                @foreach($posts as $latte)
+                                        @php
+                                            $row_date = \Carbon\Carbon::parse($latte->created_at);
+                                            $row_date->setToStringFormat('Y/m/d H:i');
+                                        @endphp
+                                        <div class="card col-lg-6">
+                                            <a href="#!"><img class="card-img-top" src="{{ asset('storage/image/' . $latte->image_path) }}" width="600" height="250" alt="..." /></a>
+                                            <div class="card-body">
+                                                <div class="small text-muted">{{ \Str::limit($latte->created_at) }}</div>
+                                                <h2 class="card-title h4">投稿者：{{ \Str::limit($latte->user->name) }}</h2>
+                                                <h3 class="card-title h5">デザイン：{{ \Str::limit($latte->design) }}</h3>
+                                                <p class="card-text">描き方：{{ \Str::limit($latte->draw) }}</p>
+                                                <p class="card-text">{{ \Str::limit($latte->text) }}</p>
+                                                <!--<a class="btn btn-primary" href="#!">Read more →</a>-->
+                                            </div>
+                                        </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
-                    <!-- Pagination-->
+                    
+                    <!-- Pagination ページネーション-->
                     <nav aria-label="Pagination">
                         <hr class="my-0" />
                         <ul class="pagination justify-content-center my-4">
@@ -136,7 +129,9 @@
                             <li class="page-item"><a class="page-link" href="#!">過去/Older</a></li>
                         </ul>
                     </nav>
+                    
                 </div>
+                
                 <!-- Side widgets-->
                 <div class="col-lg-4">
                     <!-- Search widget-->
@@ -149,6 +144,7 @@
                             </div>
                         </div>
                     </div>
+                    
                     <!-- Categories widget-->
                     <div class="card mb-4">
                         <div class="card-header">用語/Terminology</div>
@@ -171,6 +167,7 @@
                             </div>
                         </div>
                     </div>
+                    
                     <!-- Side widget-->
                     <div class="card mb-4">
                         <div class="card-header">登録メンバー　※ここに人数カウンターも実装したい</div>
@@ -180,9 +177,10 @@
                 </div>
             </div>
         </div>
+
     </body>
       
-    <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   
 </main>
     
