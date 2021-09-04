@@ -47,5 +47,17 @@ class HomeController extends Controller
         
         return view('main', ['posts' => $posts, 'cond_title' => $cond_title, 'latest_post' => $latest_post, 'sort' => $sort]);
     }
+
+    // 用語解説ページ
+    public function term() {
+        
+        return view('/term');
+    }
     
+    // 登録者プロフィール閲覧用。メインからニックネームリンクで飛ぶように
+    public function list() {
+        
+        return view('/list');
+    }
+
 }

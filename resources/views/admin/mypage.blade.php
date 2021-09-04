@@ -31,54 +31,51 @@
         <div class="container">
             <div class="row">
                 <div class="list-member col-md-11 mx-auto">
-                    <div class="row">
-                        <table class="table table-dark">
-                            <thead>
-                                <tr>
-                                    <th width="20%">ニックネーム</th>
-                                    <th width="5%">登録日</th>
-                                　　<th width="5%">性別</th>
-                                　　<th width="30%">会得ラテアート</th>
-                                    <th width="30%">自己紹介</th>
-                                    <th width="10%">操作</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <!--memberから指定した値を都度取得 User → Member １対１のリレーション-->
-                                    <td>{{ \Str::limit($logged_in_user->member->name, 20) }}</td>
-                                    @php
-                                        $row_date = \Carbon\Carbon::parse($logged_in_user->member->created_at);
-                                        $row_date->setToStringFormat('Y/m/d H:i');
-                                    @endphp
-                                    <td>{{ \Str::limit($row_date, 50) }}</td>
-                                    <td>{{ \Str::limit($gender[$logged_in_user->member->gender], 20) }}</td>
-                                    <td>{{ \Str::limit($logged_in_user->member->latteart, 50) }}</td>
-                                    <td>{{ \Str::limit($logged_in_user->member->introduction, 100) }}</td>
-                                    <td>
-                                        <div>
-                                            <a href = "{{action('Admin\MemberController@edit', ['id' => $logged_in_user->member -> id]) }}" >編集/<br>Edit</a>
-                                        </div>
-                                        <div>
-                                            <a href = "{{action('Admin\MemberController@delete', ['id' => $logged_in_user->member -> id]) }}">削除/<br>Delete</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <table class="table table-gray">
+                        <thead>
+                            <tr>
+                                <th width="20%">ニックネーム</th>
+                                <th width="5%">登録日</th>
+                            　　<th width="5%">性別</th>
+                            　　<th width="30%">会得ラテアート</th>
+                                <th width="30%">自己紹介</th>
+                                <th width="10%">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <!--memberから指定した値を都度取得 User → Member １対１のリレーション-->
+                                <td>{{ \Str::limit($logged_in_user->member->name, 20) }}</td>
+                                @php
+                                    $row_date = \Carbon\Carbon::parse($logged_in_user->member->created_at);
+                                    $row_date->setToStringFormat('Y/m/d H:i');
+                                @endphp
+                                <td>{{ \Str::limit($row_date, 50) }}</td>
+                                <td>{{ \Str::limit($gender[$logged_in_user->member->gender], 20) }}</td>
+                                <td>{{ \Str::limit($logged_in_user->member->latteart, 50) }}</td>
+                                <td>{{ \Str::limit($logged_in_user->member->introduction, 100) }}</td>
+                                <td>
+                                    <div>
+                                        <a href = "{{action('Admin\MemberController@edit', ['id' => $logged_in_user->member -> id]) }}" >編集/<br>Edit</a>
+                                    </div>
+                                    <div>
+                                        <a href = "{{action('Admin\MemberController@delete', ['id' => $logged_in_user->member -> id]) }}">削除/<br>Delete</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
+        
         <br>
         <br>
         <br>
         <!-- vies/admin/latte/index.blade.php-->
         <div class="container">
             <div class="row">
-                <h3>ラテアート投稿一覧</h3>
-            </div>
-            <div class="row">
+                <h3>投稿ラテアート一覧</h3>
                 <div class="col-md-4">
                     <a href="{{ action('Admin\LatteController@add') }}" role="button" class="btn btn-primary">新規投稿</a>
                 </div>

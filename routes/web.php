@@ -16,6 +16,8 @@ Auth::routes();// ユーザー認証実装
 Route::get('/main', 'HomeController@index')->name('main');//ホーム・メインページ
 Route::get('/', 'HomeController@index')->name('main');//ホーム・メインページ
 
+Route::get('/term', 'HomeController@term');//用語解説ページ
+Route::get('/list', 'HomeController@list');//登録者プロフィール閲覧用
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('latte/create', 'Admin\LatteController@add');

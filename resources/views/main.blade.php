@@ -110,18 +110,18 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">フリーポア</a></li>
-                                        <li><a href="#!">エッチング</a></li>
-                                        <li><a href="#!">3D</a></li>
+                                        <li><a href="/term">フリーポア</a></li>
+                                        <li><a href="/term">エッチング</a></li>
+                                        <li><a href="/term">3D</a></li>
                                     </ul>
                                 </div>
-                                <div class="col-sm-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">******</a></li>
-                                        <li><a href="#!">******</a></li>
-                                        <li><a href="#!">******</a></li>
-                                    </ul>
-                                </div>
+                                <!--<div class="col-sm-6">-->
+                                <!--    <ul class="list-unstyled mb-0">-->
+                                <!--        <li><a href="#!">******</a></li>-->
+                                <!--        <li><a href="#!">******</a></li>-->
+                                <!--        <li><a href="#!">******</a></li>-->
+                                <!--    </ul>-->
+                                <!--</div>-->
                             </div>
                         </div>
                     </div>

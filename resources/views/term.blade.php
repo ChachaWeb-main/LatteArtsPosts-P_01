@@ -2,12 +2,16 @@
 
 @section('title', 'メインページ')
 
-@section
+@section('content')
 
 <main>
-    フリーポア
-    エッチング
-    ３D
+    
+    <ul>
+        <li><h1>フリーポア</h1></li>
+        <li><h1>エッチング</h1></li>
+        <li><h1>３D</h1></li>
+    </ul>
+    
 </main>
 
 
