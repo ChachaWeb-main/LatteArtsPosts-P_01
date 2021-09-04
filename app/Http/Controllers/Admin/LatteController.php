@@ -57,7 +57,7 @@ class LatteController extends Controller
             $posts = Latte::where('title', $cond_title)->get();
         } else {
             // それ以外は全てを取得する
-            $posts = Latte::all();
+            $posts = Latte::orderBy('created_at', 'DESC')->get();
         }
             return view('admin.latte.index', ['posts' => $posts, 'cond_title' => $cond_title]
         );

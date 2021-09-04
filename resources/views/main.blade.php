@@ -15,7 +15,7 @@
                 <h1>@guest ようこそ " ゲスト/ Guest " さん @else ようこそ " {{ Auth::user()->name }} " さん☕️ @endguest</h1>
                 <br>
                 <br>
-                <h1 class="fw-light">Everyone's Latte Art</h1>
+                <h2 class="fw-light">Everyone's Latte Art</h2>
                 <p class="lead text-muted">このサイトでは皆さんが<br>
                     描いたラテアートを投稿シェアすることが出来ます。<br>
                     さあ、あなたのラテアートを見てもらいましょう！！<br>
@@ -34,46 +34,7 @@
         </div>
     </section>
     
-    <div class="row">
-        <div class="list-latte col-md-10 mx-auto">
-            <div class="row">
-                <!--全てのラテ投稿データ-->
-                <table class="table table-secondary">
-                    <thead>
-                        <tr>
-                            <th width="5%">ID</th>
-                            <th witdh="15%">ユーザー名</th>
-                        　　<th width="5%">投稿日</th>
-                        　　<th width="10%">ラテアート</th> 
-                            <th width="15%">デザイン</th>
-                        　　<th width="10%">描き方</th>
-                        　　<th width="30%">フリーテキスト</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($posts as $latte)
-                            <tr>
-                                <td>{{ $latte->id }}</td>
-                                <td>{{ \Str::limit($latte->user->name, 50) }}</td>
-                                @php
-                                    $row_date = \Carbon\Carbon::parse($latte->created_at);
-                                    $row_date->setToStringFormat('Y/m/d H:i');
-                                @endphp
-                                <td>{{ \Str::limit($row_date, 50) }}</td>
-                                <td><img src="{{ asset('storage/image/' . $latte->image_path) }}" width="50px"></td>
-                                <td>{{ \Str::limit($latte->design, 50) }}</td>
-                                <td>{{ \Str::limit($latte->draw, 100) }}</td>
-                                <td>{{ \Str::limit($latte->text, 100) }}</td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-                
-            </div>
-        </div>
-    </div>
-    <br>
-    <br>
+
     
 
     <body>
@@ -82,13 +43,13 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="{{ asset('storage/image/' . $headline->image_path) }}" width="700" height="350" alt="..." /></a>
+                        <a href="#!"><img class="card-img-top" src="{{ asset('storage/image/' . $latest_post->image_path) }}" width="550" height="500" alt="..." /></a>
                         <div class="card-body">
-                          　<div class="small text-muted">{{ \Str::limit($headline->created_at) }}</div>
-                            <h2 class="card-title h4">投稿者：{{ \Str::limit($headline->user->name) }}</h2>
-                            <h3 class="card-title h5">デザイン：{{ \Str::limit($headline->design) }}</h3>
-                            <p class="card-text">描き方：{{ \Str::limit($headline->draw) }}</p>
-                            <p class="card-text">{{ \Str::limit($headline->text) }}</p>
+                          　<div class="small text-muted">{{ \Str::limit($latest_post->created_at) }}</div>
+                            <h2 class="card-title h4">投稿者：<a href="/admin/mypage">{{ \Str::limit($latest_post->user->name) }}</h2></a>
+                            <h3 class="card-title h5">デザイン：{{ \Str::limit($latest_post->design) }}</h3>
+                            <p class="card-text">描き方：{{ \Str::limit($latest_post->draw) }}</p>
+                            <p class="card-text">{{ \Str::limit($latest_post->text) }}</p>
                         </div>
                     </div>
                     
@@ -101,10 +62,10 @@
                                             $row_date->setToStringFormat('Y/m/d H:i');
                                         @endphp
                                         <div class="card col-lg-6">
-                                            <a href="#!"><img class="card-img-top" src="{{ asset('storage/image/' . $latte->image_path) }}" width="600" height="250" alt="..." /></a>
+                                            <a href="#!"><img class="card-img-top" src="{{ asset('storage/image/' . $latte->image_path) }}" width="600" height="300" alt="..." /></a>
                                             <div class="card-body">
                                                 <div class="small text-muted">{{ \Str::limit($latte->created_at) }}</div>
-                                                <h2 class="card-title h4">投稿者：{{ \Str::limit($latte->user->name) }}</h2>
+                                                <h2 class="card-title h4">投稿者：<a href="/admin/mypage">{{ \Str::limit($latte->user->name) }}</h2></a>
                                                 <h3 class="card-title h5">デザイン：{{ \Str::limit($latte->design) }}</h3>
                                                 <p class="card-text">描き方：{{ \Str::limit($latte->draw) }}</p>
                                                 <p class="card-text">{{ \Str::limit($latte->text) }}</p>
@@ -121,14 +82,11 @@
                         <hr class="my-0" />
                         <ul class="pagination justify-content-center my-4">
                             <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">新規/Newer</a></li>
-                            <li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">3</a></li>
-                            <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">10</a></li>
+                            {{ $posts->links() }}
                             <li class="page-item"><a class="page-link" href="#!">過去/Older</a></li>
                         </ul>
                     </nav>
+
                     
                 </div>
                 

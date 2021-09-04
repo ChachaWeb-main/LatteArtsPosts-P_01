@@ -54,11 +54,11 @@ class MemberController extends Controller
     
     public function index(Request $request) 
     {
-        $cond_title = $request -> cond_title;
+        $cond_title = $request->cond_title;
         if ($cond_title != '') {
-            $posts = Member::where('title', $cond_title) -> get();
+            $posts = Member::where('title', $cond_title)->get();
         } else {
-            $posts = Member::all();
+            $posts = Member::orderBy('created_at', 'DESC')->get();
         }
         return view('admin.member.index', ['posts' => $posts, 'cond_title' => $cond_title, 'gender' => $this->gender]);
     }
