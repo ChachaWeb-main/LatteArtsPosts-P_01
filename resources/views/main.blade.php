@@ -104,17 +104,17 @@
                     </div>
                     
                     <!-- Categories widget-->
-                    <div class="card mb-4">
-                        <div class="card-header">用語/Terminology</div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><a href="/term">フリーポア</a></li>
-                                        <li><a href="/term">エッチング</a></li>
-                                        <li><a href="/term">3D</a></li>
-                                    </ul>
-                                </div>
+                    <!--<div class="card mb-4">-->
+                    <!--    <div class="card-header">用語/Terminology</div>-->
+                    <!--    <div class="card-body">-->
+                    <!--        <div class="row">-->
+                    <!--            <div class="col-sm-6">-->
+                    <!--                <ul class="list-unstyled mb-0">-->
+                    <!--                    <li><a href="/term">フリーポア</a></li>-->
+                    <!--                    <li><a href="/term">エッチング</a></li>-->
+                    <!--                    <li><a href="/term">3D</a></li>-->
+                    <!--                </ul>-->
+                    <!--            </div>-->
                                 <!--<div class="col-sm-6">-->
                                 <!--    <ul class="list-unstyled mb-0">-->
                                 <!--        <li><a href="#!">******</a></li>-->
@@ -122,9 +122,9 @@
                                 <!--        <li><a href="#!">******</a></li>-->
                                 <!--    </ul>-->
                                 <!--</div>-->
-                            </div>
-                        </div>
-                    </div>
+                    <!--        </div>-->
+                    <!--    </div>-->
+                    <!--</div>-->
                     
                     <!-- Side widget-->
                     <div class="card mb-4">

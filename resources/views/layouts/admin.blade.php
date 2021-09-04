@@ -40,11 +40,31 @@
                     <a class="navbar-brand" href="/">Post & Sharing Latte Arts<br>☕️ラテアート投稿・共有サイト☕️</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-3">
                             <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/admin/member/create">メンバー登録</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/admin/mypage">マイページ</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/admin/latte/create">新規投稿</a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  ページ利用
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                  <a class="dropdown-item" href="/admin/member/create">メンバー登録</a>
+                                  <a class="dropdown-item" href="/admin/mypage">マイページ</a>
+                                  <a class="dropdown-item" href="/admin/latte/create">新規投稿</a>
+                                </div>
+                            </li> 
+                            <!--<li class="nav-item"><a class="nav-link" href="/admin/member/create">利用登録</a></li>-->
+                            <!--<li class="nav-item"><a class="nav-link" href="/admin/mypage">マイページ</a></li>-->
+                            <!--<li class="nav-item"><a class="nav-link" href="/admin/latte/create">新規投稿</a></li>-->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  ラテアートについて
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                  <a class="dropdown-item" href="/term">フリーポア</a>
+                                  <a class="dropdown-item" href="/term">エッチング</a>
+                                  <a class="dropdown-item" href="/term">3D</a>
+                                </div>
+                            </li> 
                         </ul>
                     </div>
                 </div>
