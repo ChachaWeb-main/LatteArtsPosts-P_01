@@ -47,7 +47,7 @@
                                   ページ利用
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                  <a class="dropdown-item" href="/admin/member/create">メンバー登録</a>
+                                  <a class="dropdown-item" href="/admin/member/create">利用登録</a>
                                   <a class="dropdown-item" href="/admin/mypage">マイページ</a>
                                   <a class="dropdown-item" href="/admin/latte/create">新規投稿</a>
                                 </div>
