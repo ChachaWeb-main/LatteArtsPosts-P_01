@@ -36,17 +36,30 @@ class MemberController extends Controller
     {
         $this->validate($request, Member::$rules);
         
-        $member = new Member;
-        $form = $request->all();
+        $member = Auth::user()->member;
+        if (empty($member)) {
+            //メンバーの情報が存在しない場合：新規追加画面
+            $member = new Member;
+            $form = $request->all();
+            
+            unset($form['_token']);
+            
+            $member->fill($form);
+            // Userとのリレーション
+            $member->fill(['user_id' => Auth::user()->id]);
+            $member->save();
+            
+        } else {
+            //メンバーの情報が存在する場合：
+            // $member = Member::find($request->id);
+            $form = $request->all();
+            unset($form['_token']);
+            dump($member);
+            dump($form);
+            $member->fill($form)->save();
+            return redirect('admin/mypage');
+        }
         
-        unset($form['_token']);
-        
-        $member->fill($form);
-        // Userとのリレーション
-        $member->fill(['user_id' => Auth::user()->id]);
-        // dump(Auth::user());
-        // return;
-        $member->save();
        
         return redirect('admin/mypage');
     }

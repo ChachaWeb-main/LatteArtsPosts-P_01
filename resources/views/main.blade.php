@@ -42,6 +42,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
+                    @if (!is_null($latest_post))
                     <div class="card mb-4">
                         <a href="#!"><img class="card-img-top" src="{{ asset('storage/image/' . $latest_post->image_path) }}" width="550" height="500" alt="..." /></a>
                         <div class="card-body">
@@ -70,6 +71,7 @@
                             </p>
                         </div>
                     </div>
+                    @endif
                     
                     <div class="row">
                         <div class="col-lg-12">
