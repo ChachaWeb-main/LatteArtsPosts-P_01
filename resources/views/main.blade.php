@@ -11,8 +11,8 @@
     
     <section class="py-1 text-center container">
         <div class="row py-lg-5">
-            <div class="col-lg-6 col-md-8 mx-auto">
-                <h1>@guest ようこそ " ゲスト/ Guest " さん @else ようこそ " {{ Auth::user()->name }} " さん☕️ @endguest</h1>
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <h1>@guest ようこそ " ゲスト/ Guest " さん @else ようこそ <a href="/admin/mypage">" {{ Auth::user()->name }} "</a> さん☕ @endguest</h1>
                 <br>
                 <br>
                 <h2 class="fw-light">Everyone's Latte Art</h2>
@@ -177,10 +177,10 @@
                             </svg>
                             登録メンバー　※ここに人数カウンターも実装したい
                         </div>
-                        <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!<br>
-                                               これらのサイドウィジェットの中には、好きなものを入れることができます。 それらは使いやすく、Bootstrap 5カードコンポーネントを備えています！<br>
-                        </div>
-                            <p>ここにはニックネームのみ表示させ、名をクリックでメンバー一覧ページへ飛ぶリンクを</p>
+                        <!--<div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!<br>-->
+                        <!--                       これらのサイドウィジェットの中には、好きなものを入れることができます。 それらは使いやすく、Bootstrap 5カードコンポーネントを備えています！<br>-->
+                        <!--</div>-->
+                            <p>ここにはニックネームのみ表示させ、名をクリックで各userのマイページ閲覧用へ飛ぶリンクを</p>
                     </div>
                 </div>
             </div>

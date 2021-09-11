@@ -8,7 +8,7 @@
 @section('content')
 
     <div class="container">
-        <h1>{{ \Str::limit($logged_in_user->member->name, 20) }} さんのマイページ</h1>
+        <h1>{{ \Str::limit($logged_in_user->name, 20) }} さんのマイページ</h1>
             <div>
                 @guest
                     <a class="nav-link" href="/login">{{ __('Login') }}</a>

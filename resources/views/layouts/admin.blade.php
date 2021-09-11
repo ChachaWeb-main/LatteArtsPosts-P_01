@@ -43,11 +43,9 @@
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-3">
                             <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  ページ利用
-                                </a>
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">メニュー</a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                  <a class="dropdown-item" href="/register">利用登録</a>
+                                  <!--<a class="dropdown-item" href="/register">利用登録</a>-->
                                   <a class="dropdown-item" href="/admin/mypage">マイページ</a>
                                   <a class="dropdown-item" href="/admin/latte/create">新規投稿</a>
                                 </div>
@@ -56,9 +54,7 @@
                             <!--<li class="nav-item"><a class="nav-link" href="/admin/mypage">マイページ</a></li>-->
                             <!--<li class="nav-item"><a class="nav-link" href="/admin/latte/create">新規投稿</a></li>-->
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  ラテアートについて
-                                </a>
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ラテアートの種類</a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                   <a class="dropdown-item" href="/term">フリーポア</a>
                                   <a class="dropdown-item" href="/term">エッチング</a>
