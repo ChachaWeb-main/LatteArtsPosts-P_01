@@ -96,7 +96,7 @@ class MemberController extends Controller
 
       $member->fill($member_form)->save();
 
-      return redirect('admin/mypage');
+      return redirect('admin/member');
      }
     
     
@@ -104,7 +104,7 @@ class MemberController extends Controller
     {
       $member = Member::find($request->id);
       $member->delete();
-      return redirect('admin/mypage');
+      return redirect('admin/member');
     }
     
 }

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP');
+
 /* ---------- body ----------*/
 body {
     // background-color: #cc9966; //#FFCC99
@@ -10,6 +12,30 @@ h1 {
     color: #cc9966;
     
 }
+
+
+/* ---------- font ---------- */
+.term {
+    font-family: "Noto Serif JP", sans-serif;
+}
+
+.term h2 {
+    font-size: 35px;
+    margin-bottom: 15px;   
+    color: #cc9966;
+}
+
+.term p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+/* ---------- top-container 上部の背景画像---------- */
+// .top-container {
+//     background-image: url(/mypf01/material/images/istockphoto-816918818-612x612.jpg);
+//     background-size: cover;
+// }
 
 
 /* ---------- container ---------- */

@@ -31,7 +31,7 @@
         <div class="container">
             <div class="row">
                 <div class="list-member col-md-11 mx-auto">
-                    <table class="table table-gray">
+                    <table class="table table-dark">
                         <thead>
                             <tr>
                                 <th width="20%">ニックネーム</th>
