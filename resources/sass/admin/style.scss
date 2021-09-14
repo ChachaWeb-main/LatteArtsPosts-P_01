@@ -2,7 +2,7 @@
 
 /* ---------- body ----------*/
 body {
-    // background-color: #cc9966; //#FFCC99
+    background-color: white; //#FFCC99, #cc9966
     // background-image: repeating-conic-gradient(#996633,#FFCC99 10%);
     // background-image: repeating-radial-gradient(#996633,#FFCC99 10%);
     // background-image: repeating-linear-gradient(#996633,#FFCC99 1%);
@@ -11,9 +11,11 @@ body {
 
 h1 {
     color: #cc9966;
-    
 }
 
+.btn {
+    opacity: 0.9;
+}
 
 /* ---------- font ---------- */
 .term {
@@ -32,12 +34,22 @@ h1 {
 }
 
 
-/* ---------- top-container 上部の背景画像---------- */
-main > section {
+/* ---------- background-image 上部の背景画像---------- */
+// main > section
+.background-image-1 {
     background-image: url('images/background_image.jpg');
-background-position: center;
+    background-position: left;
     background-repeat: no-repeat;
-    
+    background-color: white;
+    background-size: 450px;
+    // opacity: 0.8;
+}
+
+.background-image-2 {
+    background-image: url('images/coffeebeans.png');
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 300px;
 }
 
 

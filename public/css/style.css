@@ -3,11 +3,16 @@
 /* ---------- body ----------*/
 
 body {
+  background-color: white;
   font-family: "Sawarabi Gothic", sans-serif;
 }
 
 h1 {
   color: #cc9966;
+}
+
+.btn {
+  opacity: 0.9;
 }
 
 /* ---------- font ---------- */
@@ -27,12 +32,21 @@ h1 {
   font-weight: bold;
 }
 
-/* ---------- top-container 上部の背景画像---------- */
+/* ---------- background-image 上部の背景画像---------- */
 
-main > section {
+.background-image-1 {
   background-image: url(/images/background_image.jpg?62bc9d2cf330cb8f5d15742b5d6216e7);
-  background-position: center;
+  background-position: left;
   background-repeat: no-repeat;
+  background-color: white;
+  background-size: 450px;
+}
+
+.background-image-2 {
+  background-image: url(/images/coffeebeans.png?d5d14bf4e185ae6c9368b611091eca32);
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: 300px;
 }
 
 /* ---------- container ---------- */

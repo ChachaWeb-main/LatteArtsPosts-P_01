@@ -7,6 +7,8 @@
 {{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
 @section('content')
 
+<div class="background-image-1">
+<div class="background-image-2">
 <section class="py-1 text-center container">
     <div class="row py-lg-5">
         <div class="col-lg-8 col-md-10 mx-auto">
@@ -31,6 +33,8 @@
         </div>
     </div>
 </section>
+</div>
+</div>
 
 <div class="container">
     <div class="row">
