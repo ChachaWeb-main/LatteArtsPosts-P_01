@@ -7,189 +7,178 @@
 {{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
 @section('content')
 
-<main>
-    
-    <div class="top-container">
-    <section class="py-1 text-center container">
-        <div class="row py-lg-5">
-            <div class="col-lg-8 col-md-10 mx-auto">
-                <h1>@guest ようこそ " ゲスト/ Guest " さん @else ようこそ <a href="/admin/mypage">" {{ Auth::user()->name }} "</a> さん☕ @endguest</h1>
-                <br>
-                <br>
-                <h2 class="fw-light">Everyone's Latte Art</h2>
-                <p class="lead text-muted">このサイトでは皆さんが<br>
-                    描いたラテアートを投稿シェアすることが出来ます。<br>
-                    さあ、あなたのラテアートを見てもらいましょう！！<br>
-                    This site is a place to post and share the latte art you drew.<br>
-                    Let's have a look at your latte art! !!
-                </p>
-                @guest
-                    <a href="/login" class="btn btn-secondary my-2" >{{ __('ログイン/Login') }}</a>
-                {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
-                @else
-                    <a href="" class="btn btn-secondary my-2" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('ログアウト/Logout') }}</a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
-                @endguest
-                <a href="/admin/latte/create" class="btn btn-primary my-2">ラテアート新規投稿/New Post for LatteArt</a>
-            </div>
+<section class="py-1 text-center container">
+    <div class="row py-lg-5">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <h1>@guest ようこそ " ゲスト/ Guest " さん @else ようこそ <a href="/admin/mypage">" {{ Auth::user()->name }} "</a> さん☕ @endguest</h1>
+            <br>
+            <br>
+            <h2 class="fw-light">Everyone's Latte Art</h2>
+            <p class="lead text-muted">このサイトでは皆さんが<br>
+                描いたラテアートを投稿シェアすることが出来ます。<br>
+                さあ、あなたのラテアートを見てもらいましょう！！<br>
+                This site is a place to post and share the latte art you drew.<br>
+                Let's have a look at your latte art! !!
+            </p>
+            @guest
+                <a href="/login" class="btn btn-secondary my-2" >{{ __('ログイン/Login') }}</a>
+            {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
+            @else
+                <a href="" class="btn btn-secondary my-2" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('ログアウト/Logout') }}</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
+            @endguest
+            <a href="/admin/latte/create" class="btn btn-primary my-2">ラテアート新規投稿/New Post for LatteArt</a>
         </div>
-    </section>
     </div>
-    
+</section>
 
-    <body>
-        
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    @if (!is_null($latest_post))
-                    <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="{{ asset('storage/image/' . $latest_post->image_path) }}" width="550" height="500" alt="..." /></a>
-                        <div class="card-body">
-                          　<div class="small text-muted">{{ \Str::limit($latest_post->created_at) }}</div>
-                            <h2 class="card-title h4">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-badge" viewBox="0 0 16 16">
-                                  <path d="M6.5 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                                  <path d="M4.5 0A2.5 2.5 0 0 0 2 2.5V14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2.5A2.5 2.5 0 0 0 11.5 0h-7zM3 2.5A1.5 1.5 0 0 1 4.5 1h7A1.5 1.5 0 0 1 13 2.5v10.795a4.2 4.2 0 0 0-.776-.492C11.392 12.387 10.063 12 8 12s-3.392.387-4.224.803a4.2 4.2 0 0 0-.776.492V2.5z"/>
-                                </svg>
-                                投稿者：<a href="/admin/mypage">{{ \Str::limit($latest_post->user->name) }}</a>
-                            </h2>
-                            <h3 class="card-title h5">☕️デザイン：{{ \Str::limit($latest_post->design) }}</h3>
-                            <p class="card-text">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-brush-fill" viewBox="0 0 16 16">
-                                  <path d="M15.825.12a.5.5 0 0 1 .132.584c-1.53 3.43-4.743 8.17-7.095 10.64a6.067 6.067 0 0 1-2.373 1.534c-.018.227-.06.538-.16.868-.201.659-.667 1.479-1.708 1.74a8.117 8.117 0 0 1-3.078.132 3.658 3.658 0 0 1-.563-.135 1.382 1.382 0 0 1-.465-.247.714.714 0 0 1-.204-.288.622.622 0 0 1 .004-.443c.095-.245.316-.38.461-.452.393-.197.625-.453.867-.826.094-.144.184-.297.287-.472l.117-.198c.151-.255.326-.54.546-.848.528-.739 1.2-.925 1.746-.896.126.007.243.025.348.048.062-.172.142-.38.238-.608.261-.619.658-1.419 1.187-2.069 2.175-2.67 6.18-6.206 9.117-8.104a.5.5 0 0 1 .596.04z"/>
-                                </svg>
-                                描き方：{{ \Str::limit($latest_post->draw) }}
-                            </p>
-                            <p class="card-text">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chat-right-text" viewBox="0 0 16 16">
-                                  <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z"/>
-                                  <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
-                                </svg>
-                                <br>
-                                {{ \Str::limit($latest_post->text) }}
-                            </p>
-                        </div>
-                    </div>
-                    @endif
-                    
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="row">
-                                @foreach($posts as $latte)
-                                        @php
-                                            $row_date = \Carbon\Carbon::parse($latte->created_at);
-                                            $row_date->setToStringFormat('Y/m/d H:i');
-                                        @endphp
-                                        <div class="card col-lg-6">
-                                            <a href="#!"><img class="card-img-top" src="{{ asset('storage/image/' . $latte->image_path) }}" width="600" height="300" alt="..." /></a>
-                                            <div class="card-body">
-                                                <div class="small text-muted">{{ \Str::limit($latte->created_at) }}</div>
-                                                <h2 class="card-title h4">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-badge" viewBox="0 0 16 16">
-                                                      <path d="M6.5 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                                                      <path d="M4.5 0A2.5 2.5 0 0 0 2 2.5V14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2.5A2.5 2.5 0 0 0 11.5 0h-7zM3 2.5A1.5 1.5 0 0 1 4.5 1h7A1.5 1.5 0 0 1 13 2.5v10.795a4.2 4.2 0 0 0-.776-.492C11.392 12.387 10.063 12 8 12s-3.392.387-4.224.803a4.2 4.2 0 0 0-.776.492V2.5z"/>
-                                                    </svg>
-                                                    投稿者：<a href="/admin/mypage">{{ \Str::limit($latte->user->name) }}</a>
-                                                </h2>
-                                                <h3 class="card-title h5">☕️デザイン：{{ \Str::limit($latte->design) }}</h3>
-                                                <p class="card-text">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-brush-fill" viewBox="0 0 16 16">
-                                                      <path d="M15.825.12a.5.5 0 0 1 .132.584c-1.53 3.43-4.743 8.17-7.095 10.64a6.067 6.067 0 0 1-2.373 1.534c-.018.227-.06.538-.16.868-.201.659-.667 1.479-1.708 1.74a8.117 8.117 0 0 1-3.078.132 3.658 3.658 0 0 1-.563-.135 1.382 1.382 0 0 1-.465-.247.714.714 0 0 1-.204-.288.622.622 0 0 1 .004-.443c.095-.245.316-.38.461-.452.393-.197.625-.453.867-.826.094-.144.184-.297.287-.472l.117-.198c.151-.255.326-.54.546-.848.528-.739 1.2-.925 1.746-.896.126.007.243.025.348.048.062-.172.142-.38.238-.608.261-.619.658-1.419 1.187-2.069 2.175-2.67 6.18-6.206 9.117-8.104a.5.5 0 0 1 .596.04z"/>
-                                                    </svg>
-                                                    描き方：{{ \Str::limit($latte->draw) }}
-                                                </p>
-                                                <p class="card-text">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-right-text" viewBox="0 0 16 16">
-                                                      <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z"/>
-                                                      <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
-                                                    </svg>
-                                                    <br>
-                                                    {{ \Str::limit($latte->text) }}
-                                                </p>
-                                                <!--<a class="btn btn-primary" href="#!">Read more →</a>-->
-                                            </div>
-                                        </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Pagination ページネーション-->
-                    <nav aria-label="Pagination">
-                        <hr class="my-0" />
-                        <ul class="pagination justify-content-center my-4">
-                            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">新規/Newer</a></li>
-                            {{ $posts->links() }}
-                            <li class="page-item"><a class="page-link" href="#!">過去/Older</a></li>
-                        </ul>
-                    </nav>
-
-                    
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            @if (!is_null($latest_post))
+            <div class="card mb-4">
+                <a href="#!"><img class="card-img-top" src="{{ asset('storage/image/' . $latest_post->image_path) }}" width="550" height="500" alt="..." /></a>
+                <div class="card-body">
+                  　<div class="small text-muted">{{ \Str::limit($latest_post->created_at) }}</div>
+                    <h2 class="card-title h4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-badge" viewBox="0 0 16 16">
+                          <path d="M6.5 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                          <path d="M4.5 0A2.5 2.5 0 0 0 2 2.5V14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2.5A2.5 2.5 0 0 0 11.5 0h-7zM3 2.5A1.5 1.5 0 0 1 4.5 1h7A1.5 1.5 0 0 1 13 2.5v10.795a4.2 4.2 0 0 0-.776-.492C11.392 12.387 10.063 12 8 12s-3.392.387-4.224.803a4.2 4.2 0 0 0-.776.492V2.5z"/>
+                        </svg>
+                        投稿者：<a href="/admin/mypage">{{ \Str::limit($latest_post->user->name) }}</a>
+                    </h2>
+                    <h3 class="card-title h5">☕️デザイン：{{ \Str::limit($latest_post->design) }}</h3>
+                    <p class="card-text">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-brush-fill" viewBox="0 0 16 16">
+                          <path d="M15.825.12a.5.5 0 0 1 .132.584c-1.53 3.43-4.743 8.17-7.095 10.64a6.067 6.067 0 0 1-2.373 1.534c-.018.227-.06.538-.16.868-.201.659-.667 1.479-1.708 1.74a8.117 8.117 0 0 1-3.078.132 3.658 3.658 0 0 1-.563-.135 1.382 1.382 0 0 1-.465-.247.714.714 0 0 1-.204-.288.622.622 0 0 1 .004-.443c.095-.245.316-.38.461-.452.393-.197.625-.453.867-.826.094-.144.184-.297.287-.472l.117-.198c.151-.255.326-.54.546-.848.528-.739 1.2-.925 1.746-.896.126.007.243.025.348.048.062-.172.142-.38.238-.608.261-.619.658-1.419 1.187-2.069 2.175-2.67 6.18-6.206 9.117-8.104a.5.5 0 0 1 .596.04z"/>
+                        </svg>
+                        描き方：{{ \Str::limit($latest_post->draw) }}
+                    </p>
+                    <p class="card-text">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chat-right-text" viewBox="0 0 16 16">
+                          <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z"/>
+                          <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                        <br>
+                        {{ \Str::limit($latest_post->text) }}
+                    </p>
                 </div>
-                
-                <!-- Side widgets-->
-                <div class="col-lg-4">
-                    <!-- Search widget-->
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                            </svg> 
-                            検索/Search
-                        </div>
-                        <div class="card-body">
-                            <div class="input-group">
-                              <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                              <button class="btn btn-primary" id="button-search" type="button">Go!</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Categories widget-->
-                    <!--<div class="card mb-4">-->
-                    <!--    <div class="card-header">用語/Terminology</div>-->
-                    <!--    <div class="card-body">-->
-                    <!--        <div class="row">-->
-                    <!--            <div class="col-sm-6">-->
-                    <!--                <ul class="list-unstyled mb-0">-->
-                    <!--                    <li><a href="/term">フリーポア</a></li>-->
-                    <!--                    <li><a href="/term">エッチング</a></li>-->
-                    <!--                    <li><a href="/term">3D</a></li>-->
-                    <!--                </ul>-->
-                    <!--            </div>-->
-                                <!--<div class="col-sm-6">-->
-                                <!--    <ul class="list-unstyled mb-0">-->
-                                <!--        <li><a href="#!">******</a></li>-->
-                                <!--        <li><a href="#!">******</a></li>-->
-                                <!--        <li><a href="#!">******</a></li>-->
-                                <!--    </ul>-->
-                                <!--</div>-->
-                    <!--        </div>-->
-                    <!--    </div>-->
-                    <!--</div>-->
-                    
-                    <!-- Side widget-->
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-person-lines-fill text-success" viewBox="0 0 16 16">
-                              <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
-                            </svg>
-                            登録メンバー　※ここに人数カウンターも実装したい
-                        </div>
-                        <!--<div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!<br>-->
-                        <!--                       これらのサイドウィジェットの中には、好きなものを入れることができます。 それらは使いやすく、Bootstrap 5カードコンポーネントを備えています！<br>-->
-                        <!--</div>-->
-                            <p>ここにはニックネームのみ表示させ、名をクリックで各userのマイページ閲覧用へ飛ぶリンクを</p>
+            </div>
+            @endif
+            
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        @foreach($posts as $latte)
+                                @php
+                                    $row_date = \Carbon\Carbon::parse($latte->created_at);
+                                    $row_date->setToStringFormat('Y/m/d H:i');
+                                @endphp
+                                <div class="card col-lg-6">
+                                    <a href="#!"><img class="card-img-top" src="{{ asset('storage/image/' . $latte->image_path) }}" width="600" height="300" alt="..." /></a>
+                                    <div class="card-body">
+                                        <div class="small text-muted">{{ \Str::limit($latte->created_at) }}</div>
+                                        <h2 class="card-title h4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-badge" viewBox="0 0 16 16">
+                                              <path d="M6.5 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                              <path d="M4.5 0A2.5 2.5 0 0 0 2 2.5V14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2.5A2.5 2.5 0 0 0 11.5 0h-7zM3 2.5A1.5 1.5 0 0 1 4.5 1h7A1.5 1.5 0 0 1 13 2.5v10.795a4.2 4.2 0 0 0-.776-.492C11.392 12.387 10.063 12 8 12s-3.392.387-4.224.803a4.2 4.2 0 0 0-.776.492V2.5z"/>
+                                            </svg>
+                                            投稿者：<a href="/admin/mypage">{{ \Str::limit($latte->user->name) }}</a>
+                                        </h2>
+                                        <h3 class="card-title h5">☕️デザイン：{{ \Str::limit($latte->design) }}</h3>
+                                        <p class="card-text">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-brush-fill" viewBox="0 0 16 16">
+                                              <path d="M15.825.12a.5.5 0 0 1 .132.584c-1.53 3.43-4.743 8.17-7.095 10.64a6.067 6.067 0 0 1-2.373 1.534c-.018.227-.06.538-.16.868-.201.659-.667 1.479-1.708 1.74a8.117 8.117 0 0 1-3.078.132 3.658 3.658 0 0 1-.563-.135 1.382 1.382 0 0 1-.465-.247.714.714 0 0 1-.204-.288.622.622 0 0 1 .004-.443c.095-.245.316-.38.461-.452.393-.197.625-.453.867-.826.094-.144.184-.297.287-.472l.117-.198c.151-.255.326-.54.546-.848.528-.739 1.2-.925 1.746-.896.126.007.243.025.348.048.062-.172.142-.38.238-.608.261-.619.658-1.419 1.187-2.069 2.175-2.67 6.18-6.206 9.117-8.104a.5.5 0 0 1 .596.04z"/>
+                                            </svg>
+                                            描き方：{{ \Str::limit($latte->draw) }}
+                                        </p>
+                                        <p class="card-text">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-right-text" viewBox="0 0 16 16">
+                                              <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z"/>
+                                              <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+                                            </svg>
+                                            <br>
+                                            {{ \Str::limit($latte->text) }}
+                                        </p>
+                                        <!--<a class="btn btn-primary" href="#!">Read more →</a>-->
+                                    </div>
+                                </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
-        </div>
+            
+            <!-- Pagination ページネーション-->
+            <nav aria-label="Pagination">
+                <hr class="my-0" />
+                <ul class="pagination justify-content-center my-4">
+                    <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">新規/Newer</a></li>
+                    {{ $posts->links() }}
+                    <li class="page-item"><a class="page-link" href="#!">過去/Older</a></li>
+                </ul>
+            </nav>
 
-    </body>
-      
-        <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  
-</main>
-    
+            
+        </div>
+        
+        <!-- Side widgets-->
+        <div class="col-lg-4">
+            <!-- Search widget-->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg> 
+                    検索/Search
+                </div>
+                <div class="card-body">
+                    <div class="input-group">
+                      <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
+                      <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Categories widget-->
+            <!--<div class="card mb-4">-->
+            <!--    <div class="card-header">用語/Terminology</div>-->
+            <!--    <div class="card-body">-->
+            <!--        <div class="row">-->
+            <!--            <div class="col-sm-6">-->
+            <!--                <ul class="list-unstyled mb-0">-->
+            <!--                    <li><a href="/term">フリーポア</a></li>-->
+            <!--                    <li><a href="/term">エッチング</a></li>-->
+            <!--                    <li><a href="/term">3D</a></li>-->
+            <!--                </ul>-->
+            <!--            </div>-->
+                        <!--<div class="col-sm-6">-->
+                        <!--    <ul class="list-unstyled mb-0">-->
+                        <!--        <li><a href="#!">******</a></li>-->
+                        <!--        <li><a href="#!">******</a></li>-->
+                        <!--        <li><a href="#!">******</a></li>-->
+                        <!--    </ul>-->
+                        <!--</div>-->
+            <!--        </div>-->
+            <!--    </div>-->
+            <!--</div>-->
+            
+            <!-- Side widget-->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-person-lines-fill text-success" viewBox="0 0 16 16">
+                      <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
+                    </svg>
+                    登録メンバー　※ここに人数カウンターも実装したい
+                </div>
+                <!--<div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!<br>-->
+                <!--                       これらのサイドウィジェットの中には、好きなものを入れることができます。 それらは使いやすく、Bootstrap 5カードコンポーネントを備えています！<br>-->
+                <!--</div>-->
+                    <p>ここにはニックネームのみ表示させ、名をクリックで各userのマイページ閲覧用へ飛ぶリンクを</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 @endsection

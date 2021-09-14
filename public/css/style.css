@@ -29,9 +29,10 @@ h1 {
 
 /* ---------- top-container 上部の背景画像---------- */
 
-.top-container {
-  background-image: url("https://us-east-2.console.aws.amazon.com/cloud9/ide/229dbb3050644bcf9f409ffdfa69c2ca-/home/ec2-user/enviroment/mypf01/material/images/istockphoto-816918818-612x612.jpg");
-  background-size: cover;
+main > section {
+  background-image: url(/images/background_image.jpg?62bc9d2cf330cb8f5d15742b5d6216e7);
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* ---------- container ---------- */
