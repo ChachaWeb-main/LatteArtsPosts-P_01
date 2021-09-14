@@ -9,8 +9,8 @@
 
 <main>
     
+    <div class="top-container">
     <section class="py-1 text-center container">
-        <div class="top-container">
         <div class="row py-lg-5">
             <div class="col-lg-8 col-md-10 mx-auto">
                 <h1>@guest ようこそ " ゲスト/ Guest " さん @else ようこそ <a href="/admin/mypage">" {{ Auth::user()->name }} "</a> さん☕ @endguest</h1>
@@ -33,10 +33,8 @@
                 <a href="/admin/latte/create" class="btn btn-primary my-2">ラテアート新規投稿/New Post for LatteArt</a>
             </div>
         </div>
-        </div>
     </section>
-    
-
+    </div>
     
 
     <body>

@@ -79,9 +79,9 @@
     
     <!-- footer -->
     <footer class="py-5 bg-secondary">
-        <div class="container-footer">
-            <p class="float-end mb-1"><a href="#">ページ上部へ<br>Back to top</a>
-        </div>
+        <!--<div class="container-footer">-->
+        <!--    <p class="float-end mb-1"><a href="#">ページ上部へ<br>Back to top</a>-->
+        <!--</div>-->
         <div class="container">
             <p class="m-0 text-center text-white">&copy; 2021-<?php echo date('Y') ?> Post & Sharing Latte Arts.</p>
         </div>

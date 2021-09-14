@@ -6,6 +6,7 @@ body {
     // background-image: repeating-conic-gradient(#996633,#FFCC99 10%);
     // background-image: repeating-radial-gradient(#996633,#FFCC99 10%);
     // background-image: repeating-linear-gradient(#996633,#FFCC99 1%);
+    font-family: "Sawarabi Gothic", sans-serif;
 }
 
 h1 {
@@ -32,10 +33,11 @@ h1 {
 
 
 /* ---------- top-container 上部の背景画像---------- */
-// .top-container {
-//     background-image: url(/mypf01/material/images/istockphoto-816918818-612x612.jpg);
-//     background-size: cover;
-// }
+.top-container {
+    background-image: url("https://us-east-2.console.aws.amazon.com/cloud9/ide/229dbb3050644bcf9f409ffdfa69c2ca-/home/ec2-user/enviroment/mypf01/material/images/istockphoto-816918818-612x612.jpg");
+    background-size: cover;
+    // background-color: ;
+}
 
 
 /* ---------- container ---------- */
