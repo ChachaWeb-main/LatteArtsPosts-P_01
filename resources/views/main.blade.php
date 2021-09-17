@@ -7,16 +7,17 @@
 {{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
 @section('content')
 
-<div class="background-image-1">
-<div class="background-image-2">
 <section class="py-1 text-center container">
+<div class="bg-image-1">
+<!--<div class="bg-image-2">-->
+    <div class="bg-mask"> <!--bg-imageを透過させるためのdivタブ-->
     <div class="row py-lg-5">
         <div class="col-lg-8 col-md-10 mx-auto">
             <h1>@guest ようこそ " ゲスト/ Guest " さん @else ようこそ <a href="/admin/mypage">" {{ Auth::user()->name }} "</a> さん☕ @endguest</h1>
             <br>
             <br>
-            <h2 class="fw-light">Everyone's Latte Art</h2>
-            <p class="lead text-muted">このサイトでは皆さんが<br>
+            <h2 class="display-5 text-dark fst-italic">Everyone's Latte Art</h2>
+            <p class="lead fs-5 text-dark fst-italic fw-bold lh-lg">このサイトでは皆さんが<br>
                 描いたラテアートを投稿シェアすることが出来ます。<br>
                 さあ、あなたのラテアートを見てもらいましょう！！<br>
                 This site is a place to post and share the latte art you drew.<br>
@@ -32,9 +33,10 @@
             <a href="/admin/latte/create" class="btn btn-primary my-2">ラテアート新規投稿/New Post for LatteArt</a>
         </div>
     </div>
+    </div>
+</div>
+<!--</div>-->
 </section>
-</div>
-</div>
 
 <div class="container">
     <div class="row">

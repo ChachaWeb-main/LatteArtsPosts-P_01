@@ -17,6 +17,7 @@ h1 {
     opacity: 0.9;
 }
 
+
 /* ---------- font ---------- */
 .term {
     font-family: "Noto Serif JP", sans-serif;
@@ -35,21 +36,24 @@ h1 {
 
 
 /* ---------- background-image 上部の背景画像---------- */
-// main > section
-.background-image-1 {
+main > section
+.bg-image-1 {
     background-image: url('images/background_image.jpg');
-    background-position: left;
+    background-position: center;
     background-repeat: no-repeat;
-    background-color: white;
-    background-size: 450px;
-    // opacity: 0.8;
+    background-size: 600px;
 }
 
-.background-image-2 {
-    background-image: url('images/coffeebeans.png');
-    background-position: right;
-    background-repeat: no-repeat;
-    background-size: 300px;
+// .bg-image-2 {
+//     background-image: url('images/coffeebeans.png');
+//     background-position: right;
+//     background-repeat: no-repeat;
+//     background-size: 160px;
+// }
+
+.bg-mask{
+    // height: 100%;
+    background-color: rgb(255, 255, 255, 0.6);
 }
 
 
