@@ -18,7 +18,7 @@ h1 {
 }
 
 
-/* ---------- font ---------- */
+/* ---------- term.blade.php ---------- */
 .term {
     font-family: "Noto Serif JP", sans-serif;
 }
@@ -32,6 +32,10 @@ h1 {
 .term p {
     font-size: 20px;
     font-weight: bold;
+}
+
+.term ul {
+    list-style: none;
 }
 
 
@@ -88,7 +92,6 @@ footer {
 .container-footer a:hover {
     background-color: white;
 }
-
 
 
 /* ---------- javascript ----------*/
