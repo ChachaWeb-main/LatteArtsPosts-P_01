@@ -10942,3 +10942,11 @@ a.text-dark:focus {
   }
 }
 
+.container {
+  z-index: 1;
+}
+
+.dropdown-menu {
+  z-index: 2;
+}
+

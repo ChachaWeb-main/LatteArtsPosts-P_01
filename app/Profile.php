@@ -11,7 +11,7 @@ class Profile extends Model
     protected $guarded = array('id');
     //
     public static $rules = array(
-        'name' => 'required|max:10', 
+        'name' => 'required|min:2|max:15', 
         'gender' => 'required', 
         'latteart' => 'required', 
         'introduction' => 'required|max:300'

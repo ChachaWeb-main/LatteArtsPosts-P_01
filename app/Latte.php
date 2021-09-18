@@ -15,7 +15,7 @@ class Latte extends Model
     public static $rules = array(
         'design' => 'required',
         'draw' => 'required',
-        'text' => 'required|max150'
+        'text' => 'required|max:150'
     );
     
     public function user() {

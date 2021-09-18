@@ -12,10 +12,10 @@ class User extends Authenticatable
 {
     
     // 「１対１」→ メソッド名は単数形
-    public function member()
+    public function profile()
     {
         // Memberモデルのデータを引っ張てくる
-        return $this->hasOne('App\Member');
+        return $this->hasOne('App\Profile');
     }
     
     
