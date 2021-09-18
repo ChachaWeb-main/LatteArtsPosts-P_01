@@ -1,5 +1,43 @@
 @import url(https://fonts.googleapis.com/css?family=Noto+Serif+JP);@charset "UTF-8";
 
+/* ---------- header ---------- */
+
+.navbar {
+  font-family: "Sawarabi Gothic", sans-serif;
+}
+
+.header-image {
+  width: 220px;
+  height: 110px;
+}
+
+.navbar-brand {
+  font-size: 23px;
+}
+
+.navbar-nav {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.dropdown-toggle {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* ---------- background-image 上部の背景画像---------- */
+
+main > section .bg-image-1 {
+  background-image: url(/images/barista01.jpg?2fa3ca008e626fde1f5332238da9e64f);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 720px;
+}
+
+.bg-mask {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
 /* ---------- body ----------*/
 
 body {
@@ -7,12 +45,59 @@ body {
   font-family: "Sawarabi Gothic", sans-serif;
 }
 
-h1 {
-  color: #cc9966;
+.btn {
+  opacity: 0.8;
 }
 
-.btn {
+/* ---------- container ---------- */
+
+.user-name {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.container {
+  margin-top: 20px;
   opacity: 0.9;
+  letter-spacing: 1px;
+}
+
+.container a:hover {
+  filter: drop-shadow(1px 1px 1px silver);
+}
+
+/* ---------- form ----------*/
+
+.form-button {
+  margin: 20px auto;
+}
+
+/* ---------- footer ---------- */
+
+footer {
+  text-align: center;
+}
+
+.container-footer {
+  margin-right: 50px;
+}
+
+.container-footer a:hover {
+  background-color: white;
+}
+
+/* -------- button ----------*/
+
+.btn {
+  box-shadow: 0 2px gray;
+}
+
+.btn a:hover {
+  filter: drop-shadow(1px 1px 1px silver);
+}
+
+.btn:active {
+  box-shadow: none;
 }
 
 /* ---------- term.blade.php ---------- */
@@ -36,51 +121,6 @@ h1 {
   list-style: none;
 }
 
-/* ---------- background-image 上部の背景画像---------- */
-
-main > section .bg-image-1 {
-  background-image: url(/images/background_image.jpg?62bc9d2cf330cb8f5d15742b5d6216e7);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 600px;
-}
-
-.bg-mask {
-  background-color: rgba(255, 255, 255, 0.6);
-}
-
-/* ---------- container ---------- */
-
-.container {
-  margin-top: 20px;
-  opacity: 0.9;
-  letter-spacing: 1px;
-}
-
-.container a:hover {
-  filter: drop-shadow(2px 2px 2px silver);
-}
-
-/* ---------- form ----------*/
-
-.form-button {
-  margin: 20px auto;
-}
-
-/* ---------- footer ---------- */
-
-footer {
-  text-align: center;
-}
-
-.container-footer {
-  margin-right: 50px;
-}
-
-.container-footer a:hover {
-  background-color: white;
-}
-
 /* ---------- javascript ----------*/
 
 .pagetop {
@@ -91,8 +131,8 @@ footer {
   text-decoration: none;
   border-radius: 50%;
   position: fixed;
-  bottom: 10px;
-  right: 10px;
+  bottom: 15px;
+  right: 15px;
 }
 
 .pagetop:hover {

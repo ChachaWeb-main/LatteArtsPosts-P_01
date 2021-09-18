@@ -13,10 +13,10 @@
     <div class="bg-mask"> <!--bg-imageを透過させるためのdivタブ-->
     <div class="row py-lg-5">
         <div class="col-lg-8 col-md-10 mx-auto">
-            <h1>@guest ようこそ " ゲスト/ Guest " さん @else ようこそ <a href="/admin/mypage">" {{ Auth::user()->name }} "</a> さん☕ @endguest</h1>
+            <h1 class="user-name">@guest ようこそ " ゲスト/ Guest " さん @else ようこそ <a href="/admin/mypage">" {{ Auth::user()->name }} "</a> さん☕ @endguest</h1>
             <br>
             <br>
-            <h2 class="display-5 text-dark fst-italic">Everyone's Latte Art</h2>
+            <h2 class="display-5 text-dark fst-italic">Everyone's Latte Art☕️</h2>
             <p class="lead fs-5 text-dark fst-italic fw-bold lh-lg">このサイトでは皆さんが<br>
                 描いたラテアートを投稿シェアすることが出来ます。<br>
                 さあ、あなたのラテアートを見てもらいましょう！！<br>
@@ -24,10 +24,10 @@
                 Let's have a look at your latte art! !!
             </p>
             @guest
-                <a href="/login" class="btn btn-secondary my-2" >{{ __('ログイン/Login') }}</a>
+                <a href="/login" class="btn btn-primary my-2" >{{ __('ログイン/Login') }}</a>
             {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
             @else
-                <a href="" class="btn btn-secondary my-2" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('ログアウト/Logout') }}</a>
+                <a href="" class="btn btn-primary my-2" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('ログアウト/Logout') }}</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
             @endguest
             <a href="/admin/latte/create" class="btn btn-warning my-2">ラテアート新規投稿/New Post for LatteArt</a>

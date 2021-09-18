@@ -1,51 +1,38 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP');
 
-/* ---------- body ----------*/
-body {
-    background-color: white; //#FFCC99, #cc9966
-    // background-image: repeating-conic-gradient(#996633,#FFCC99 10%);
-    // background-image: repeating-radial-gradient(#996633,#FFCC99 10%);
-    // background-image: repeating-linear-gradient(#996633,#FFCC99 1%);
+
+/* ---------- header ---------- */
+.navbar {
     font-family: "Sawarabi Gothic", sans-serif;
 }
 
-h1 {
-    color: #cc9966;
+.header-image {
+    width: 220px;
+    height: 110px;
 }
 
-.btn {
-    opacity: 0.9;
+.navbar-brand {
+    font-size: 23px;
 }
 
-
-/* ---------- term.blade.php ---------- */
-.term {
-    font-family: "Noto Serif JP", sans-serif;
-}
-
-.term h2 {
-    font-size: 35px;
-    margin-bottom: 15px;   
-    color: #cc9966;
-}
-
-.term p {
-    font-size: 20px;
+.navbar-nav {
+    font-size: 18px;
     font-weight: bold;
 }
 
-.term ul {
-    list-style: none;
+.dropdown-toggle {
+    font-size: 18px;
+    font-weight: bold;
 }
 
 
 /* ---------- background-image 上部の背景画像---------- */
 main > section
 .bg-image-1 {
-    background-image: url('images/background_image.jpg');
+    background-image: url('images/barista01.jpg');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 600px;
+    background-size: 720px;
 }
 
 // .bg-image-2 {
@@ -57,11 +44,32 @@ main > section
 
 .bg-mask{
     // height: 100%;
-    background-color: rgb(255, 255, 255, 0.6);
+    background-color: rgb(255, 255, 255, 0.7);
+}
+
+
+/* ---------- body ----------*/
+body {
+    background-color: white; //#FFCC99, #cc9966
+    // background-image: repeating-conic-gradient(#996633,#FFCC99 10%);
+    // background-image: repeating-radial-gradient(#996633,#FFCC99 10%);
+    // background-image: repeating-linear-gradient(#996633,#FFCC99 1%);
+    font-family: "Sawarabi Gothic", sans-serif;
+}
+
+
+.btn {
+    opacity: 0.8;
 }
 
 
 /* ---------- container ---------- */
+.user-name {
+    font-size: 40px;
+    // color: #cc9966;
+    margin-bottom: 15px; 
+}
+
 .container {
     margin-top: 20px;
     opacity: 0.9;
@@ -69,7 +77,7 @@ main > section
 }
 
 .container a:hover {
-	filter: drop-shadow(2px 2px 2px silver);
+	filter: drop-shadow(1px 1px 1px silver);
 }
 
 
@@ -94,7 +102,47 @@ footer {
 }
 
 
+/* -------- button ----------*/
+.btn {
+    box-shadow: 0 2px gray;
+}
+
+.btn a:hover {
+	filter: drop-shadow(1px 1px 1px silver);
+}
+
+.btn:active {
+    box-shadow: none;
+}
+
+
+
+/* ---------- term.blade.php ---------- */
+.term {
+    font-family: "Noto Serif JP", sans-serif;
+}
+
+.term h2 {
+    font-size: 35px;
+    margin-bottom: 15px;   
+    color: #cc9966;
+}
+
+.term p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.term ul {
+    list-style: none;
+}
+
+
+
+
+
 /* ---------- javascript ----------*/
+// pagetopボタンアクション
 .pagetop {
   display: none;
   
@@ -105,8 +153,8 @@ footer {
   border-radius: 50%;
   
   position: fixed;
-  bottom: 10px;
-  right: 10px;
+  bottom: 15px;
+  right: 15px;
 }
 
 .pagetop:hover {
