@@ -53,15 +53,15 @@
                                   <a class="dropdown-item" href="/admin/latte/create">新規投稿</a>
                                 </div>
                             </li> 
-                            <!--<li class="nav-item"><a class="nav-link" href="/admin/member/create">利用登録</a></li>-->
+                            <!--<li class="nav-item"><a class="nav-link" href="/admin/profile/create">利用登録</a></li>-->
                             <!--<li class="nav-item"><a class="nav-link" href="/admin/mypage">マイページ</a></li>-->
                             <!--<li class="nav-item"><a class="nav-link" href="/admin/latte/create">新規投稿</a></li>-->
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ラテアートの種類</a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                  <a class="dropdown-item" href="/term">フリーポア</a>
-                                  <a class="dropdown-item" href="/term">エッチング</a>
-                                  <a class="dropdown-item" href="/term">3D</a>
+                                  <a class="dropdown-item" href="/term#latte_kind_01">フリーポア</a>
+                                  <a class="dropdown-item" href="/term#latte_kind_02">エッチング</a>
+                                  <a class="dropdown-item" href="/term#latte_kind_03">3D</a>
                                 </div>
                             </li> 
                         </ul>

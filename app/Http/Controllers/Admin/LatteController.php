@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Latte; //Latte Modelが使えるようになる
 use App\User;
-use App\Member;
+use App\Profile;
 use Carbon\Carbon; //保存日時
 use Illuminate\Support\Facades\Auth;
 

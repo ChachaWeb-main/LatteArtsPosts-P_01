@@ -4,13 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Member;
+use App\Profile;
 use App\Latte;
 use App\User;
 use Carbon\Carbon; //保存日時
 use Illuminate\Support\Facades\Auth; //Eloquentリレーションの際に追加した
 
-class MemberController extends Controller
+class ProfileController extends Controller
 {
     // 配列で変換
     public $gender = array('0'=>'男性(male)', '1'=>'女性(female)');
@@ -26,37 +26,37 @@ class MemberController extends Controller
     public function add()
     {
         // Userとのリレーション
-        $member = Auth::user()->member;
-        // dump($member);
-        return view('admin.member.create');
+        $profile = Auth::user()->profile;
+        // dump($profile);
+        return view('admin.profile.create');
     }
     
     
     public function create(Request $request) 
     {
-        $this->validate($request, Member::$rules);
+        $this->validate($request, Profile::$rules);
         
-        $member = Auth::user()->member;
-        if (empty($member)) {
+        $profile = Auth::user()->profile;
+        if (empty($profile)) {
             //メンバーの情報が存在しない場合：新規追加画面
-            $member = new Member;
+            $profile = new Profile;
             $form = $request->all();
             
             unset($form['_token']);
             
-            $member->fill($form);
+            $profile->fill($form);
             // Userとのリレーション
-            $member->fill(['user_id' => Auth::user()->id]);
-            $member->save();
+            $profile->fill(['user_id' => Auth::user()->id]);
+            $profile->save();
             
         } else {
             //メンバーの情報が存在する場合：
-            // $member = Member::find($request->id);
+            // $profile = Profile::find($request->id);
             $form = $request->all();
             unset($form['_token']);
-            dump($member);
+            dump($profile);
             dump($form);
-            $member->fill($form)->save();
+            $profile->fill($form)->save();
             return redirect('admin/mypage');
         }
         
@@ -69,42 +69,42 @@ class MemberController extends Controller
     {
         $cond_title = $request->cond_title;
         if ($cond_title != '') {
-            $posts = Member::where('title', $cond_title)->get();
+            $posts = Profile::where('title', $cond_title)->get();
         } else {
-            $posts = Member::orderBy('created_at', 'DESC')->get();
+            $posts = Profile::orderBy('created_at', 'DESC')->get();
         }
-        return view('admin.member.index', ['posts' => $posts, 'cond_title' => $cond_title, 'gender' => $this->gender]);
+        return view('admin.profile.index', ['posts' => $posts, 'cond_title' => $cond_title, 'gender' => $this->gender]);
     }
     
     
     public function edit(Request $request)
     {
-      $member = Member::find($request->id);
-      if (empty($member)) {
+      $profile = Profile::find($request->id);
+      if (empty($profile)) {
         abort(404);    
       }
-      return view('admin.member.edit', ['member_form' => $member]);
+      return view('admin.profile.edit', ['profile_form' => $profile]);
     }
     
     
     public function update(Request $request)
     {
-      $this->validate($request, Member::$rules);
-      $member = Member::find($request->id);
-      $member_form = $request->all();
-      unset($member_form['_token']);
+      $this->validate($request, Profile::$rules);
+      $profile = Profile::find($request->id);
+      $profile_form = $request->all();
+      unset($profile_form['_token']);
 
-      $member->fill($member_form)->save();
+      $profile->fill($profile_form)->save();
 
-      return redirect('admin/member');
+      return redirect('admin/profile');
      }
     
     
     public function delete(Request $request)
     {
-      $member = Member::find($request->id);
-      $member->delete();
-      return redirect('admin/member');
+      $profile = Profile::find($request->id);
+      $profile->delete();
+      return redirect('admin/profile');
     }
     
 }

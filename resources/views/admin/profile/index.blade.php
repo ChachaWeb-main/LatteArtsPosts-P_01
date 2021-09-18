@@ -7,7 +7,7 @@
 <div class="container">
     <div class="row">
         <h2>登録メンバー</h2>
-        <div class="list-member col-md-11 mx-auto">
+        <div class="list-profile col-md-11 mx-auto">
             <div class="row">
                 <table class="table table-dark">
                     <thead>
@@ -21,23 +21,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($posts as $member)
+                        @foreach($posts as $profile)
                             <tr>
-                                <td>{{ \Str::limit($member->name, 20) }}</td>
+                                <td>{{ \Str::limit($profile->name, 20) }}</td>
                                 @php
-                                    $row_date = \Carbon\Carbon::parse($member->created_at);
+                                    $row_date = \Carbon\Carbon::parse($profile->created_at);
                                     $row_date->setToStringFormat('Y/m/d H:i');
                                 @endphp
-                                <td>{{ \Str::limit($member->created_at, 50) }}</td>
-                                <td>{{$gender[$member->gender]}}</td>
-                                <td>{{ \Str::limit($member->latteart, 50) }}</td>
-                                <td>{{ \Str::limit($member->introduction, 100) }}</td>
+                                <td>{{ \Str::limit($profile->created_at, 50) }}</td>
+                                <td>{{$gender[$profile->gender]}}</td>
+                                <td>{{ \Str::limit($profile->latteart, 50) }}</td>
+                                <td>{{ \Str::limit($profile->introduction, 100) }}</td>
                                 <td>
                                     <div>
-                                        <a href = "{{action('Admin\MemberController@edit', ['id' => $member -> id]) }}" >編集/Edit</a>
+                                        <a href = "{{action('Admin\ProfileController@edit', ['id' => $profile->id]) }}" >編集/Edit</a>
                                     </div>
                                     <div>
-                                        <a href = "{{action('Admin\MemberController@delete', ['id' => $member -> id]) }}">削除/Delete</a>
+                                        <a href = "{{action('Admin\ProfileController@delete', ['id' => $profile->id]) }}">削除/Delete</a>
                                     </div>
                                 </td>
                             </tr>

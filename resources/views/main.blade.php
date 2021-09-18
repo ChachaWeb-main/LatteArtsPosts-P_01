@@ -2,7 +2,7 @@
 @extends('layouts.admin')
 
 {{-- admin.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
-@section('title', 'メインページ')
+@section('title', 'メイン')
 
 {{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
 @section('content')
@@ -12,7 +12,7 @@
 <!--<div class="bg-image-2">-->
     <div class="bg-mask"> <!--bg-imageを透過させるためのdivタブ-->
     <div class="row py-lg-5">
-        <div class="top-container col-lg-8 col-md-10 mx-auto">
+        <div class="col-lg-8 col-md-10 mx-auto">
             <h1>@guest ようこそ " ゲスト/ Guest " さん @else ようこそ <a href="/admin/mypage">" {{ Auth::user()->name }} "</a> さん☕ @endguest</h1>
             <br>
             <br>
@@ -30,7 +30,7 @@
                 <a href="" class="btn btn-secondary my-2" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('ログアウト/Logout') }}</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
             @endguest
-            <a href="/admin/latte/create" class="btn btn-primary my-2">ラテアート新規投稿/New Post for LatteArt</a>
+            <a href="/admin/latte/create" class="btn btn-warning my-2">ラテアート新規投稿/New Post for LatteArt</a>
         </div>
     </div>
     </div>

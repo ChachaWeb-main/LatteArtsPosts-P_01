@@ -27,10 +27,10 @@
         <br>
         
         <h3>プロフィール</h3>
-        <!-- views/admin/member/index.blade.php -->
+        <!-- views/admin/profile/index.blade.php -->
         <div class="container">
             <div class="row">
-                <div class="list-member col-md-11 mx-auto">
+                <div class="list-profile col-md-11 mx-auto">
                     <table class="table table-dark">
                         <thead>
                             <tr>
@@ -44,22 +44,22 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <!--memberから指定した値を都度取得 User → Member １対１のリレーション-->
-                                <td>{{ \Str::limit($logged_in_user->member->name, 20) }}</td>
+                                <!--profileから指定した値を都度取得 User → Profile １対１のリレーション-->
+                                <td>{{ \Str::limit($logged_in_user->profile->name, 20) }}</td>
                                 @php
-                                    $row_date = \Carbon\Carbon::parse($logged_in_user->member->created_at);
+                                    $row_date = \Carbon\Carbon::parse($logged_in_user->profile->created_at);
                                     $row_date->setToStringFormat('Y/m/d H:i');
                                 @endphp
                                 <td>{{ \Str::limit($row_date, 50) }}</td>
-                                <td>{{ \Str::limit($gender[$logged_in_user->member->gender], 20) }}</td>
-                                <td>{{ \Str::limit($logged_in_user->member->latteart, 50) }}</td>
-                                <td>{{ \Str::limit($logged_in_user->member->introduction, 100) }}</td>
+                                <td>{{ \Str::limit($gender[$logged_in_user->profile->gender], 20) }}</td>
+                                <td>{{ \Str::limit($logged_in_user->profile->latteart, 50) }}</td>
+                                <td>{{ \Str::limit($logged_in_user->profile->introduction, 100) }}</td>
                                 <td>
                                     <div>
-                                        <a href = "{{action('Admin\MemberController@edit', ['id' => $logged_in_user->member -> id]) }}" >編集/<br>Edit</a>
+                                        <a href = "{{action('Admin\ProfileController@edit', ['id' => $logged_in_user->profile->id]) }}" >編集/<br>Edit</a>
                                     </div>
                                     <div>
-                                        <a href = "{{action('Admin\MemberController@delete', ['id' => $logged_in_user->member -> id]) }}">削除/<br>Delete</a>
+                                        <a href = "{{action('Admin\ProfileController@delete', ['id' => $logged_in_user->profile->id]) }}">削除/<br>Delete</a>
                                     </div>
                                 </td>
                             </tr>
