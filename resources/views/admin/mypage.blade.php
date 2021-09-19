@@ -14,7 +14,7 @@
                     <a class="nav-link" href="/login">{{ __('Login') }}</a>
                 {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
                 @else
-                    <a href="" class="btn btn-secondary my-2" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('ログアウト/Logout') }}</a>
+                    <a href="" class="btn btn-primary my-2" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('ログアウト/Logout') }}</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
                 @endguest
             </div>
@@ -77,7 +77,7 @@
             <div class="row">
                 <h3>投稿ラテアート一覧</h3>
                 <div class="col-md-4">
-                    <a href="{{ action('Admin\LatteController@add') }}" role="button" class="btn btn-primary">新規投稿</a>
+                    <a href="{{ action('Admin\LatteController@add') }}" role="button" class="btn btn-warning">新規投稿</a>
                 </div>
                 <div class="col-md-8">
                     <form action="{{ action('Admin\LatteController@index') }}" method="get">
@@ -94,7 +94,7 @@
                                 </div>
                             <div class="col-md-2">
                                 {{ csrf_field() }}
-                                <input type="submit" class="btn btn-primary" value="検索">
+                                <input type="submit" class="btn btn-success" value="検索">
                             </div>
                         </div>
                     </form>
@@ -150,6 +150,8 @@
                     </div>
                 </div>
             </div>
+            <br>
+            <a class="back-link fs-5" href="/main">戻る/Back</a>
         </div>
     </div>
 

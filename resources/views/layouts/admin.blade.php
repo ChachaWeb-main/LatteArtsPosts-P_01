@@ -36,7 +36,6 @@
     <body>
     
     <div id="app">
-        <!-- header -->
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
                 <div class="container">
@@ -74,7 +73,7 @@
         </header>
     </div>
     
-    <!-- main -->
+    <!-- main body-->
     <main class="py-4">
         {{-- コンテンツをここに入れるため、@yieldで空けておきます。 --}}
         @yield('content')

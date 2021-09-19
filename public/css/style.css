@@ -45,10 +45,6 @@ body {
   font-family: "Sawarabi Gothic", sans-serif;
 }
 
-.btn {
-  opacity: 0.8;
-}
-
 /* ---------- container ---------- */
 
 .user-name {
@@ -89,7 +85,8 @@ footer {
 /* -------- button ----------*/
 
 .btn {
-  box-shadow: 0 2px gray;
+  box-shadow: 0 3px gray;
+  opacity: 0.8;
 }
 
 .btn a:hover {
@@ -97,6 +94,8 @@ footer {
 }
 
 .btn:active {
+  position: relative;
+  top: 5px;
   box-shadow: none;
 }
 
