@@ -99,6 +99,14 @@ footer {
   box-shadow: none;
 }
 
+/* ---------- comment 投稿部分 ----------*/
+
+.comment {
+  border-style: dashed;
+  border-width: 2px;
+  border-color: #DEB887;
+}
+
 /* ---------- term.blade.php ---------- */
 
 .term {

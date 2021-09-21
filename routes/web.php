@@ -17,7 +17,7 @@ Route::get('/main', 'HomeController@index')->name('main');//ホーム・メイ�
 Route::get('/', 'HomeController@index')->name('main');//ホーム・メインページ
 
 Route::get('/term', 'HomeController@term');//ラテアート解説ページ
-Route::get('/list', 'HomeController@list');//登録者プロフィール閲覧用
+Route::get('/info', 'HomeController@info');//登録者プロフィール閲覧用
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('latte/create', 'Admin\LatteController@add');

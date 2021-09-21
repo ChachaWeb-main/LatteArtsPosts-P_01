@@ -34,17 +34,17 @@ class LatteController extends Controller
         } else {
             $latte->image_path = null;
         }
-             // フォームから送信されてきた _token を削除する
-            unset($form['_token']);
-            // フォームから送信されてきた image を削除する
-            unset($form['image']);
-            //データベースに保存する
-            $latte->fill($form);
-            // Userとのリレーション
-            $latte->fill(['user_id' => Auth::user()->id]);
-            $latte->save();
-            // admin/latte/createにリダイレクトする
-            return redirect('/main');
+         // フォームから送信されてきた _token を削除する
+        unset($form['_token']);
+        // フォームから送信されてきた image を削除する
+        unset($form['image']);
+        //データベースに保存する
+        $latte->fill($form);
+        // Userとのリレーション
+        $latte->fill(['user_id' => Auth::user()->id]);
+        $latte->save();
+        // admin/latte/createにリダイレクトする
+        return redirect('/main');
     }  
     
     
@@ -104,9 +104,9 @@ class LatteController extends Controller
     public function delete(Request $request)
     {
         // 該当するLatte Modelを取得
-      $latte = Latte::find($request->id);
-      // 削除する
-      $latte->delete();
-      return redirect('admin/latte');
+        $latte = Latte::find($request->id);
+        // 削除する
+        $latte->delete();
+        return redirect('admin/latte');
     }
 }

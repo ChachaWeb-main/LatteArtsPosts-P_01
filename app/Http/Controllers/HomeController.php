@@ -32,10 +32,10 @@ class HomeController extends Controller
         $cond_title = $request->cond_title;
         if ($cond_title != '') {
             // 検索されたら検索結果を取得する。->指定した引数をページネーション
-            $posts = Latte::where('title', $cond_title)->paginate(7);
+            $posts = Latte::where('title', $cond_title)->paginate(3);
         } else {
             // それ以外は全てを取得する。orderBy以降で新着順に表示設定＝ソート。->指定した引数をページネーション
-            $posts = Latte::orderBy('created_at', 'DESC')->paginate(7);
+            $posts = Latte::orderBy('created_at', 'DESC')->paginate(3);
         }
         /*カリキュラムlaravel19 $headline = $posts->shift();では、
         　新着投稿を変数$headlineに代入し、$postsは代入された新着投稿以外が格納されている*/
@@ -55,9 +55,9 @@ class HomeController extends Controller
     }
     
     // 登録者プロフィール閲覧用。メインからニックネームリンクで飛ぶように
-    public function list() {
+    public function info() {
         
-        return view('/list');
+        return view('/info');
     }
 
 }

@@ -22,6 +22,14 @@ class ProfileController extends Controller
         return view('admin.mypage', ['gender' => $this->gender, 'logged_in_user' => $logged_in_user]);
     }
     
+    // 閲覧用メンバーinfo画面
+    public function info(Request $request) 
+    {
+        return;
+        dump($logged_in_user);
+        $logged_in_user = Auth::user();
+        return view('info', ['gender' => $this->gender, 'logged_in_user' => $logged_in_user]);
+    }
     
     public function add()
     {
@@ -30,7 +38,6 @@ class ProfileController extends Controller
         // dump($profile);
         return view('admin.profile.create');
     }
-    
     
     public function create(Request $request) 
     {
@@ -59,11 +66,8 @@ class ProfileController extends Controller
             $profile->fill($form)->save();
             return redirect('admin/mypage');
         }
-        
-       
         return redirect('admin/mypage');
     }
-    
     
     public function index(Request $request) 
     {
@@ -76,7 +80,6 @@ class ProfileController extends Controller
         return view('admin.profile.index', ['posts' => $posts, 'cond_title' => $cond_title, 'gender' => $this->gender]);
     }
     
-    
     public function edit(Request $request)
     {
       $profile = Profile::find($request->id);
@@ -85,7 +88,6 @@ class ProfileController extends Controller
       }
       return view('admin.profile.edit', ['profile_form' => $profile]);
     }
-    
     
     public function update(Request $request)
     {
@@ -99,12 +101,10 @@ class ProfileController extends Controller
       return redirect('admin/profile');
      }
     
-    
     public function delete(Request $request)
     {
       $profile = Profile::find($request->id);
       $profile->delete();
       return redirect('admin/profile');
     }
-    
 }

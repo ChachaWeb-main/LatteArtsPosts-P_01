@@ -23,7 +23,7 @@
         <br>
         <li><h2 id="latte_kind_03">３D</h2></li>
             <p>泡立てたミルクをのせ、モチーフを立体的に描く技法 ☕️</p>
-            <p>飲んでしまうのは勿体ないww</p>
+            <p>飲んでしまうのが勿体ない衝動間違いなしww</p>
             <img src="{{ asset('images/term03.jpeg') }}" alt="">
         <br>
     </ul>
