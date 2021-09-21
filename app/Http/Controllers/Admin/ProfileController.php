@@ -25,8 +25,6 @@ class ProfileController extends Controller
     // 閲覧用メンバーinfo画面
     public function info(Request $request) 
     {
-        return;
-        dump($logged_in_user);
         $logged_in_user = Auth::user();
         return view('info', ['gender' => $this->gender, 'logged_in_user' => $logged_in_user]);
     }
