@@ -1,16 +1,18 @@
 @extends('layouts.admin')
 
-@section('title', 'メインページ')
+@section('title', 'プロフィール')
 
 @section('content')
 
     <div class="container">
-        <h1>{{ \Str::limit($logged_in_user->member->name, 20) }} さん</h1>
+        <h1>{{ \Str::limit($logged_in_user->profile->name, 20) }} さん</h1>
+        <br>
+        <br>
         <h3>プロフィール</h3>
-        <!-- views/admin/member/index.blade.php -->
+        <!-- views/admin/profile/index.blade.php -->
         <div class="container">
             <div class="row">
-                <div class="list-member col-md-11 mx-auto">
+                <div class="list-profile col-md-11 mx-auto">
                     <div class="row">
                         <table class="table table-dark">
                             <thead>
@@ -25,16 +27,16 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <!--memberから指定した値を都度取得 User → Member １対１のリレーション-->
-                                    <td>{{ \Str::limit($logged_in_user->member->name, 20) }}</td>
+                                    <!--profileから指定した値を都度取得 User → Profile １対１のリレーション-->
+                                    <td>{{ \Str::limit($logged_in_user->profile->name, 20) }}</td>
                                     @php
-                                        $row_date = \Carbon\Carbon::parse($logged_in_user->member->created_at);
+                                        $row_date = \Carbon\Carbon::parse($logged_in_user->profile->created_at);
                                         $row_date->setToStringFormat('Y/m/d H:i');
                                     @endphp
                                     <td>{{ \Str::limit($row_date, 50) }}</td>
-                                    <td>{{ \Str::limit($gender[$logged_in_user->member->gender], 20) }}</td>
-                                    <td>{{ \Str::limit($logged_in_user->member->latteart, 50) }}</td>
-                                    <td>{{ \Str::limit($logged_in_user->member->introduction, 100) }}</td>
+                                    <td>{{ \Str::limit($gender[$logged_in_user->profile->gender], 20) }}</td>
+                                    <td>{{ \Str::limit($logged_in_user->profile->latteart, 50) }}</td>
+                                    <td>{{ \Str::limit($logged_in_user->profile->introduction, 100) }}</td>
                                 </tr>
                             </tbody>
                         </table>

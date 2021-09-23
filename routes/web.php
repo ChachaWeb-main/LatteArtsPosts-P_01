@@ -35,6 +35,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('profile', 'Admin\ProfileController@index');//登録情報の一覧
     
     Route::get('mypage', 'Admin\ProfileController@mypage');//ユーザーマイページ表示
+    // Route::get('info', 'Admin\ProfileController@info');//登録者プロフィール閲覧用
     
 });
 

@@ -15,18 +15,11 @@ class ProfileController extends Controller
     // 配列で変換
     public $gender = array('0'=>'男性(male)', '1'=>'女性(female)');
     
-    // プロフィールとラテ投稿一覧を表示
+    // 各ユーザー毎のマイページにプロフィールとラテ投稿一覧を表示
     public function mypage(Request $request) 
     {
         $logged_in_user = Auth::user();
         return view('admin.mypage', ['gender' => $this->gender, 'logged_in_user' => $logged_in_user]);
-    }
-    
-    // 閲覧用メンバーinfo画面
-    public function info(Request $request) 
-    {
-        $logged_in_user = Auth::user();
-        return view('info', ['gender' => $this->gender, 'logged_in_user' => $logged_in_user]);
     }
     
     public function add()

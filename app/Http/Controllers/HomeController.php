@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Profile;
 use App\Latte;
+use App\User;
+use Illuminate\Support\Facades\Auth; //Eloquentリレーションの際に追加した
 
 class HomeController extends Controller
 {
@@ -54,10 +57,15 @@ class HomeController extends Controller
         return view('/term');
     }
     
-    // 登録者プロフィール閲覧用。メインからニックネームリンクで飛ぶように
-    public function info() {
-        
-        return view('/info');
+    // 閲覧用メンバーinfo画面 。メインからニックネームリンクで飛ぶように
+    public function info(Request $request) 
+    {
+        $logged_in_user = Auth::user();
+        return view('info', ['gender' => $this->gender, 'logged_in_user' => $logged_in_user]);
     }
 
+    // 配列で変換
+    public $gender = array('0'=>'男性(male)', '1'=>'女性(female)');
+    
+    
 }
