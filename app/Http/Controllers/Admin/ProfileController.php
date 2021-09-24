@@ -60,6 +60,7 @@ class ProfileController extends Controller
         return redirect('admin/mypage');
     }
     
+    // 全登録ユーザー表示
     public function index(Request $request) 
     {
         $cond_title = $request->cond_title;

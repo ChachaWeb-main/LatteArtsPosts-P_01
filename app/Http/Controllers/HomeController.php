@@ -60,12 +60,19 @@ class HomeController extends Controller
     // 閲覧用メンバーinfo画面 。メインからニックネームリンクで飛ぶように
     public function info(Request $request) 
     {
-        $logged_in_user = Auth::user();
-        return view('info', ['gender' => $this->gender, 'logged_in_user' => $logged_in_user]);
+        $validatedData = $request->validate ([
+            'user_id' => 'required',
+        ]);
+        $user_id = $request->user_id;
+        $targetUser = User::where('id',$user_id)->first();
+        // $logged_in_user = Auth::user();
+        // dump($targetUser);
+        // dump(config('const.gender')[$targetUser->profile->gender]);
+        // return;
+        return view('info', ['targetUser' => $targetUser]);
     }
 
     // 配列で変換
     public $gender = array('0'=>'男性(male)', '1'=>'女性(female)');
-    
-    
+
 }

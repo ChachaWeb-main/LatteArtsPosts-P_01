@@ -10950,3 +10950,7 @@ a.text-dark:focus {
   z-index: 2;
 }
 
+table td {
+  word-break: break-all;
+}
+

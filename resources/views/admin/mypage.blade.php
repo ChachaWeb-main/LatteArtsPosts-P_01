@@ -28,13 +28,13 @@
         <div class="container">
             <div class="row">
                 <div class="list-profile col-md-11 mx-auto">
-                    <table class="table table-dark">
+                    <table class="table table-primary">
                         <thead>
                             <tr>
-                                <th width="20%">ニックネーム</th>
-                                <th width="5%">登録日</th>
-                            　　<th width="5%">性別</th>
-                            　　<th width="30%">会得ラテアート</th>
+                                <th width="12%">ニックネーム</th>
+                                <th width="13%">登録日</th>
+                            　　<th width="10%">性別</th>
+                            　　<th width="20%">会得ラテアート</th>
                                 <th width="30%">自己紹介</th>
                                 <th width="10%">操作</th>
                             </tr>

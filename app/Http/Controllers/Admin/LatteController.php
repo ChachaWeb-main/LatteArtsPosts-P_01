@@ -47,7 +47,7 @@ class LatteController extends Controller
         return redirect('/main');
     }  
     
-    
+    // 全ユーザーの投稿一覧表示
     public function index(Request $request) 
     {
         // 投稿を表示する
