@@ -107,7 +107,7 @@ footer {
 .btn a:hover {
 	filter: drop-shadow(1px 1px 1px silver);
 }
-
+//影を利用してボタンがクリックする動き
 .btn:active {
     position: relative;
     top: 5px;

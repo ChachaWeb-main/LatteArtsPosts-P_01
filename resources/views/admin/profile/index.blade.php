@@ -7,14 +7,15 @@
 <div class="container">
     <div class="row">
         <h2>登録メンバー</h2>
-        <div class="list-profile col-md-11 mx-auto">
+        <div class="list-profile col-md-12 mx-auto">
             <div class="row">
                 <table class="table table-primary">
                     <thead>
                         <tr>
+                            <th width="50px">ID</th>
                             <th width="500px">ニックネーム</th>
-                            <th width="380px">登録日</th>
-                        　　<th width="500px">性別</th>
+                            <th width="330px">登録日</th>
+                        　　<th width="300px">性別</th>
                         　　<th width="500px">会得ラテアート</th>
                             <th width="500px">自己紹介</th>
                             <th width="300px">操作</th>
@@ -23,6 +24,7 @@
                     <tbody>
                         @foreach($posts as $profile)
                             <tr>
+                                <td>{{ $profile->id }}</td>
                                 <td>{{ \Str::limit($profile->name, 20) }}</td>
                                 @php
                                     $row_date = \Carbon\Carbon::parse($profile->created_at);
