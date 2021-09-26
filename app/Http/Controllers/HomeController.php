@@ -74,5 +74,18 @@ class HomeController extends Controller
 
     // 配列で変換
     public $gender = array('0'=>'男性(male)', '1'=>'女性(female)');
+    
+    
+    // 全登録ユーザー表示
+    public function name(Request $request) 
+    {
+        $cond_title = $request->cond_title;
+        if ($cond_title != '') {
+            $posts = Profile::where('title', $cond_title)->get();
+        } else {
+            $posts = Profile::orderBy('created_at', 'DESC')->get();
+        }
+        return view('/main', ['posts' => $posts, 'cond_title' => $cond_title]);
+    }
 
 }

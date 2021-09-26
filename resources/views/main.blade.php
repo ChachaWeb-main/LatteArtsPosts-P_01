@@ -170,12 +170,15 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-person-lines-fill text-success" viewBox="0 0 16 16">
                       <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
                     </svg>
-                    登録メンバー　※ここに人数カウンターも実装したい
+                    登録メンバー
                 </div>
                 <!--<div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!<br>-->
                 <!--                       これらのサイドウィジェットの中には、好きなものを入れることができます。 それらは使いやすく、Bootstrap 5カードコンポーネントを備えています！<br>-->
                 <!--</div>-->
                     <p>ここにはニックネームのみ表示させ、名をクリックで各userのマイページ閲覧用へ飛ぶリンクを</p>
+                    @foreach($posts as $profile)
+                        <a class="text-center fs-4 fst-italic" href="/info?user_id={{ $profile->user->id }}">{{ \Str::limit($profile->user->profile->name) }}</a>
+                    @endforeach
                     
             </div>
         </div>
