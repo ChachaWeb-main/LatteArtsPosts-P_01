@@ -2,7 +2,7 @@
 @extends('layouts.admin')
 
 {{-- admin.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
-@section('title', 'ラテアート投稿一覧')
+@section('title', '全ラテアート投稿一覧')
 
 {{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
 @section('content')
@@ -59,22 +59,7 @@
                                 <td>{{ \Str::limit($latte->design, 50) }}</td>
                                 <td>{{ \Str::limit($latte->draw, 100) }}</td>
                                 <td>{{ \Str::limit($latte->text, 100) }}</td>
-                                <td>
-                                     <!--ハンバーガーメニュー実装下書き -->
-                                    <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">-->
-                                    <!--  <span class="navbar-toggler-icon"></span>-->
-                                    <!--</button>-->
-                                     <!--ナビゲーションメニュー -->
-                                    <!--<div class="collapse navbar-collapse" id="navbarNav">-->
-                                    <!--  <ul class="navbar-nav">-->
-                                    <!--    <li class="nav-item active">-->
-                                    <!--      <a class="nav-link" href="{{action('Admin\LatteController@edit', ['id' => $latte -> id]) }}" >編集/<br>Edit</a>-->
-                                    <!--    </li>-->
-                                    <!--    <li class="nav-item">-->
-                                    <!--      <a class="nav-link" href="{{action('Admin\LatteController@delete', ['id' => $latte -> id]) }}">削除/<br>Delete</a>-->
-                                    <!--  </ul>-->
-                                    <!--</div>-->
-                                    
+                                <td
                                     <div>
                                         <a href = "{{action('Admin\LatteController@edit', ['id' => $latte -> id]) }}" >編集/Edit</a>
                                     </div>

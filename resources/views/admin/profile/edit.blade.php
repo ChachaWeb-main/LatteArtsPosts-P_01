@@ -12,11 +12,11 @@
                     <form action="{{ action('Admin\ProfileController@update')}}" method="post" entype="multipart/form-data">
                     
                     @if (count($errors) > 0)
-                      <ul>
-                          @foreach($errors->all() as $e)
-                            <li>{{ $e }}</li>
-                          @endforeach    
-                      </ul>
+                        <ul class="errors">
+                            @foreach($errors->all() as $e)
+                                <li>{{ $e }}</li>
+                            @endforeach    
+                        </ul>
                     @endif
                     
                     <input type="hidden" name="id" value="{{ $profile_form->id }}">

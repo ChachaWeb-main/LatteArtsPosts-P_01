@@ -13,12 +13,12 @@
                 <h2>投稿編集</h2>
                 <form action="{{ action('Admin\LatteController@update')}}" method="post" enctype="multipart/form-data">
                     {{-- 以下で投稿データ保存設定・カラム・マイグレーション --}}
-                    @if (count($errors) > 0)
-                      <ul>
-                          @foreach($errors->all() as $e)
-                            <li>{{ $e }}</li>
-                          @endforeach    
-                      </ul>
+                        @if (count($errors) > 0)
+                        <ul class="errors">
+                            @foreach($errors->all() as $e)
+                                <li>{{ $e }}</li>
+                            @endforeach    
+                        </ul>
                     @endif
                     
                     <div class="form-group row">

@@ -14,7 +14,7 @@
                 <form action="{{ action('Admin\LatteController@create')}}" method="post" enctype="multipart/form-data">
                     {{-- 以下で投稿データ保存設定・カラム・マイグレーション --}}
                     @if (count($errors) > 0)
-                      <ul>
+                      <ul class="errors">
                           @foreach($errors->all() as $e)
                             <li>{{ $e }}</li>
                           @endforeach    
@@ -24,14 +24,14 @@
                     <div class="form-group row">
                         <label class="col-md-2">デザイン</label>
                         <div class="col-md-10">
-                            <input type="text" class="col-md-5" name="design" value="{{ old('design') }}">
+                            <input type="text" class="col-md-5" name="design" value="{{ old('design') }}" required min="2" maxlength="30">
                         </div>
                     </div>
                     
                     <div class="form-group row">
                         <label class="col-md-2">描き方</label>
                         <div class="col-md-10">
-                            <select name="draw">
+                            <select name="draw" required>
                                 <option value="">--選択してください--</option>
                                 <option value="フリーポア">フリーポア</option>
                                 <option value="エッチング">エッチング</option>
@@ -44,14 +44,14 @@
                     <div class="form-group row">
                         <label class="col-md-2">フリーテキスト</label>
                         <div class="col-md-10">
-                            <textarea class="col-md-10" name="text" rows="10">{{ old('text') }}</textarea>
+                            <textarea class="col-md-10" name="text" rows="10" required>{{ old('text') }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">画像 or 動画<br>※サイズは2Mまで※</label>
                         
                         <div class="col-md-10">
-                            <input type="file" class="form-control-file" name="image">
+                            <input type="file" class="form-control-file" name="image" required>
                         </div>
                     </div>
                     

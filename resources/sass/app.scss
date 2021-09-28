@@ -17,7 +17,12 @@
     z-index: 2;
 }
 
-
+//DBテーブル テキスト折り返し
 table td {
   word-break : break-all;
+}
+
+//エラーメッセージ
+ul.errors > li {
+    color: red;
 }
