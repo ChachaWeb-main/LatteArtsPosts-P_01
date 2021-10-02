@@ -15,8 +15,16 @@ class Latte extends Model
         'text' => 'required|max:300'
     );
     
-    public function user() {
+    // 登録ユーザ毎とのリレーション
+    public function user() 
+    {
         return $this->belongsTo('App\User');
+    }
+    
+    // 良いね機能とのリレーション
+    public function likes() 
+    {
+        return $tihs->hasMany('App\Like');
     }
     
 }

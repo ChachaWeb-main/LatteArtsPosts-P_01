@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Profile;
 use App\Latte;
 use App\User;
+use App\Like;
 use Illuminate\Support\Facades\Auth; //Eloquentリレーションの際に追加した
 
 class HomeController extends Controller
@@ -52,12 +53,12 @@ class HomeController extends Controller
     }
 
     // 用語解説ページ
-    public function term() {
-        
+    public function term() 
+    {
         return view('/term');
     }
     
-    // 閲覧用メンバーinfo画面 。メインからニックネームリンクで飛ぶように
+    // 閲覧用メンバーinfo画面。メインからニックネームリンクで飛ぶように
     public function info(Request $request) 
     {
         $validatedData = $request->validate ([
@@ -65,10 +66,7 @@ class HomeController extends Controller
         ]);
         $user_id = $request->user_id;
         $targetUser = User::where('id',$user_id)->first();
-        // $logged_in_user = Auth::user();
-        // dump($targetUser);
-        // dump(config('const.gender')[$targetUser->profile->gender]);
-        // return;
+
         return view('info', ['targetUser' => $targetUser]);
     }
 
@@ -76,7 +74,7 @@ class HomeController extends Controller
     public $gender = array('0'=>'男性(male)', '1'=>'女性(female)');
     
     
-    // 全登録ユーザー表示
+    // 全登録ユーザー ニックネーム(name)表示
     public function name(Request $request) 
     {
         $cond_title = $request->cond_title;
@@ -86,6 +84,14 @@ class HomeController extends Controller
             $posts = Profile::orderBy('created_at', 'DESC')->get();
         }
         return view('/main', ['posts' => $posts, 'cond_title' => $cond_title]);
+    }
+    
+    
+    // イイねボタンを表示
+    public function show(Latte $latte)
+    {
+        $like = Like::where('latte_id', $latte->id)->where('user_id', auth()->user()->id)->first();
+        return view('latte.show', compact('latte', 'like'));
     }
 
 }

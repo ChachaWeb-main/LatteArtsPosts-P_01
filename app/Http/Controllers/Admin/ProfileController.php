@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Profile;
 use App\Latte;
 use App\User;
+use App\like;
 use Carbon\Carbon; //保存日時
 use Illuminate\Support\Facades\Auth; //Eloquentリレーションの際に追加した
 

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Latte; //Latte Modelが使えるようになる
 use App\User;
 use App\Profile;
+use App\Like;
 use Carbon\Carbon; //保存日時
 use Illuminate\Support\Facades\Auth;
 

@@ -10,16 +10,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    
-    // 「１対１」→ メソッド名は単数形
+    // 「１対１」→ メソッド名は単数形 プロフィール Profileモデルとのリレーション
     public function profile()
     {
         // Memberモデルのデータを引っ張てくる
         return $this->hasOne('App\Profile');
     }
     
-    
-    // 「１対多」の「多」側 → メソッド名は複数形
+    // 「１対多」の「多」側 → メソッド名は複数形 ラテ投稿 Latteモデルとのリレーション
     public function lattes()
     {
         
@@ -27,6 +25,11 @@ class User extends Authenticatable
     }
     
     
+    // 良いね機能 Likeモデルとのリレーション
+    public function likes()
+    {
+        return $tihs->hasMany('App\Like');
+    }
     
     use Notifiable;
 
