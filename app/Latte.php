@@ -24,7 +24,7 @@ class Latte extends Model
     // 良いね機能とのリレーション
     public function likes() 
     {
-        return $tihs->hasMany('App\Like');
+        return $this->hasMany('App\Like');
     }
     
 }

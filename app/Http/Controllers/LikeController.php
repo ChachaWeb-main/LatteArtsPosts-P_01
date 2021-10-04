@@ -15,7 +15,7 @@ class LikeController extends Controller
         $like = New Like();
         $like->latte_id = $latte->id;
         $like->user_id = Auth::user()->id;
-        $like->save;
+        $like->save();
         return back();
     }
     
@@ -23,8 +23,7 @@ class LikeController extends Controller
     public function unlike(Latte $latte, Request $request)
     {
         $user = Auth::user()->id;
-        $like = Like::where('latte_id', $latte->id)->where('user_id', $user)->first();
-        $like->delete();
+        $like = Like::where('latte_id', $latte->id)->where('user_id', $user)->delete();
         return back();
     }
     

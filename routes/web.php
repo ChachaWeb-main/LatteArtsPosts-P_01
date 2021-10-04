@@ -19,8 +19,8 @@ Route::get('/', 'HomeController@index')->name('main');//ホーム・メインペ
 Route::get('/term', 'HomeController@term');//ラテアート解説ページ
 Route::get('/info', 'HomeController@info');//登録者プロフィール閲覧用
 
-Route::get('/reply/like/{latte}', 'LikeController@nice')->name('like');//良いね機能
-Route::get('/reply/unlike/{latte}', 'LikeController@unnice')->name('like');//良いね取り消し機能
+Route::get('/like/{latte}', 'LikeController@like')->name('like');//良いね機能
+Route::get('/unlike/{latte}', 'LikeController@unlike')->name('unlike');//良いね取り消し機能
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('latte/create', 'Admin\LatteController@add');
