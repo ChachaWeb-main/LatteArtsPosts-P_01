@@ -99,6 +99,18 @@ footer {
   box-shadow: none;
 }
 
+/* ---------- イイねボタン ----------*/
+
+.like {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.badge {
+  font-size: 14px;
+  color: #CC6600;
+}
+
 /* ---------- comment 投稿部分 ----------*/
 
 .comment {

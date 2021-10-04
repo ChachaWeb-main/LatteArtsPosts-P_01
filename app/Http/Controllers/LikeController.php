@@ -14,17 +14,17 @@ class LikeController extends Controller
     {
         $like = New Like();
         $like->latte_id = $latte->id;
-        $like->user_id = Auth::user()->id;
+        $like->user_id = 0; //Auth::user()->id;
         $like->save();
         return back();
     }
     
     // イイね取り消しのメソッド
-    public function unlike(Latte $latte, Request $request)
-    {
-        $user = Auth::user()->id;
-        $like = Like::where('latte_id', $latte->id)->where('user_id', $user)->delete();
-        return back();
-    }
+    // public function unlike(Latte $latte, Request $request)
+    // {
+    //     $user = Auth::user()->id;
+    //     $like = Like::where('latte_id', $latte->id)->where('user_id', $user)->delete();
+    //     return back();
+    // }
     
 }
