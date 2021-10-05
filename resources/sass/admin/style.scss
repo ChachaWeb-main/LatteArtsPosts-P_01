@@ -8,7 +8,7 @@
 
 .header-image {
     width: 220px;
-    height: 110px;
+    height: 120px;
 }
 
 .navbar-brand {
@@ -84,6 +84,12 @@ body {
 }
 
 
+/* --------- post-section ----------*/
+.draw {
+    margin-bottom: 20px;
+}
+
+
 /* ---------- footer ---------- */
 footer {
     text-align: center;
@@ -107,7 +113,7 @@ footer {
 .btn a:hover {
 	filter: drop-shadow(1px 1px 1px silver);
 }
-//影を利用してボタンがクリックする動き
+  //影を利用してボタンがクリックする動き
 .btn:active {
     position: relative;
     top: 5px;
@@ -118,21 +124,33 @@ footer {
 /* ---------- イイねボタン ----------*/
 .like {
     font-size: 14px;
-    font-weight: bold;
+    // font-weight: bold;
+    margin-top: 7px;
+}
+
+i {
+    font-size: 19px;
 }
 
 .badge {
     font-size: 14px;
-    color: #CC6600;
+    color: red;
 }
 
+.heart {
+    color: red;
+}
+
+.count-like {
+    margin-left: 9px;
+}
 
 /* ---------- comment 投稿部分 ----------*/
 .comment {
     border-style: dashed;
     border-width: 2px;
     border-color: #DEB887;
-    
+    padding: 5px;
 }
 
 
@@ -161,7 +179,7 @@ footer {
 
 
 /* ---------- javascript ----------*/
-// pagetopボタンアクション
+ // pagetopボタンアクション
 .pagetop {
   display: none;
   

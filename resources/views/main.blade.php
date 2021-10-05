@@ -17,7 +17,7 @@
                     <h1 class="user-name">@guest ようこそ " ゲスト/ Guest " さん @else ようこそ <a href="/admin/mypage">" {{ Auth::user()->name }} "</a> さん☕ @endguest</h1>
                     <br>
                     <br>
-                    <h2 class="display-5 text-dark fst-italic">Everyone's Latte Art☕️</h2>
+                    <h2 class="display-5 text-dark fst-italic">☕Everyone's Latte Art☕️</h2>
                     <p class="lead fs-5 text-dark fst-italic fw-bold lh-lg">このサイトでは皆さんが<br>
                         描いたラテアートを投稿シェアすることが出来ます。<br>
                         さあ、あなたのラテアートを見てもらいましょう！！<br>
@@ -56,26 +56,37 @@
                         <a href="/info?user_id={{ $latest_post->user->id }}">『{{ \Str::limit($latest_post->user->profile->name) }}』</a>
                     </h2>
                     <p class="card-title h5">️デザイン☕『{{ \Str::limit($latest_post->design) }}』</p>
-                    <p class="card-text h5">描き方
+                    <p class="draw card-text h5">描き方
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-brush-fill" viewBox="0 0 16 16">
                           <path d="M15.825.12a.5.5 0 0 1 .132.584c-1.53 3.43-4.743 8.17-7.095 10.64a6.067 6.067 0 0 1-2.373 1.534c-.018.227-.06.538-.16.868-.201.659-.667 1.479-1.708 1.74a8.117 8.117 0 0 1-3.078.132 3.658 3.658 0 0 1-.563-.135 1.382 1.382 0 0 1-.465-.247.714.714 0 0 1-.204-.288.622.622 0 0 1 .004-.443c.095-.245.316-.38.461-.452.393-.197.625-.453.867-.826.094-.144.184-.297.287-.472l.117-.198c.151-.255.326-.54.546-.848.528-.739 1.2-.925 1.746-.896.126.007.243.025.348.048.062-.172.142-.38.238-.608.261-.619.658-1.419 1.187-2.069 2.175-2.67 6.18-6.206 9.117-8.104a.5.5 0 0 1 .596.04z"/>
                         </svg>『{{ \Str::limit($latest_post->draw) }}』
                     </p>
+                    
                     <!-- イイねボタン -->
-                    @if($latest_post->likes->count() < 0)
-                        <a href="{{ route('like', $latest_post) }}" class="btn btn-secondary btn-sm">
+                    @if($latest_post->likes->count() <= 0)
+                        <a href="{{ route('like', $latest_post) }}" class="like btn btn-light btn-sm">
+                            <!-- ハートマーク -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="heart bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                              <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>
+                            </svg>
+                            <!-- 「イイね」の数を表示 -->
+                            <span class="badge">
+                               {{ $latest_post->likes->count() }} 
+                            </span>
+                        </a>
                     @else
-                    <a href="{{ route('like', $latest_post) }}" class="like btn btn-success btn-sm">
-                        イイね！/ Like！
-                        <!-- 「イイね」の数を表示 -->
-                        <span class="badge">
-                           {{ $latest_post->likes->count() }} 
-                        </span>
-                    </a>
+                        <a href="{{ route('like', $latest_post) }}" class="like btn btn-success btn-sm">
+                            <!-- ハートマーク -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="heart bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                              <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>
+                            </svg>
+                            <!-- 「イイね」の数を表示 -->
+                            <span class="badge">
+                               {{ $latest_post->likes->count() }} 
+                            </span>
+                        </a>
                     @endif
-                    <span>
-                        <img src="{{ asset("images/likeButton.jpg")}}" width="50px">
-                    </span>
+                    
                     <p class="card-text">
                         <!--<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chat-right-text" viewBox="0 0 16 16">-->
                         <!--  <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z"/>-->
@@ -89,6 +100,7 @@
                 </div>
             </div>
             @endif
+            
             <div class="col-lg-12">
                 <div class="row">
                     @foreach($posts as $latte)
@@ -108,26 +120,38 @@
                                         <a href="/info?user_id={{ $latte->user->id }}">『{{ \Str::limit($latte->user->profile->name) }}』</a>
                                     </h2>
                                     <p class="card-title h5">️デザイン☕『{{ \Str::limit($latte->design) }}』</p>
-                                    <p class="card-text h5">描き方
+                                    <p class="draw card-text h5">描き方
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-brush-fill" viewBox="0 0 16 16">
                                           <path d="M15.825.12a.5.5 0 0 1 .132.584c-1.53 3.43-4.743 8.17-7.095 10.64a6.067 6.067 0 0 1-2.373 1.534c-.018.227-.06.538-.16.868-.201.659-.667 1.479-1.708 1.74a8.117 8.117 0 0 1-3.078.132 3.658 3.658 0 0 1-.563-.135 1.382 1.382 0 0 1-.465-.247.714.714 0 0 1-.204-.288.622.622 0 0 1 .004-.443c.095-.245.316-.38.461-.452.393-.197.625-.453.867-.826.094-.144.184-.297.287-.472l.117-.198c.151-.255.326-.54.546-.848.528-.739 1.2-.925 1.746-.896.126.007.243.025.348.048.062-.172.142-.38.238-.608.261-.619.658-1.419 1.187-2.069 2.175-2.67 6.18-6.206 9.117-8.104a.5.5 0 0 1 .596.04z"/>
                                         </svg>『{{ \Str::limit($latte->draw) }}』
                                     </p>
+                                    
                                     <!-- イイねボタン -->
-                                    @if($latte->likes->count() < 0)
-                                        <a href="{{ route('like', $latte) }}" class="btn btn-secondary btn-sm">
-                                    @else
-                                    <a href="{{ route('like', $latte) }}" class="like btn btn-success btn-sm">
-                                        イイね！/ Like！
-                                        <!-- 「イイね」の数を表示 -->
-                                        <span class="badge">
-                                           {{ $latte->likes->count() }} 
-                                        </span>
-                                    </a>
+                                    @if($latte->likes->count() <= 0)
+                                        <i class="count-like far fa-thumbs-up"></i>
+                                            <!-- 「イイね」の数を表示 -->
+                                            <span class="badge">
+                                               {{ $latte->likes->count() }} 
+                                            </span>
+                                        <br>
+                                        <a href="{{ route('like', $latte) }}" class="like btn btn-light btn-sm">
+                                            <i class="far fa-thumbs-up"></i>
+                                            イイね / Like
+                                        </a>
+                                        @else
+                                        <i class="count-like far fa-thumbs-up"></i>
+                                            <!-- 「イイね」の数を表示 -->
+                                            <span class="badge">
+                                               {{ $latte->likes->count() }} 
+                                            </span>
+                                        <br>
+                                        <a href="{{ route('like', $latte) }}" class="like btn btn-success btn-sm">
+                                            <!-- イイねイラスト -->
+                                            <i class="far fa-thumbs-up"></i>
+                                            イイね / Like
+                                        </a>
                                     @endif
-                                    <span>
-                                        <img src="{{ asset("images/likeButton.jpg")}}" width="50px">
-                                    </span>
+                                    
                                     <p class="card-text">
                                         <!--<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-right-text" viewBox="0 0 16 16">-->
                                         <!--  <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z"/>-->

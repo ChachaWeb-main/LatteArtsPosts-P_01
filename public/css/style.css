@@ -8,7 +8,7 @@
 
 .header-image {
   width: 220px;
-  height: 110px;
+  height: 120px;
 }
 
 .navbar-brand {
@@ -68,6 +68,12 @@ body {
   margin: 20px auto;
 }
 
+/* --------- post-section ----------*/
+
+.draw {
+  margin-bottom: 20px;
+}
+
 /* ---------- footer ---------- */
 
 footer {
@@ -103,12 +109,24 @@ footer {
 
 .like {
   font-size: 14px;
-  font-weight: bold;
+  margin-top: 7px;
+}
+
+i {
+  font-size: 19px;
 }
 
 .badge {
   font-size: 14px;
-  color: #CC6600;
+  color: red;
+}
+
+.heart {
+  color: red;
+}
+
+.count-like {
+  margin-left: 9px;
 }
 
 /* ---------- comment 投稿部分 ----------*/
@@ -117,6 +135,7 @@ footer {
   border-style: dashed;
   border-width: 2px;
   border-color: #DEB887;
+  padding: 5px;
 }
 
 /* ---------- term.blade.php ---------- */
