@@ -109,7 +109,9 @@ footer {
 
 .like {
   font-size: 14px;
-  margin-top: 7px;
+  margin-top: 3px;
+  margin-bottom: 4px;
+  border-radius: 20px;
 }
 
 i {
@@ -117,16 +119,19 @@ i {
 }
 
 .badge {
-  font-size: 14px;
   color: red;
+  font-size: 14px;
+  margin-bottom: 2px;
 }
 
 .heart {
   color: red;
+  margin-left: 8px;
+  margin-bottom: 2px;
 }
 
 .count-like {
-  margin-left: 9px;
+  margin-left: 8px;
 }
 
 /* ---------- comment 投稿部分 ----------*/

@@ -48,7 +48,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">画像 or 動画<br>※サイズは2Mまで※</label>
+                        <label class="col-md-2">画像<br>※サイズは2Mまで※</label>
                         
                         <div class="col-md-10">
                             <input type="file" class="form-control-file" name="image" required>

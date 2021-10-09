@@ -91,8 +91,8 @@ class HomeController extends Controller
     public function show(Latte $latte)
     {
         $like = Like::where('latte_id', $latte->id)->where('user_id', auth()->user()->id)->first();
-        dump($like);
-        return;
+        // dump($like);
+        // return;
         return view('latte.show', compact('latte', 'like'));
     }
 

@@ -14,7 +14,7 @@
             <div class="bg-mask"> <!--bg-imageを透過させるためのdivタブ-->
             <div class="row py-lg-5">
                 <div class="col-lg-8 col-md-10 mx-auto">
-                    <h1 class="user-name">@guest ようこそ " ゲスト/ Guest " さん @else ようこそ <a href="/admin/mypage">" {{ Auth::user()->name }} "</a> さん☕ @endguest</h1>
+                    <h1 class="user-name">@guest ようこそ " ゲスト/ Guest " さん @else ようこそ <a href="/admin/mypage">" {{ Auth::user()->name }} "</a> さん @endguest</h1>
                     <br>
                     <br>
                     <h2 class="display-5 text-dark fst-italic">☕Everyone's Latte Art☕️</h2>
@@ -44,7 +44,7 @@
     <div class="row">
         <div class="col-lg-8">
             @if (!is_null($latest_post))
-            <div class="card mb-4">
+            <div class="card mb-4 bg-light">
                 <a href="#!"><img class="card-img-top" src="{{ asset('storage/image/' . $latest_post->image_path) }}" width="550" height="500" alt="..." /></a>
                 <div class="card-body">
                   　<div class="small text-muted">{{ \Str::limit($latest_post->created_at) }}</div>
@@ -62,28 +62,33 @@
                         </svg>『{{ \Str::limit($latest_post->draw) }}』
                     </p>
                     
-                    <!-- イイねボタン -->
+                    <!-- イイねボタン latest post -->
                     @if($latest_post->likes->count() <= 0)
+                        <!-- ハートマーク -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="heart bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                          <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>
+                        </svg>
+                        <!-- 「イイね」の数を表示 -->
+                         <span class="badge">
+                           {{ $latest_post->likes->count() }} 
+                        </span>
+                        <br>
                         <a href="{{ route('like', $latest_post) }}" class="like btn btn-light btn-sm">
-                            <!-- ハートマーク -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="heart bi bi-suit-heart-fill" viewBox="0 0 16 16">
-                              <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>
-                            </svg>
-                            <!-- 「イイね」の数を表示 -->
-                            <span class="badge">
-                               {{ $latest_post->likes->count() }} 
-                            </span>
+                            イイね / Like
                         </a>
                     @else
+                        <!-- ハートマーク -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="heart bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                          <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>
+                        </svg>
+                        <!-- 「イイね」の数を表示 -->
+                         <span class="badge">
+                           {{ $latest_post->likes->count() }} 
+                        </span>
+                        <br>
                         <a href="{{ route('like', $latest_post) }}" class="like btn btn-success btn-sm">
-                            <!-- ハートマーク -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="heart bi bi-suit-heart-fill" viewBox="0 0 16 16">
-                              <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>
-                            </svg>
-                            <!-- 「イイね」の数を表示 -->
-                            <span class="badge">
-                               {{ $latest_post->likes->count() }} 
-                            </span>
+                            <!-- イイねイラスト -->
+                            イイね / Like
                         </a>
                     @endif
                     
@@ -108,7 +113,7 @@
                                 $row_date = \Carbon\Carbon::parse($latte->created_at);
                                 $row_date->setToStringFormat('Y/m/d H:i');
                             @endphp
-                            <div class="card col-lg-6">
+                            <div class="card col-lg-6 bg-light">
                                 <a href="#!"><img class="card-img-top" src="{{ asset('storage/image/' . $latte->image_path) }}" width="600" height="300" alt="..." /></a>
                                 <div class="card-body">
                                     <div class="small text-muted">{{ \Str::limit($latte->created_at) }}</div>
@@ -135,7 +140,6 @@
                                             </span>
                                         <br>
                                         <a href="{{ route('like', $latte) }}" class="like btn btn-light btn-sm">
-                                            <i class="far fa-thumbs-up"></i>
                                             イイね / Like
                                         </a>
                                         @else
@@ -147,7 +151,6 @@
                                         <br>
                                         <a href="{{ route('like', $latte) }}" class="like btn btn-success btn-sm">
                                             <!-- イイねイラスト -->
-                                            <i class="far fa-thumbs-up"></i>
                                             イイね / Like
                                         </a>
                                     @endif
@@ -229,7 +232,7 @@
                 <!--<div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!<br>-->
                 <!--                       これらのサイドウィジェットの中には、好きなものを入れることができます。 それらは使いやすく、Bootstrap 5カードコンポーネントを備えています！<br>-->
                 <!--</div>-->
-                    <p>ここにはニックネームのみ表示させ、名をクリックで各userのマイページ閲覧用へ飛ぶリンクを</p>
+                    <p>/ここには全登録ユーザーのニックネームのみ表示させ、名をクリックで各userのマイページ閲覧用へ飛ぶリンクを/</p>
                     @foreach($posts as $profile)
                         <a class="text-center fs-4 fst-italic" href="/info?user_id={{ $profile->user->id }}">{{ \Str::limit($profile->user->profile->name) }}</a>
                     @endforeach

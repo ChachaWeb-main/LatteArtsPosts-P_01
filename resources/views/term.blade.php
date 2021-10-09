@@ -29,7 +29,7 @@
     </ul>
     <br>
     <br>
-    <a class="fs-5" href="/main">戻る/Back</a>
+    &laquo;  <a class="fs-7" href="/main">戻る/Back</a>
 </div>
     
 
