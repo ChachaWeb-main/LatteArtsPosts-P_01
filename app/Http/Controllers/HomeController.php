@@ -32,8 +32,9 @@ class HomeController extends Controller
     {
         // ページネーションの実装
         $sort = $request->sort;
+        
         // 投稿を表示する
-        $cond_title = $request->cond_title;
+        $cond_title = $request->cond_title; //cond_title = 検索するための機能
         if ($cond_title != '') {
             // 検索されたら検索結果を取得する。->指定した引数をページネーション
             $posts = Latte::where('title', $cond_title)->paginate(7);
@@ -41,6 +42,7 @@ class HomeController extends Controller
             // それ以外は全てを取得する。orderBy以降で新着順に表示設定＝ソート。->指定した引数をページネーション
             $posts = Latte::orderBy('created_at', 'DESC')->paginate(7);
         }
+        
         /*カリキュラムlaravel19 $headline = $posts->shift();では、
         　新着投稿を変数$headlineに代入し、$postsは代入された新着投稿以外が格納されている*/
         if (count($posts) > 0) {
@@ -49,7 +51,11 @@ class HomeController extends Controller
             $latest_post = null;
         }
         
-        return view('main', ['posts' => $posts, 'cond_title' => $cond_title, 'latest_post' => $latest_post, 'sort' => $sort]);
+        //profileの全データ取得(サイドウィジェットにニックネームのみ表示のため) withCount()->()内の数をカウント
+        $users = User::orderBy('created_at', 'DESC')->withCount("lattes")->get();
+        
+        
+        return view('main', ['posts' => $posts, 'cond_title' => $cond_title, 'latest_post' => $latest_post, 'sort' => $sort, 'users' => $users]);
     }
 
     // 用語解説ページ
@@ -72,19 +78,6 @@ class HomeController extends Controller
 
     // 配列で変換
     public $gender = array('0'=>'男性(male)', '1'=>'女性(female)');
-    
-    
-    // 全登録ユーザー ニックネーム(name)表示
-    public function name(Request $request) 
-    {
-        $cond_title = $request->cond_title;
-        if ($cond_title != '') {
-            $posts = Profile::where('title', $cond_title)->get();
-        } else {
-            $posts = Profile::orderBy('created_at', 'DESC')->get();
-        }
-        return view('/main', ['posts' => $posts, 'cond_title' => $cond_title]);
-    }
     
     
     // イイねボタンを表示

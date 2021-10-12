@@ -17,4 +17,10 @@ class Profile extends Model
         'introduction' => 'required|max:300'
     );
     
+    //userとのリレーション
+    public function user() 
+    {
+        return $this->belongsTo('App\User');
+    }
+    
 }

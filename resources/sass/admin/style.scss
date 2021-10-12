@@ -90,6 +90,19 @@ body {
 }
 
 
+/* --------- Side widget ---------*/
+.side-widget-name {
+    font-size: 22px;
+    text-align: center;
+    letter-spacing: 0.2em;
+}
+
+.side-widget-count {
+    font-size: 15px;
+    text-align: center;
+}
+
+
 /* ---------- footer ---------- */
 footer {
     text-align: center;
@@ -106,7 +119,7 @@ footer {
 
 /* -------- button ----------*/
 .btn {
-    box-shadow: 0 3px gray;
+    box-shadow: 0 2px gray;
     opacity: 0.8;
 }
 
@@ -146,7 +159,7 @@ i {
     margin-bottom: 2px;
 }
 
-.count-like {
+.good {
     margin-left: 8px;
 }
 
@@ -194,10 +207,13 @@ i {
   text-decoration: none;
   border-radius: 50%;
   
+  background-color: rgb(125, 125, 125, 0.5);
+  
   position: fixed;
   bottom: 15px;
   right: 15px;
 }
+
 
 .pagetop:hover {
 //   background-color: #33ccff;
