@@ -85,6 +85,11 @@ body {
 
 
 /* --------- post-section ----------*/
+.date {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
 .draw {
     margin-bottom: 20px;
 }
@@ -117,7 +122,13 @@ footer {
 }
 
 
-/* -------- button ----------*/
+/* --------- text テキスト ---------- */
+// .text {
+//     letter-spacing: 0.2em;
+// }
+
+
+/* -------- button ボタン ----------*/
 .btn {
     box-shadow: 0 2px gray;
     opacity: 0.8;
@@ -135,14 +146,6 @@ footer {
 
 
 /* ---------- イイねボタン ----------*/
-.like {
-    font-size: 14px;
-    // font-weight: bold;
-    margin-top: 3px;
-    margin-bottom: 4px;
-    border-radius: 20px;
-}
-
 i {
     font-size: 19px;
 }
@@ -153,15 +156,26 @@ i {
     margin-bottom: 2px;
 }
 
-.heart {
+// .heart {
+//     color: red;
+//     margin-left: 8px;
+//     margin-bottom: 2px;
+// }
+
+.good {
     color: red;
     margin-left: 8px;
     margin-bottom: 2px;
 }
 
-.good {
-    margin-left: 8px;
+.like {
+    font-size: 14px;
+    // font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 20px;
 }
+
 
 /* ---------- comment 投稿部分 ----------*/
 .comment {
@@ -169,6 +183,13 @@ i {
     border-width: 2px;
     border-color: #DEB887;
     padding: 5px;
+}
+
+
+/* ---------- icon アイコン ---------- */
+.ranking {
+    color: #FFD700;
+    font-size: 22px;
 }
 
 

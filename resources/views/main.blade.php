@@ -47,7 +47,7 @@
             <div class="card mb-4 bg-light">
                 <a href="#!"><img class="card-img-top" src="{{ asset('storage/image/' . $latest_post->image_path) }}" width="550" height="500" alt="..." /></a>
                 <div class="card-body">
-                  　<div class="small text-muted">{{ \Str::limit($latest_post->created_at) }}</div>
+                  　<div class="date small text-muted">{{ \Str::limit($latest_post->created_at) }}</div>
                     <h2 class="card-title h4">投稿者
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-badge" viewBox="0 0 16 16">
                           <path d="M6.5 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -55,7 +55,7 @@
                         </svg>
                         <a href="/info?user_id={{ $latest_post->user->id }}">『{{ \Str::limit($latest_post->user->profile->name) }}』</a>
                     </h2>
-                    <p class="card-title h5">️デザイン☕『{{ \Str::limit($latest_post->design) }}』</p>
+                    <p class="card-title h5">️デザイン <i class="fas fa-image"></i>『{{ \Str::limit($latest_post->design) }}』</p>
                     <p class="draw card-text h5">描き方
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-brush-fill" viewBox="0 0 16 16">
                           <path d="M15.825.12a.5.5 0 0 1 .132.584c-1.53 3.43-4.743 8.17-7.095 10.64a6.067 6.067 0 0 1-2.373 1.534c-.018.227-.06.538-.16.868-.201.659-.667 1.479-1.708 1.74a8.117 8.117 0 0 1-3.078.132 3.658 3.658 0 0 1-.563-.135 1.382 1.382 0 0 1-.465-.247.714.714 0 0 1-.204-.288.622.622 0 0 1 .004-.443c.095-.245.316-.38.461-.452.393-.197.625-.453.867-.826.094-.144.184-.297.287-.472l.117-.198c.151-.255.326-.54.546-.848.528-.739 1.2-.925 1.746-.896.126.007.243.025.348.048.062-.172.142-.38.238-.608.261-.619.658-1.419 1.187-2.069 2.175-2.67 6.18-6.206 9.117-8.104a.5.5 0 0 1 .596.04z"/>
@@ -73,23 +73,29 @@
                            {{ $latest_post->likes->count() }} 
                         </span>
                         <br>
+                        @auth <!-- ログイン時のみイイねボタン表示 -->
                         <a href="{{ route('like', $latest_post) }}" class="like btn btn-light btn-sm">
-                            イイね / Like
+                            イイね / like
                         </a>
+                        @endauth
                     @else
                         <!-- ハートマーク -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="heart bi bi-suit-heart-fill" viewBox="0 0 16 16">
-                          <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>
-                        </svg>
+                        <!--<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="heart bi bi-suit-heart-fill" viewBox="0 0 16 16">-->
+                        <!--  <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>-->
+                        <!--</svg>-->
+                        <!-- goodマーク -->
+                        <i class="good far fa-thumbs-up"></i>
                         <!-- 「イイね」の数を表示 -->
-                         <span class="badge">
+                        <span class="badge">
                            {{ $latest_post->likes->count() }} 
                         </span>
                         <br>
+                        @auth
                         <a href="{{ route('like', $latest_post) }}" class="like btn btn-success btn-sm">
                             <!-- イイねイラスト -->
-                            イイね / Like
+                            イイね / like
                         </a>
+                        @endauth
                     @endif
                     
                     <p class="card-text">
@@ -116,7 +122,7 @@
                             <div class="card col-lg-6 bg-light">
                                 <a href="#!"><img class="card-img-top" src="{{ asset('storage/image/' . $latte->image_path) }}" width="600" height="300" alt="..." /></a>
                                 <div class="card-body">
-                                    <div class="small text-muted">{{ \Str::limit($latte->created_at) }}</div>
+                                    <div class="date small text-muted">{{ \Str::limit($latte->created_at) }}</div>
                                     <h2 class="card-title h4">投稿者
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-badge" viewBox="0 0 16 16">
                                           <path d="M6.5 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -124,7 +130,7 @@
                                         </svg>
                                         <a href="/info?user_id={{ $latte->user->id }}">『{{ \Str::limit($latte->user->profile->name) }}』</a>
                                     </h2>
-                                    <p class="card-title h5">️デザイン☕『{{ \Str::limit($latte->design) }}』</p>
+                                    <p class="card-title h5">️デザイン <i class="fas fa-image"></i>『{{ \Str::limit($latte->design) }}』</p>
                                     <p class="draw card-text h5">描き方
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-brush-fill" viewBox="0 0 16 16">
                                           <path d="M15.825.12a.5.5 0 0 1 .132.584c-1.53 3.43-4.743 8.17-7.095 10.64a6.067 6.067 0 0 1-2.373 1.534c-.018.227-.06.538-.16.868-.201.659-.667 1.479-1.708 1.74a8.117 8.117 0 0 1-3.078.132 3.658 3.658 0 0 1-.563-.135 1.382 1.382 0 0 1-.465-.247.714.714 0 0 1-.204-.288.622.622 0 0 1 .004-.443c.095-.245.316-.38.461-.452.393-.197.625-.453.867-.826.094-.144.184-.297.287-.472l.117-.198c.151-.255.326-.54.546-.848.528-.739 1.2-.925 1.746-.896.126.007.243.025.348.048.062-.172.142-.38.238-.608.261-.619.658-1.419 1.187-2.069 2.175-2.67 6.18-6.206 9.117-8.104a.5.5 0 0 1 .596.04z"/>
@@ -140,20 +146,24 @@
                                                {{ $latte->likes->count() }} 
                                             </span>
                                         <br>
+                                        @auth
                                         <a href="{{ route('like', $latte) }}" class="like btn btn-light btn-sm">
-                                            イイね / Like
+                                            イイね / like
                                         </a>
-                                        @else
+                                        @endauth
+                                    @else
                                         <i class="good far fa-thumbs-up"></i>
                                             <!-- 「イイね」の数を表示 -->
                                             <span class="badge">
                                                {{ $latte->likes->count() }} 
                                             </span>
                                         <br>
+                                        @auth
                                         <a href="{{ route('like', $latte) }}" class="like btn btn-success btn-sm">
                                             <!-- イイねイラスト -->
-                                            イイね / Like
+                                            イイね / like
                                         </a>
+                                        @endauth
                                     @endif
                                     
                                     <p class="card-text">
@@ -194,8 +204,8 @@
                 </div>
                 <div class="card-body">
                     <div class="input-group">
-                      <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                      <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                      <input class="form-control" type="text" placeholder="検索ワードを入力してください" aria-label="Enter search term..." aria-describedby="button-search" />
+                      <button class="btn btn-primary" id="button-search" type="button">検索/Go</button>
                     </div>
                 </div>
             </div>
@@ -225,10 +235,10 @@
             <!-- Side widget-->
             <div class="card mb-4">
                 <div class="card-header">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-person-lines-fill text-success" viewBox="0 0 16 16">
-                      <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
-                    </svg>
-                    登録メンバー一覧
+                    <!--<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-person-lines-fill text-success" viewBox="0 0 16 16">-->
+                    <!--  <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>-->
+                    <!--</svg>-->
+                     <i class="ranking fas fa-crown"></i> <span class="text">投稿数上位メンバー !<br>Top members by number of posts !</span>
                 </div>
                 <!--<div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!<br>-->
                 <!--                       これらのサイドウィジェットの中には、好きなものを入れることができます。 それらは使いやすく、Bootstrap 5カードコンポーネントを備えています！<br>-->

@@ -52,7 +52,7 @@ class HomeController extends Controller
         }
         
         //profileの全データ取得(サイドウィジェットにニックネームのみ表示のため) withCount()->()内の数をカウント
-        $users = User::orderBy('created_at', 'DESC')->withCount("lattes")->get();
+        $users = User::orderBy('lattes_count', 'DESC')->take(5)->withCount("lattes")->get();
         
         
         return view('main', ['posts' => $posts, 'cond_title' => $cond_title, 'latest_post' => $latest_post, 'sort' => $sort, 'users' => $users]);

@@ -46,23 +46,23 @@
                             <img class="header-image" src="{{ asset('images/latteart_wb.png') }}" alt="">
                             
                             <ul class="navbar-nav ms-auto mb-2 mb-lg-3">
-                                <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
+                                <li class="nav-item active"><a class="nav-link" href="/">Home<br>ホーム</a></li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">メニュー</a>
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu<br>メニュー</a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                       <!--<a class="dropdown-item" href="/register">利用登録</a>-->
-                                      <a class="dropdown-item" href="/admin/mypage">マイページ</a>
-                                      <a class="dropdown-item" href="/admin/latte/create">新規投稿</a>
+                                      <a class="dropdown-item" href="/admin/mypage">マイページ/My Page</a>
+                                      <a class="dropdown-item" href="/admin/latte/create">新規投稿/New Post</a>
                                     </div>
                                 </li> 
                                 <!--<li class="nav-item"><a class="nav-link" href="/admin/profile/create">利用登録</a></li>-->
                                 <!--<li class="nav-item"><a class="nav-link" href="/admin/mypage">マイページ</a></li>-->
                                 <!--<li class="nav-item"><a class="nav-link" href="/admin/latte/create">新規投稿</a></li>-->
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ラテアートの種類</a>
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">描き方の種類<br>Type of drawing</a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                      <a class="dropdown-item" href="/term#latte_kind_01">フリーポア</a>
-                                      <a class="dropdown-item" href="/term#latte_kind_02">エッチング</a>
+                                      <a class="dropdown-item" href="/term#latte_kind_01">フリーポア/Free Pour</a>
+                                      <a class="dropdown-item" href="/term#latte_kind_02">エッチング/Etching</a>
                                       <a class="dropdown-item" href="/term#latte_kind_03">3D</a>
                                     </div>
                                 </li> 
