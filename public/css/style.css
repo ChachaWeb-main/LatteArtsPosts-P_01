@@ -31,7 +31,7 @@ main > section .bg-image-1 {
   background-image: url(/images/barista01.jpg?2fa3ca008e626fde1f5332238da9e64f);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 720px;
+  background-size: 770px;
 }
 
 .bg-mask {
