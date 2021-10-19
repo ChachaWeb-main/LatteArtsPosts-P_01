@@ -12,10 +12,10 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-5 col-form-label text-md-right">{{ __('名前/Name') }}</label>
+                            <label for="name" class="col-md-5 col-form-label text-md-right">{{ __('名前') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Name">
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -26,10 +26,10 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-5 col-form-label text-md-right">{{ __('メールアドレス/E-Mail Address') }}</label>
+                            <label for="email" class="col-md-5 col-form-label text-md-right">{{ __('メールアドレス') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder= "E-Mail Address">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -40,10 +40,10 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-5 col-form-label text-md-right">{{ __('パスワード/Password') }}</label>
+                            <label for="password" class="col-md-5 col-form-label text-md-right">{{ __('パスワード') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -54,16 +54,16 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-5 col-form-label text-md-right">{{ __('パスワード再確認/Confirm Password') }}</label>
+                            <label for="password-confirm" class="col-md-5 col-form-label text-md-right">{{ __('パスワード再確認') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
                             </div>
                         </div>
-
+                        
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-5">
-                                <button type="submit" class="btn btn-primary">
+                            <div class="col-md-6 offset-md-5 mt-3 mb-1">
+                                <button type="submit" class="btn mypf-submit-button">
                                     {{ __('登録/Register') }}
                                 </button>
                             </div>
