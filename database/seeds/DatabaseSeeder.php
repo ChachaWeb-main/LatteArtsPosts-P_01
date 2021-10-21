@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'DAISUKE SASAKI',
             'email' => 'tyatya1702@gmail.com',
             'password' => bcrypt('testpass'),
+            // 'role' => 'owner'
         ]);
     }
 }
