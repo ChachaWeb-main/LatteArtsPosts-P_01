@@ -59,7 +59,7 @@
                                 <!--<li class="nav-item"><a class="nav-link" href="/admin/mypage">マイページ</a></li>-->
                                 <!--<li class="nav-item"><a class="nav-link" href="/admin/latte/create">新規投稿</a></li>-->
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">各描き方について<br>About how to write</a>
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">描き方について<br>How to draw</a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                       <a class="dropdown-item" href="/term#latte_kind_01">フリーポア/Free Pour</a>
                                       <a class="dropdown-item" href="/term#latte_kind_02">エッチング/Etching</a>
@@ -94,28 +94,28 @@
         <script>
             const topLink = document.getElementById("top");
             let scrollValue;
-            // 画面をスクロールするたびにイベントを発生させる
+            <!--画面をスクロールするたびにイベントを発生させる-->
             window.addEventListener("scroll", () => {
               scrollValue = document.scrollingElement.scrollTop;
             
               <!--設定したスクロール量を超えるかどうかでボタンの表示・非表示を切り替える-->
-              if (scrollValue >= 600) {
-                topLink.style.display = "inline"; //ボタンを表示
-              } else if (scrollValue < 600) {
-                topLink.style.display = "none"; //ボタンを非表示
+              if (scrollValue >= 2500) {
+                topLink.style.display = "inline"; <!--ボタンを表示-->
+              } else if (scrollValue < 2500) {
+                topLink.style.display = "none"; <!--ボタンを非表示-->
               }
             });
             
             
-            //画面トップに戻る際にアニメーションさせる
+            <!--画面トップに戻る際にアニメーションさせる-->
             topLink.addEventListener("click", () => {
               
-              //一定の間隔で繰り返し処理する
+              <!--一定の間隔で繰り返し処理する-->
               const timer = setInterval(() => {
-                if (scrollValue < 0) clearInterval(timer);//トップに戻ったらタイマーをリセット
+                if (scrollValue < 0) clearInterval(timer); <!--トップに戻ったらタイマーをリセット-->
                 
                 document.scrollingElement.scrollTop = scrollValue;
-                scrollValue = scrollValue - 100; //スクロール量を設定数値ずつ減らしていく
+                scrollValue = scrollValue - 100; <!--スクロール量を設定数値ずつ減らしていく-->
               });
             });
         </script>

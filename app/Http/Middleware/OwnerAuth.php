@@ -16,11 +16,9 @@ class OwnerAuth
     
     public function handle($request, Closure $next)
     {
-        // dd(auth()->check(), auth()->user()->role);
         if(auth()->check() && auth()->user()->id == 1) {
             return $next($request);
         }
         return redirect('/main');
     }
-    
 }

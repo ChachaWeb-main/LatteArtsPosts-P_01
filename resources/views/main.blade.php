@@ -10,39 +10,37 @@
 <section class="py-1 text-center container">
     <div class="top-wrapper">
         <div class="bg-image-1">
-        <!--<div class="bg-image-2">-->
             <div class="bg-mask"> <!--bg-imageを透過させるためのdivタブ-->
-            <div class="row py-lg-5">
-                <div class="col-lg-8 col-md-10 mx-auto">
-                    <h1 class="user-name">
-                    @guest 
-                        ようこそ <span class="text-danger"> ゲスト/ Guest </span> さん 
-                    @else 
-                        ようこそ <a href="/admin/mypage"> {{ Auth::user()->name }} </a> さん 
-                    @endguest
-                    </h1>
-                    <br>
-                    <br>
-                    <h2 class="display-5 text-dark fst-italic">☕Everyone's Latte Art☕️</h2>
-                    <p class="lead fs-5 text-secondary fst-italic fw-bold lh-lg">このサイトでは皆さんが<br>
-                        描いたラテアートを投稿シェアすることが出来ます。<br>
-                        さあ、あなたのラテアートを見てもらいましょう！！<br>
-                        This site is a place to post and share the latte art you drew.<br>
-                        Let's have a look at your latte art! !!
-                    </p>
-                    @guest
-                        <a href="/login" class="btn btn-primary my-2" >{{ __('ログイン/Login') }}</a>
-                    {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
-                    @else
-                        <a href="" class="btn btn-primary my-2" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('ログアウト/Logout') }}</a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
-                    @endguest
-                    <a href="/admin/latte/create" class="btn btn-warning my-2">ラテアート投稿/Post for LatteArt</a>
+                <div class="row py-lg-5">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                        <h1 class="user-name">
+                        @guest 
+                            ようこそ <span class="text-danger"> ゲスト/ Guest </span> さん 
+                        @else 
+                            ようこそ <a href="/admin/mypage"> {{ Auth::user()->name }} </a> さん 
+                        @endguest
+                        </h1>
+                        <br>
+                        <br>
+                        <h2 class="display-5 text-dark fst-italic">☕Everyone's Latte Art☕️</h2>
+                        <p class="lead fs-5 text-secondary fst-italic fw-bold lh-lg">このサイトでは皆さんが<br>
+                            描いたラテアートを投稿シェアすることが出来ます。<br>
+                            さあ、あなたのラテアートを見てもらいましょう！！<br>
+                            This site is a place to post and share the latte art you drew.<br>
+                            Let's have a look at your latte art! !!
+                        </p>
+                        @guest
+                            <a href="/login" class="btn btn-primary my-2 fw-bold" >{{ __('ログイン/Login') }}</a>
+                        {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
+                        @else
+                            <a href="" class="btn btn-primary my-2 fw-bold" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('ログアウト/Logout') }}</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
+                        @endguest
+                        <a href="/admin/latte/create" class="btn btn-warning fw-bold my-2">ラテアート投稿/Post for LatteArt</a>
+                    </div>
                 </div>
             </div>
-            </div>
         </div>
-        <!--</div>-->
     </div>
 </section>
 
@@ -68,48 +66,36 @@
                             </svg>『{{ \Str::limit($latest_post->draw) }}』
                         </p>
                         
-                        <!-- イイねボタン latest post -->
-                        @if ($latest_post->likes->count() <= 0)
-                            <!-- ハートマーク -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="heart bi bi-suit-heart-fill" viewBox="0 0 16 16">
-                              <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>
-                            </svg>
-                            <!-- 「イイね」の数を表示 -->
-                             <span class="badge">
-                               {{ $latest_post->likes->count() }} 
-                            </span>
+                        {{-- イイねボタン latest post --}}
+                        {{-- ユーザ毎に押されたイイねは済表示になるように pluck(user_id)で押したユーザーIDを取得し,
+                        collection型になっているため、toArray()で取得したIDを連想配列に、in_arrayで押したユーザーのIDがあるか--}}
+                        @if(in_array(Auth::user()->id, $latest_post->likes->pluck('user_id')->toArray()))
+                            {{-- goodマーク --}}
+                            <i class="good far fa-thumbs-up"></i>
+                                {{-- 「イイね」の数を表示 --}}
+                                <span class="badge">
+                                   {{ $latest_post->likes->count() }} 
+                                </span>
                             <br>
-                            @auth <!-- ログイン時のみイイねボタン表示 -->
-                            <a href="{{ route('like', $latest_post) }}" class="like btn btn-light btn-sm">
-                                イイね / like
+                            @auth
+                                <span class="fw-bold text-secondary">イイね済</span>
                             </a>
                             @endauth
                         @else
-                            <!-- ハートマーク -->
-                            <!--<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="heart bi bi-suit-heart-fill" viewBox="0 0 16 16">-->
-                            <!--  <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>-->
-                            <!--</svg>-->
-                            <!-- goodマーク -->
+                        {{-- もし押したユーザーのIDが存在しないなら、そのままイイねボタン表示 --}}
                             <i class="good far fa-thumbs-up"></i>
-                            <!-- 「イイね」の数を表示 -->
-                            <span class="badge">
-                               {{ $latest_post->likes->count() }} 
-                            </span>
+                                <span class="badge">
+                                   {{ $latest_post->likes->count() }} 
+                                </span>
                             <br>
                             @auth
                             <a href="{{ route('like', $latest_post) }}" class="like btn btn-success btn-sm">
-                                <!-- イイねイラスト -->
                                 イイね / like
                             </a>
                             @endauth
                         @endif
                         
                         <p class="card-text">
-                            <!--<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chat-right-text" viewBox="0 0 16 16">-->
-                            <!--  <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z"/>-->
-                            <!--  <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>-->
-                            <!--</svg>-->
-                            <!--<br>-->
                             <div class="comment">
                             {{ \Str::limit($latest_post->text) }}
                             </div>
@@ -143,64 +129,56 @@
                                         </svg>『{{ \Str::limit($latte->draw) }}』
                                     </p>
                                     
-                                    <!-- イイねボタン -->
-                                    @if($latte->likes->count() <= 0)
-                                        <!-- goodマーク -->
+                                    {{-- イイねボタン --}}
+                                    {{-- ユーザ毎に押されたイイねは済表示になるように pluck(user_id)で押したユーザーIDを取得し,
+                                    collection型になっているため、toArray()で取得したIDを連想配列に、in_arrayで押したユーザーのIDがあるか--}}
+                                    @if(in_array(Auth::user()->id, $latte->likes->pluck('user_id')->toArray()))
+                                        {{-- goodマーク --}}
                                         <i class="good far fa-thumbs-up"></i>
-                                            <!-- 「イイね」の数を表示 -->
+                                            {{-- 「イイね」の数を表示 --}}
                                             <span class="badge">
                                                {{ $latte->likes->count() }} 
                                             </span>
                                         <br>
                                         @auth
-                                        <a href="{{ route('like', $latte) }}" class="like btn btn-light btn-sm">
-                                            イイね / like
+                                            <span class="fw-bold text-secondary">イイね済</span>
                                         </a>
                                         @endauth
                                     @else
+                                    {{-- もし押したユーザーのIDが存在しないなら、そのままイイねボタン表示 --}}
                                         <i class="good far fa-thumbs-up"></i>
-                                            <!-- 「イイね」の数を表示 -->
                                             <span class="badge">
                                                {{ $latte->likes->count() }} 
                                             </span>
                                         <br>
                                         @auth
                                         <a href="{{ route('like', $latte) }}" class="like btn btn-success btn-sm">
-                                            <!-- イイねイラスト -->
                                             イイね / like
                                         </a>
                                         @endauth
                                     @endif
                                     
                                     <p class="card-text">
-                                        <!--<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-right-text" viewBox="0 0 16 16">-->
-                                        <!--  <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z"/>-->
-                                        <!--  <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>-->
-                                        <!--</svg>-->
-                                        <!--<br>-->
                                         <div class="comment">
                                         {{ \Str::limit($latte->text) }}
                                         </div>
                                     </p>
-                                    <!--<a class="btn btn-primary" href="#!">Read more →</a>-->
                                 </div>
                             </div>
                     @endforeach
                 </div>
             </div>
-            <!-- Pagination ページネーション-->
+            {{-- Pagination ページネーション--}}
             <nav aria-label="Pagination">
                 <hr class="my-0" />
                 <ul class="pagination justify-content-center my-4">
-                    <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a></li>
                     {{ $posts->links() }}
-                    <li class="page-item"><a class="page-link" href="#!">Next</a></li>
                 </ul>
             </nav>
         </div>
-        <!-- Side widgets-->
+        {{-- Side widgets--}}
         <div class="col-lg-4">
-            <!-- Search widget-->
+            {{-- Search widget--}}
             <div class="card mb-4">
                 <div class="card-header">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -210,50 +188,23 @@
                 </div>
                 <div class="card-body">
                     <div class="input-group">
-                      <input class="form-control" type="text" placeholder="検索ワードを入力してください" aria-label="Enter search term..." aria-describedby="button-search" />
-                      <button class="btn btn-primary" id="button-search" type="button">検索/Go</button>
+                        <form>
+                        <input class="form-control" type="text" placeholder="検索ワード" aria-label="Enter search term..." aria-describedby="button-search" />
+                        <input class="btn btn-primary" id="button-search" type="submit" value="検索" >
+                        </form>
                     </div>
                 </div>
             </div>
-            <!-- Categories widget-->
-            <!--<div class="card mb-4">-->
-            <!--    <div class="card-header">用語/Terminology</div>-->
-            <!--    <div class="card-body">-->
-            <!--        <div class="row">-->
-            <!--            <div class="col-sm-6">-->
-            <!--                <ul class="list-unstyled mb-0">-->
-            <!--                    <li><a href="/term">フリーポア</a></li>-->
-            <!--                    <li><a href="/term">エッチング</a></li>-->
-            <!--                    <li><a href="/term">3D</a></li>-->
-            <!--                </ul>-->
-            <!--            </div>-->
-                        <!--<div class="col-sm-6">-->
-                        <!--    <ul class="list-unstyled mb-0">-->
-                        <!--        <li><a href="#!">******</a></li>-->
-                        <!--        <li><a href="#!">******</a></li>-->
-                        <!--        <li><a href="#!">******</a></li>-->
-                        <!--    </ul>-->
-                        <!--</div>-->
-            <!--        </div>-->
-            <!--    </div>-->
-            <!--</div>-->
             
-            <!-- Side widget-->
+            {{-- Side widget--}}
             <div class="card mb-4">
                 <div class="card-header">
-                    <!--<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-person-lines-fill text-success" viewBox="0 0 16 16">-->
-                    <!--  <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>-->
-                    <!--</svg>-->
-                     <i class="ranking fas fa-crown"></i> <span class="text">投稿数上位メンバー !<br>Top members by number of posts !</span>
+                    <i class="ranking fas fa-crown"></i> <span class="text">投稿数上位メンバー !<br>Top members by number of posts !</span>
                 </div>
-                <!--<div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!<br>-->
-                <!--                       これらのサイドウィジェットの中には、好きなものを入れることができます。 それらは使いやすく、Bootstrap 5カードコンポーネントを備えています！<br>-->
-                <!--</div>-->
                     @foreach($users as $user)
                         <a class="side-widget-name" href="/info?user_id={{ $user->id }}">{{ \Str::limit($user->profile->name) }}</a>
-                        <p class="side-widget-count">投稿数 {{ $user->lattes_count }}</p>
+                        <p class="side-widget-count">投稿数 <span class="post-count">{{ $user->lattes_count }}</span></p>
                     @endforeach
-                    
             </div>
         </div>
     </div>

@@ -22,6 +22,7 @@ Route::get('/info', 'HomeController@info');//各ユーザー毎のプロフィ�
 Route::get('/like/{latte}', 'LikeController@like')->name('like');//良いね機能
 Route::get('/unlike/{latte}', 'LikeController@unlike')->name('unlike');//良いね取り消し機能
 
+// 権限付きログイン
 Route::group(['middleware' => 'owner_auth'], function () {
     Route::get('admin/latte', 'Admin\LatteController@index');//投稿の一覧
     Route::get('admin/profile', 'Admin\ProfileController@index');//登録情報の一覧

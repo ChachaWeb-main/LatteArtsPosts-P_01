@@ -13,7 +13,7 @@ class Profile extends Model
     public static $rules = array(
         'name' => 'required|min:2|max:15', 
         'gender' => 'required', 
-        'latteart' => 'required:100', 
+        'latteart' => 'required|max:100', 
         'introduction' => 'required|max:300'
     );
     

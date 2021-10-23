@@ -8,9 +8,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <h2>Myプロフィール</h2>
+                <h3>プロフィール登録<br>Register of Profile</h3>
+                <br>
                     <form action="{{ action('Admin\ProfileController@create')}}" method="post" entype="multipart/form-data">
-                    
                     @if (count($errors) > 0)
                       <ul class="errors">
                           @foreach($errors->all() as $e)
@@ -19,14 +19,14 @@
                       </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-3">ニックネーム</label>
+                        <label class="col-md-4 fw-bold">ニックネーム<br>Nick name</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="name" value="{{ old('name') }}" required min="2" maxlength="30">
                         </div>
                     </div>
                     
                     <div class="form-group row">
-                        <label class="col-md-3">性別 (Gender)</label>
+                        <label class="col-md-3 fw-bold">性別<br>Gender</label>
                         <div class="col-md-10">
                             <div>
                               <input type="radio" id="男性 (Male)" name="gender" value="0" checked >
@@ -40,14 +40,14 @@
                     </div>
                     
                     <div class="form-group row">
-                        <label class="col-md-3">会得ラテアート</label>
+                        <label class="col-md-3 fw-bold">得意なラテアート<br>Good at LatteArt</label>
                         <div class="col-md-10">
                             <textarea class="form-control" name="latteart" rows="2" required>{{ old('latteart') }} </textarea>
                         </div>
                     </div>
                     
                     <div class="form-group row">
-                        <label class="col-md-3">自己紹介 (Introduction)</label>
+                        <label class="col-md-3 fw-bold">自己紹介<br>Introduction</label>
                         <div class="col-md-10">
                             <textarea class="form-control" name="introduction" rows="10" required>{{ old('introduction') }}</textarea>
                     </div>

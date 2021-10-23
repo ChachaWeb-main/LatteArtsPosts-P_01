@@ -14,7 +14,7 @@ class LikeController extends Controller
     {
         $like = New Like();
         $like->latte_id = $latte->id;
-        $like->user_id = 0; //Auth::user()->id;
+        $like->user_id = Auth::user()->id;
         $like->save();
         return back();
     }

@@ -10958,3 +10958,83 @@ ul.errors > li {
   color: red;
 }
 
+/* ---------- login view ---------- */
+
+.mypf-login-input {
+  border-radius: 2px;
+  border: solid 1px #b2b2b2;
+  background-color: #ffffff;
+}
+
+.mypf-check-label {
+  font-family: YuGo;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+}
+
+.mypf-require-input-label {
+  border-radius: 1px;
+  background-color: #e2001b;
+}
+
+.mypf-require-input-label-text {
+  font-family: YuGo;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+}
+
+.mypf-submit-button {
+  font-family: YuGo;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #b2b2b2;
+  color: #ffffff;
+  background-color: #0fbe9f;
+}
+
+.mypf-login-text {
+  font-family: YuGo;
+  font-size: 17px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #0fbe9f;
+}
+
+/* ---------- javascript ----------*/
+
+.pagetop {
+  display: none;
+  padding: 40px 10px;
+  background-color: #ffcc99;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50%;
+  background-color: rgba(125, 125, 125, 0.5);
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+}
+
+.pagetop:hover {
+  color: #fff;
+  filter: drop-shadow(2px 2px 2px silver);
+  cursor: pointer;
+}
+

@@ -13,6 +13,7 @@
     z-index: 1; // 数値が低い方が表示が上にくる
 
 }
+
 .dropdown-menu{
     z-index: 2;
 }
@@ -25,4 +26,90 @@ table td {
 //エラーメッセージ
 ul.errors > li {
     color: red;
+}
+
+/* ---------- login view ---------- */
+.mypf-login-input {
+    border-radius: 2px;
+    border: solid 1px #b2b2b2;
+    background-color: #ffffff;
+}
+
+.mypf-check-label {
+    font-family: YuGo;
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #000000;
+}
+
+.mypf-require-input-label {
+    border-radius: 1px;
+    background-color: #e2001b;
+}
+
+.mypf-require-input-label-text {
+    font-family: YuGo;
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #ffffff;
+}
+
+.mypf-submit-button {
+    font-family: YuGo;
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #b2b2b2;
+    color: #ffffff;
+    background-color: #0fbe9f;
+}
+
+.mypf-login-text {
+    font-family: YuGo;
+    font-size: 17px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #0fbe9f;
+}
+
+
+
+/* ---------- javascript ----------*/
+ // pagetopボタンアクション
+.pagetop {
+  display: none;
+  
+  padding: 40px 10px;
+  background-color: #ffcc99;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50%;
+  
+  background-color: rgb(125, 125, 125, 0.5);
+  
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+}
+
+
+.pagetop:hover {
+//   background-color: #33ccff;
+  color: #fff;
+  filter: drop-shadow(2px 2px 2px silver);
+  cursor: pointer;
 }
