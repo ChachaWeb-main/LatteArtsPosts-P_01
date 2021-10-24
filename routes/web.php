@@ -14,6 +14,7 @@
 Auth::routes();// ユーザー認証実装
 
 Route::get('/main', 'HomeController@index')->name('main');//ホーム・メインページ
+Route::get('/home', 'HomeController@index')->name('main');//ホーム・メインページ
 Route::get('/', 'HomeController@index')->name('main');//ホーム・メインページ
 
 Route::get('/term', 'HomeController@term');//ラテアート描き方解説ページ

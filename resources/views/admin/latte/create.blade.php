@@ -21,15 +21,15 @@
                       </ul>
                     @endif
                     
-                    <div class="form-group row">
-                        <label class="col-md-2">デザイン</label>
+                    <div class="form-group row mt-5 mb-4">
+                        <label class="col-md-2 fw-bold" >デザイン/ Design</label>
                         <div class="col-md-10">
-                            <input type="text" class="col-md-5" name="design" value="{{ old('design') }}" required min="2" maxlength="30">
+                            <input type="text" class="col-md-5" name="design" placeholder="例).ハート  ex).Heart" value="{{ old('design') }}" required min="2" maxlength="30">
                         </div>
                     </div>
                     
                     <div class="form-group row">
-                        <label class="col-md-2">描き方</label>
+                        <label class="col-md-2 mb-4 fw-bold">描き方/<br>How to draw</label>
                         <div class="col-md-10">
                             <select name="draw" required>
                                 <option value="">--選択してください--</option>
@@ -42,13 +42,13 @@
                     </div>
                     
                     <div class="form-group row">
-                        <label class="col-md-2">フリーテキスト</label>
+                        <label class="col-md-2 mb-4 fw-bold">フリーテキスト/<br>Free text</label>
                         <div class="col-md-10">
-                            <textarea class="col-md-10" name="text" rows="10" required>{{ old('text') }}</textarea>
+                            <textarea class="col-md-10" name="text"  placeholder="ラテアート出来栄えの感想など自由にコメントを書いてください/ Feel free to write your thoughts on this latte art." rows="10" required>{{ old('text') }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">画像<br>※サイズは2Mまで※</label>
+                        <label class="col-md-2 mb-4 fw-bold">画像/ Image<br><span class="text-danger">※サイズは2Mまで※</span></label>
                         
                         <div class="col-md-10">
                             <input type="file" class="form-control-file" name="image" required>

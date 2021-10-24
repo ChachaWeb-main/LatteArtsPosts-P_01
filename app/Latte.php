@@ -10,7 +10,7 @@ class Latte extends Model
     protected $guarded = array('id');
     
     public static $rules = array(
-        'design' => 'required',
+        'design' => 'required|max30',
         'draw' => 'required',
         'text' => 'required|max:300'
     );

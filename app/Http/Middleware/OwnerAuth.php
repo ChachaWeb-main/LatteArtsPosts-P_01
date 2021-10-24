@@ -13,7 +13,7 @@ class OwnerAuth
      * @param  \Closure  $next
      * @return mixed
      */
-    
+    // user id 1のみが設定したURLにアクセスできるように
     public function handle($request, Closure $next)
     {
         if(auth()->check() && auth()->user()->id == 1) {

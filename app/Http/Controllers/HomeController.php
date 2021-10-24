@@ -32,7 +32,6 @@ class HomeController extends Controller
     {
         // ページネーションの実装
         $sort = $request->sort;
-        
         // 投稿を表示する
         $cond_title = $request->cond_title; //cond_title = 検索するための機能
         if ($cond_title != '') {
@@ -42,8 +41,6 @@ class HomeController extends Controller
             // それ以外は全てを取得する。orderBy以降で新着順に表示設定＝ソート。->指定した引数をページネーション
             $posts = Latte::orderBy('created_at', 'DESC')->paginate(9);
         }
-        
-        // dump(in_array(2, $posts[0]->likes->pluck('user_id')->toArray()));
         
         /*カリキュラムlaravel19 $headline = $posts->shift();では、
         　新着投稿を変数$headlineに代入し、$postsは代入された新着投稿以外が格納されている*/

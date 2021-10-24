@@ -67,33 +67,30 @@
                         </p>
                         
                         {{-- イイねボタン latest post --}}
+                        {{-- goodマーク --}}
+                        <i class="good far fa-thumbs-up"></i>
+                            {{-- 「イイね」の数を表示 --}}
+                            <span class="badge">
+                               {{ $latest_post->likes->count() }} 
+                            </span>
                         {{-- ユーザ毎に押されたイイねは済表示になるように pluck(user_id)で押したユーザーIDを取得し,
                         collection型になっているため、toArray()で取得したIDを連想配列に、in_arrayで押したユーザーのIDがあるか--}}
+                        @auth
                         @if(in_array(Auth::user()->id, $latest_post->likes->pluck('user_id')->toArray()))
-                            {{-- goodマーク --}}
-                            <i class="good far fa-thumbs-up"></i>
-                                {{-- 「イイね」の数を表示 --}}
-                                <span class="badge">
-                                   {{ $latest_post->likes->count() }} 
-                                </span>
-                            <br>
-                            @auth
                                 <span class="fw-bold text-secondary">イイね済</span>
                             </a>
-                            @endauth
                         @else
                         {{-- もし押したユーザーのIDが存在しないなら、そのままイイねボタン表示 --}}
-                            <i class="good far fa-thumbs-up"></i>
+                            {{--<i class="good far fa-thumbs-up"></i>
                                 <span class="badge">
                                    {{ $latest_post->likes->count() }} 
-                                </span>
+                                </span>--}}
                             <br>
-                            @auth
                             <a href="{{ route('like', $latest_post) }}" class="like btn btn-success btn-sm">
                                 イイね / like
                             </a>
-                            @endauth
                         @endif
+                        @endauth
                         
                         <p class="card-text">
                             <div class="comment">
@@ -130,33 +127,31 @@
                                     </p>
                                     
                                     {{-- イイねボタン --}}
+                                    {{-- goodマーク --}}
+                                    <i class="good far fa-thumbs-up"></i>
+                                        {{-- 「イイね」の数を表示 --}}
+                                        <span class="badge">
+                                           {{ $latte->likes->count() }} 
+                                        </span>
                                     {{-- ユーザ毎に押されたイイねは済表示になるように pluck(user_id)で押したユーザーIDを取得し,
                                     collection型になっているため、toArray()で取得したIDを連想配列に、in_arrayで押したユーザーのIDがあるか--}}
+                                    @auth
                                     @if(in_array(Auth::user()->id, $latte->likes->pluck('user_id')->toArray()))
-                                        {{-- goodマーク --}}
-                                        <i class="good far fa-thumbs-up"></i>
-                                            {{-- 「イイね」の数を表示 --}}
-                                            <span class="badge">
-                                               {{ $latte->likes->count() }} 
-                                            </span>
                                         <br>
-                                        @auth
                                             <span class="fw-bold text-secondary">イイね済</span>
                                         </a>
-                                        @endauth
                                     @else
                                     {{-- もし押したユーザーのIDが存在しないなら、そのままイイねボタン表示 --}}
-                                        <i class="good far fa-thumbs-up"></i>
+                                        {{--<i class="good far fa-thumbs-up"></i>
                                             <span class="badge">
                                                {{ $latte->likes->count() }} 
-                                            </span>
+                                            </span>--}}
                                         <br>
-                                        @auth
                                         <a href="{{ route('like', $latte) }}" class="like btn btn-success btn-sm">
                                             イイね / like
                                         </a>
-                                        @endauth
                                     @endif
+                                    @endauth
                                     
                                     <p class="card-text">
                                         <div class="comment">

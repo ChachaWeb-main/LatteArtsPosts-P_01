@@ -19,9 +19,9 @@
                       </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-4 fw-bold">ニックネーム<br>Nick name</label>
+                        <label class="col-md-8 fw-bold">ニックネーム<br>Nick name</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="name" value="{{ old('name') }}" required min="2" maxlength="30">
+                            <input type="text" class="form-control" placeholder="2字以上30字以下 / Min2 Max30 Characters" name="name" value="{{ old('name') }}" required min="2" maxlength="30">
                         </div>
                     </div>
                     
@@ -40,7 +40,7 @@
                     </div>
                     
                     <div class="form-group row">
-                        <label class="col-md-3 fw-bold">得意なラテアート<br>Good at LatteArt</label>
+                        <label class="col-md-8 fw-bold">得意なラテアート<br>Good at your LatteArt</label>
                         <div class="col-md-10">
                             <textarea class="form-control" name="latteart" rows="2" required>{{ old('latteart') }} </textarea>
                         </div>
