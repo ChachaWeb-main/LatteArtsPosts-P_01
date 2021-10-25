@@ -94,7 +94,7 @@
                         
                         <p class="card-text">
                             <div class="comment">
-                            {{ \Str::limit($latest_post->text) }}
+                            {{ $latest_post->text }}
                             </div>
                         </p>
                     </div>
@@ -155,7 +155,7 @@
                                     
                                     <p class="card-text">
                                         <div class="comment">
-                                        {{ \Str::limit($latte->text) }}
+                                        {{ $latte->text }}
                                         </div>
                                     </p>
                                 </div>

@@ -12,7 +12,8 @@ class Latte extends Model
     public static $rules = array(
         'design' => 'required|max:30',
         'draw' => 'required',
-        'text' => 'required|max:300'
+        'text' => 'required|max:255',
+        // 'image' => 'required|max:2048',
     );
     
     // 登録ユーザ毎とのリレーション
