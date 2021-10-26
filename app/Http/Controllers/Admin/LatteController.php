@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreLatteRequest;
 use App\Latte; //Latte Modelが使えるようになる
 use App\User;
 use App\Profile;
@@ -21,10 +22,10 @@ class LatteController extends Controller
     }
     
     
-    public function create(Request $request) 
+    public function create(StoreLatteRequest $request) 
     {
         // validationを行う
-        $this->validate($request, Latte::$rules); 
+        $this->validate($request); 
         $latte = new latte;
         $form = $request->all();
              // フォームから画像が送信されてきたら保存して、$latte->image_path に画像のパスを保存する
@@ -76,10 +77,10 @@ class LatteController extends Controller
     }
     
     
-    public function update(Request $request)
+    public function update(StoreLatteRequest $request)
     {
         // Validationをかける
-        $this->validate($request, Latte::$rules);
+        $this->validate($request);
         // News Modelからデータを取得する
         $latte = Latte::find($request->id);
         // 送信されてきたフォームデータを格納する
