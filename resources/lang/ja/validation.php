@@ -218,13 +218,13 @@ return [
     ],
     'lte'                  => [
         'numeric' => ':attributeには、:value以下の値を指定してください。',
-        'file'    => ':attributeには、:value kB以下のファイルを指定してください。',
+        'file'    => ':attributeには、:value KB以下のファイルを指定してください。',
         'string'  => ':attributeは、:value文字以下で指定してください。',
         'array'   => ':attributeには、:value個以下のアイテムを指定してください。',
     ],
     'max'                  => [
         'numeric' => ':attributeには、:max以下の数字を指定してください。',
-        'file'    => ':attributeには、:max kB以下のファイルを指定してください。',
+        'file'    => ':attributeには、:max KB以下のファイルを指定してください。',
         'string'  => ':attributeは、:max文字以下で指定してください。',
         'array'   => ':attributeは:max個以下指定してください。',
     ],
@@ -232,7 +232,7 @@ return [
     'mimetypes'            => ':attributeには:valuesタイプのファイルを指定してください。',
     'min'                  => [
         'numeric' => ':attributeには、:min以上の数字を指定してください。',
-        'file'    => ':attributeには、:min kB以上のファイルを指定してください。',
+        'file'    => ':attributeには、:min KB以上のファイルを指定してください。',
         'string'  => ':attributeは、:min文字以上で指定してください。',
         'array'   => ':attributeは:min個以上指定してください。',
     ],
@@ -277,7 +277,7 @@ return [
     'custom' => [
         //latte投稿 エラーメッセージ
         'design' => [
-            'required' => 'デザイン名を入力してください！',
+            'required' => '30字以内で入力してください！',
         ],
         
         'draw' => [
@@ -285,7 +285,7 @@ return [
         ],
         
         'text' => [
-            'required' => '300字以内で入力してください！',
+            'required' => '200字以内で入力してください！',
         ],
         
         // profile登録 エラーメッセージ
@@ -299,7 +299,7 @@ return [
         ],
         
         'latteart' => [
-            'required' => '１００字以内で入力してください！',
+            'required' => '100字以内で入力してください！',
         ],
         
         'introduction' => [

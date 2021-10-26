@@ -33,7 +33,7 @@
                             <a href="/login" class="btn btn-primary my-2 fw-bold" >{{ __('ログイン/Login') }}</a>
                         {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
                         @else
-                            <a href="" class="btn btn-primary my-2 fw-bold" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('ログアウト/Logout') }}</a>
+                            <a href="" class="btn btn-secondary my-2 fw-bold" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('ログアウト/Logout') }}</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
                         @endguest
                         <a href="/admin/latte/create" class="btn btn-warning fw-bold my-2">ラテアート投稿/Post for LatteArt</a>
@@ -77,14 +77,9 @@
                         collection型になっているため、toArray()で取得したIDを連想配列に、in_arrayで押したユーザーのIDがあるか--}}
                         @auth
                         @if(in_array(Auth::user()->id, $latest_post->likes->pluck('user_id')->toArray()))
-                                <span class="fw-bold text-secondary">イイね済</span>
+                                <span class="like-done fw-bold">イイね済</span>
                             </a>
                         @else
-                        {{-- もし押したユーザーのIDが存在しないなら、そのままイイねボタン表示 --}}
-                            {{--<i class="good far fa-thumbs-up"></i>
-                                <span class="badge">
-                                   {{ $latest_post->likes->count() }} 
-                                </span>--}}
                             <br>
                             <a href="{{ route('like', $latest_post) }}" class="like btn btn-success btn-sm">
                                 イイね / like
@@ -92,7 +87,7 @@
                         @endif
                         @endauth
                         
-                        <p class="card-text">
+                        <p class="card-text mt-4">
                             <div class="comment">
                             {{ $latest_post->text }}
                             </div>
@@ -138,7 +133,7 @@
                                     @auth
                                     @if(in_array(Auth::user()->id, $latte->likes->pluck('user_id')->toArray()))
                                         <br>
-                                            <span class="fw-bold text-secondary">イイね済</span>
+                                            <span class="like-done mt-4">イイね済</span>
                                         </a>
                                     @else
                                     {{-- もし押したユーザーのIDが存在しないなら、そのままイイねボタン表示 --}}
@@ -147,13 +142,13 @@
                                                {{ $latte->likes->count() }} 
                                             </span>--}}
                                         <br>
-                                        <a href="{{ route('like', $latte) }}" class="like btn btn-success btn-sm">
-                                            イイね / like
+                                        <a href="{{ route('like', $latte) }}" class="like btn btn-success btn-sm fw-bold">
+                                            イイね/Like
                                         </a>
                                     @endif
                                     @endauth
                                     
-                                    <p class="card-text">
+                                    <p class="card-text mt-4">
                                         <div class="comment">
                                         {{ $latte->text }}
                                         </div>
@@ -207,4 +202,7 @@
 
 <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+<script>
+    window.confirm("これが確認ダイアログです。");
+  </script>
 @endsection

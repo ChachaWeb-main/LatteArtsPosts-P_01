@@ -21,7 +21,7 @@ class LatteController extends Controller
     }
     
     
-    public function create(Request $request)  // 画像サイズ現時点では2Mサイズまで、以上はエラーとなる。
+    public function create(Request $request) 
     {
         // validationを行う
         $this->validate($request, Latte::$rules); 
