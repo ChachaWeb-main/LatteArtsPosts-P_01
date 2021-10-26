@@ -96,6 +96,7 @@ class ProfileController extends Controller
     
     public function delete(Request $request)
     {
+      Auth::logout();
       $profile = Profile::find($request->id);
       $profile->delete();
       return redirect('/main');

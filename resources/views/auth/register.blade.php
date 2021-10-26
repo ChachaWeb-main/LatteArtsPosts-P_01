@@ -40,10 +40,10 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-5 col-form-label text-md-right">{{ __('パスワード') }}</label>
+                            <label for="password" class="col-md-5 col-form-label text-md-right">{{ __('パスワード(８文字以上)') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password (Min 8 characters) ">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">

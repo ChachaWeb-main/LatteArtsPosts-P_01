@@ -25,7 +25,7 @@ class LatteController extends Controller
     public function create(StoreLatteRequest $request) 
     {
         // validationを行う
-        $this->validate($request); 
+        $this->validate($request, Latte::$rules); 
         $latte = new latte;
         $form = $request->all();
              // フォームから画像が送信されてきたら保存して、$latte->image_path に画像のパスを保存する
@@ -80,7 +80,7 @@ class LatteController extends Controller
     public function update(StoreLatteRequest $request)
     {
         // Validationをかける
-        $this->validate($request);
+        $this->validate($request, Latte::$rules);
         // News Modelからデータを取得する
         $latte = Latte::find($request->id);
         // 送信されてきたフォームデータを格納する
