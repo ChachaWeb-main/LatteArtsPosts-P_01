@@ -19,14 +19,14 @@
                       </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-8 fw-bold">ニックネーム<span class="require">[必須]</span><br>Nick name<span class="require">[require]</span></label>
+                        <label class="col-md-8 fw-bold">ニックネーム<span class="require"> [必須]</span><br>Nick name<span class="require"> [require]</span></label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" placeholder="2字以上30字以下 / Min2 Max30 Characters" name="name" value="{{ old('name') }}" required min="2" maxlength="30">
                         </div>
                     </div>
                     
                     <div class="form-group row">
-                        <label class="col-md-3 fw-bold">性別<span class="require">[必須]</span><br>Gender<span class="require">[require]</span></label>
+                        <label class="col-md-3 fw-bold">性別<span class="require"> [必須]</span><br>Gender<span class="require"> [require]</span></label>
                         <div class="col-md-10">
                             <div>
                               <input type="radio" id="男性 (Male)" name="gender" value="0" checked >
@@ -42,14 +42,14 @@
                     <div class="form-group row">
                         <label class="col-md-8 fw-bold">得意なラテアート<br>Good at your LatteArt</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="latteart" rows="2" required>{{ old('latteart') }} </textarea>
+                            <textarea class="form-control" placeholder="50字以内 / Within 50 characters" name="latteart" rows="2" required>{{ old('latteart') }} </textarea>
                         </div>
                     </div>
                     
                     <div class="form-group row">
-                        <label class="col-md-3 fw-bold">自己紹介<br>Introduction</label>
+                        <label class="col-md-8 fw-bold">自己紹介<span class="require"> [必須]</span><br>Introduction<span class="require"> [require]</span></label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="introduction" rows="10" required>{{ old('introduction') }}</textarea>
+                            <textarea class="form-control" placeholder="350字以内 / Within 350 characters" name="introduction" rows="10" required>{{ old('introduction') }}</textarea>
                     </div>
                     
                     <div class="form-button">

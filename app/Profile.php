@@ -14,7 +14,7 @@ class Profile extends Model
         'name' => 'required|min:2|max:15', 
         'gender' => 'required', 
         'latteart' => 'required|max:50', 
-        'introduction' => 'required|max:300'
+        'introduction' => 'required|max:350'
     );
     
     //userとのリレーション

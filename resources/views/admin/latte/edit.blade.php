@@ -21,15 +21,15 @@
                         </ul>
                     @endif
                     
-                    <div class="form-group row">
-                        <label class="col-md-2">デザイン</label>
+                    <div class="form-group row mt-5 mb-4">
+                        <label class="col-md-4 fw-bold" >デザイン/ Design</label>
                         <div class="col-md-10">
                             <input type="text" class="col-md-5" name="design" value="{{ $latte_form->design }}">
                         </div>
                     </div>
                     
                     <div class="form-group row">
-                        <label class="col-md-2">描き方</label>
+                        <label class="col-md-4 mb-2 mt-4 fw-bold">描き方/ How to draw</label>
                         <div class="col-md-10">
                             <select name="draw">
                                 <option value="">--選択してください--</option>
@@ -42,22 +42,22 @@
                     </div>
                     
                     <div class="form-group row">
-                        <label class="col-md-2">フリーテキスト</label>
+                        <label class="col-md-4 mb-2 mt-4 fw-bold">フリーテキスト/ Free text</label>
                         <div class="col-md-10">
                             <textarea class="col-md-10" name="text" rows="10">{{ $latte_form->text }}</textarea>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-md-2">画像 or 動画</label>
-                        <div class="col-md-10">
+                     <div class="form-group row">
+                        <label class="col-md-4 mb-2 mt-4 fw-bold">画像/ Image<br><span class="text-danger">※サイズは2MBまで※</span></label>
+                        <div class="col-md-10 mb-2">
                             <input type="file" class="form-control-file" name="image">
                         </div>
-                        <div class="form-text text-info">設定中: {{ $latte_form->image_path }}</div>
-                        <div class="form-check">
-                                <label class="form-check-label">
+                        <div class="form-text text-info mb-3">設定中: {{ $latte_form->image_path }}</div>
+                        {{--<div class="form-check">
+                                <label class="form-check-label mb-4">
                                     <input type="checkbox" class="form-check-input" name="remove" value="true">画像を削除
                                 </label>
-                        </div>
+                        </div>--}}
                     </div>
                     
                     <div class="form-group row">

@@ -202,21 +202,4 @@
 
 <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-<a id="btn" href="https://www.google.co.jp/">サンプルリンク</a>
-<script>
-var btn = document.getElementById('btn');
- 
-btn.addEventListener('click', function() {
-    var result = window.confirm('リンクをクリック！');
-    
-    if( result ) {
-        console.log('OKがクリックされました');
-    }
-    else {
-        console.log('キャンセルがクリックされました');
-    }
-})
-</script>
-
-
 @endsection

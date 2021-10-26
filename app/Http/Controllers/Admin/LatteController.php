@@ -26,6 +26,7 @@ class LatteController extends Controller
     {
         // validationを行う
         $this->validate($request, Latte::$rules); 
+        
         $latte = new latte;
         $form = $request->all();
              // フォームから画像が送信されてきたら保存して、$latte->image_path に画像のパスを保存する
@@ -109,6 +110,6 @@ class LatteController extends Controller
         $latte = Latte::find($request->id);
         // 削除する
         $latte->delete();
-        return redirect('/main');
+        return redirect('admin/mypage');
     }
 }

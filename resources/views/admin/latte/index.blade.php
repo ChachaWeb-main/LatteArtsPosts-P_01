@@ -39,26 +39,26 @@
                 <table class="table table-warning">
                     <thead>
                         <tr>
-                            <th width="50px">ID</th>
+                            <th width="70px">ID</th>
                             <th witdh="200px">ユーザー名</th>
                         　　<th width="130px">投稿日</th>
-                        　　<th width="120px">ラテアート</th> 
-                            <th width="150px">デザイン</th>
-                        　　<th width="150px">描き方</th>
-                        　　<th width="250px">フリーテキスト</th>
-                        　　<th with="100px">操作</th>
+                        　　<th width="110px">ラテアート</th> 
+                            <th width="110px">デザイン</th>
+                        　　<th width="110px">描き方</th>
+                        　　<th width="200px">フリーテキスト</th>
+                        　　<th with="80px">操作</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($posts as $latte)
                             <tr>
                                 <td>{{ $latte->id }}</td>
-                                <td>{{ \Str::limit($latte->user->name, 50) }}</td>
-                                <td>{{ \Str::limit($latte->created_at, 50) }}</td>
+                                <td>{{ \Str::limit($latte->user->name, 20) }}</td>
+                                <td>{{ \Str::limit($latte->created_at, 20) }}</td>
                                 <td><img src="{{ asset('storage/image/' . $latte->image_path) }}" width="50px"></td>
-                                <td>{{ \Str::limit($latte->design, 50) }}</td>
-                                <td>{{ \Str::limit($latte->draw, 100) }}</td>
-                                <td>{{ \Str::limit($latte->text, 100) }}</td>
+                                <td>{{ \Str::limit($latte->design, 20) }}</td>
+                                <td>{{ \Str::limit($latte->draw, 20) }}</td>
+                                <td>{{ \Str::limit($latte->text, 20) }}</td>
                                 <td
                                     <div>
                                         <a href = "{{action('Admin\LatteController@edit', ['id' => $latte -> id]) }}" >編集/Edit</a>

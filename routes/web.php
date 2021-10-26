@@ -34,14 +34,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::post('latte/create', 'Admin\LatteController@create');//ラテアート新規投稿
     Route::get('latte/edit', 'Admin\LatteController@edit');//投稿の編集
     Route::post('latte/edit', 'Admin\LatteController@update');//投稿の更新
-    Route::get('latte/delete', 'Admin\LatteController@delete');//投稿の削除
+    Route::post('latte/delete', 'Admin\LatteController@delete');//投稿の削除
     // Route::get('latte', 'Admin\LatteController@index');//投稿の一覧
     
     Route::get('profile/create', 'Admin\ProfileController@add');
     Route::post('profile/create', 'Admin\ProfileController@create');//メンバー登録
     Route::get('profile/edit', 'Admin\ProfileController@edit');//登録情報の編集
     Route::post('profile/edit', 'Admin\ProfileController@update');//登録情報の更新
-    Route::get('profile/delete', 'Admin\ProfileController@delete');//登録情報の削除
+    Route::post('profile/delete', 'Admin\ProfileController@delete');//登録情報の削除
     // Route::get('profile', 'Admin\ProfileController@index');//登録情報の一覧
     Route::get('mypage', 'Admin\ProfileController@mypage');//ユーザーマイページ表示
     
