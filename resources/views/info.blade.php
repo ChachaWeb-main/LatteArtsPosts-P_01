@@ -136,26 +136,17 @@
     window.addEventListener("scroll", () => {
       scrollValue = document.scrollingElement.scrollTop;
     
-        {{--設定したスクロール量を超えるかどうかでボタンの表示・非表示を切り替える--}}
-      if (scrollValue >= 300) {
-        topLink.style.display = "inline"; <!--ボタンを表示-->
-      } else if (scrollValue < 300) {
-        topLink.style.display = "none"; <!--ボタンを非表示-->
+      {{--設定したスクロール量を超えるかどうかでボタンの表示・非表示を切り替える--}}
+      if (scrollValue >= 1000) {
+        topLink.style.display = "inline"; {{--ボタンを表示--}}
+      } else if (scrollValue < 1000) {
+        topLink.style.display = "none"; {{--ボタンを非表示--}}
       }
     });
     
     {{--画面トップに戻る際にアニメーションさせる--}}
     topLink.addEventListener("click", () => {
-    
-        {{--一定の間隔で繰り返し処理する--}}
-      const timer = setInterval(() => {
-          {{--トップに戻ったらタイマーをリセット--}}
-        if (scrollValue < 0) clearInterval(timer); 
-        
-        document.scrollingElement.scrollTop = scrollValue;
-          {{--スクロール量を設定数値ずつ減らしていく--}}
-        scrollValue = scrollValue - 100; 
-      });
+      window.scroll({top: 0, behavior: 'smooth'});
     });
 </script>
 
