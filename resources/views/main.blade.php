@@ -36,7 +36,7 @@
                             <a href="" class="btn btn-secondary my-2 fw-bold" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('ログアウト/Logout') }}</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
                         @endguest
-                        <a href="/admin/latte/create" class="btn btn-warning fw-bold my-2">ラテアート投稿/Post for LatteArt</a>
+                        <a href="/admin/latte/create" class="btn btn-warning my-2 fw-bold ">ラテアート投稿/Post for LatteArt</a>
                     </div>
                 </div>
             </div>

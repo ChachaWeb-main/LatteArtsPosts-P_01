@@ -11,7 +11,7 @@
     <h3>＜プロフィール＞</h3>
     <br>
     {{-- views/admin/profile/index.blade.php --}}
-    <table class="table table-warning">
+    <table class="table table-secondary">
         <thead>
             <tr>
                 <th class="table-text fs-6 fw-bold" width="50%">登録日</th>

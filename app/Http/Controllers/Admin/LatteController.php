@@ -87,12 +87,21 @@ class LatteController extends Controller
         // 送信されてきたフォームデータを格納する
         $latte_form = $request->all();
       
-        if (isset($latte_form['image'])) 
-        {
-            $path = $request->file('image')->store('public/image');
-            $latte_form["image_path"] = basename($path);
+        // if (isset($latte_form['image'])) 
+        // {
+        //     $path = $request->file('image')->store('public/image');
+        //     $latte_form["image_path"] = basename($path);
+        // } else {
+        //     $latte_form["image_path"] = $latte->image_path;
+        // }
+        
+        if ($request->remove == 'true') {
+          $latte_form['image_path'] = null;
+        } elseif ($request->file('image')) {
+          $path = $request->file('image')->store('public/image');
+          $latte_form['image_path'] = basename($path);
         } else {
-            $latte_form["image_path"] = $latte->image_path;
+          $latte_form['image_path'] = $latte->image_path;
         }
         // フォームから送信されてきた _token を削除する
         unset($latte_form['_token']);

@@ -12,7 +12,7 @@ class Latte extends Model
         'design' => 'required|max:30',
         'draw' => 'required',
         'text' => 'required|max:200',
-        'image' => 'required|max:2048',
+        'image' => 'max:2048',
     );
     
     // 登録ユーザ毎とのリレーション

@@ -22,14 +22,14 @@
                     @endif
                     
                     <div class="form-group row mt-5 mb-4">
-                        <label class="col-md-4 fw-bold" >デザイン/ Design</label>
+                        <label class="col-md-4 fw-bold" >デザイン/ Design<span class="require"> [必須] [require]</span></label>
                         <div class="col-md-10">
                             <input type="text" class="col-md-5" name="design" placeholder="例).ハート  ex).Heart" value="{{ old('design') }}" required min="2" maxlength="30">
                         </div>
                     </div>
                     
                     <div class="form-group row">
-                        <label class="col-md-4 mb-2 mt-4 fw-bold">描き方/ How to draw</label>
+                        <label class="col-md-4 mb-2 mt-4 fw-bold">描き方/ How to draw<span class="require"> [必須] [require]</span></label>
                         <div class="col-md-10">
                             <select name="draw" required>
                                 <option value="">-- 選択してください/Please choose --</option>
@@ -42,13 +42,13 @@
                     </div>
                     
                     <div class="form-group row">
-                        <label class="col-md-4 mb-2 mt-4 fw-bold">フリーテキスト/ Free text</label>
+                        <label class="col-md-4 mb-2 mt-4 fw-bold">フリーテキスト/ Free text<span class="require"> [必須] [require]</span></label>
                         <div class="col-md-10">
                             <textarea class="col-md-11" name="text"  placeholder="ラテアート出来栄えの感想など自由にコメントを書いてください/ Feel free to write your thoughts on this latte art." rows="10" required>{{ old('text') }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-4 mb-2 mt-4 fw-bold">画像/ Image<br><span class="text-danger">※サイズは2MBまで※</span></label>
+                        <label class="col-md-4 mb-2 mt-4 fw-bold">画像/ Image<span class="require"> [必須] [require]</span><br><span class="text-danger">※2MBまで/ Up to 2MB※</span></label>
                         
                         <div class="col-md-10 mb-5">
                             <input type="file" class="form-control-file" name="image" required>

@@ -8,28 +8,28 @@
 <div class="term text-center">
     <ul>
         <li><h2 id="latte_kind_01">フリーポア/ Free Pour</h2></li>
-            <p>スチームしたミルクをエスプレッソの入ったカップに注ぎながら描く技法<br>Technique of drawing steamed milk while pouring it into a cup of espress.</p>
-            <p>定番なのは、ハートやリーフ模様など<br>The classics are Hearts and Leaf etc.</p>
+            <p>スチームしたミルクをエスプレッソの入ったカップに注ぎながら描く技法<br><span class="english">Technique of drawing steamed milk while pouring it into a cup of espress.</span></p>
+            <p>定番なのは、ハートやリーフ模様など<br><span class="english">The classics are Hearts and Leaf etc.</span></p>
             <img src="{{ asset('images/term.jpeg') }}" alt="">
         <br>
         <br>
         <br>
         <li><h2 id="latte_kind_02">エッチング/ Etching</h2></li>
-            <p>ピックやスプーンをしようして描く技法<br>Techniques for drawing with a Pick or Spoon.</p>
-            <p>可愛い動物など、デザインはあなた次第<br>Design is up to you, such as cute Animals.</p>
+            <p>ピックやスプーンをしようして描く技法<br><span class="english">Techniques for drawing with a Pick or Spoon.</span></p>
+            <p>可愛い動物など、デザインはあなた次第<br><span class="english">Design is up to you, such as cute Animals.</span></p>
             <img src="{{ asset('images/term02.jpeg') }}" alt="">
         <br>
         <br>
         <br>
         <li><h2 id="latte_kind_03">３D</h2></li>
-            <p>泡立てたミルクをのせ、モチーフを立体的に描く技法<br>A technique to draw a motif three-dimensionally by putting frothed milk on it.</p>
-            <p>飲んでしまうのが勿体ない衝動間違いなしww<br>You will not be able to drink.lol</p>
+            <p>泡立てたミルクをのせ、モチーフを立体的に描く技法<br><span class="english">A technique to draw a motif three-dimensionally by putting frothed milk on it.</span></p>
+            <p>飲んでしまうのが勿体ない衝動間違いなしww<br><span class="english">You will not be able to drink.lol</span></p>
             <img src="{{ asset('images/term03.jpeg') }}" alt="">
         <br>
     </ul>
     <br>
     <br>
-    &laquo;  <a class="fs-6" href="/main">戻る/Back</a>
+    &laquo;  <a class="fs-5" href="/main">戻る/Back</a>
 </div>
     
 

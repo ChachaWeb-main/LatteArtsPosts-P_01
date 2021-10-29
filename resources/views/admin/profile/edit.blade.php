@@ -43,7 +43,7 @@
                     </div>
                     
                     <div class="form-group row">
-                        <label class="col-md-3">会得ラテアート</label>
+                        <label class="col-md-3">得意なラテアート</label>
                         <div class="col-md-10">
                             <textarea class="form-control" name="latteart" rows="2">{{ $profile_form->latteart }}</textarea>
                         </div>

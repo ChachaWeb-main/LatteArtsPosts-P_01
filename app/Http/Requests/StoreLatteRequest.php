@@ -10,6 +10,6 @@ class StoreLatteRequest extends FormRequest
 {
     public function rules()
     {
-        return array_merge(Latte::$rules, ['image' => ['required', new MegaBytes(2)]]);
+        return array_merge(Latte::$rules, ['image' => ['', new MegaBytes(2)]]);
     }
 }

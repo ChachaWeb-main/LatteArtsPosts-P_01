@@ -22,7 +22,7 @@
     {{-- views/admin/profile/index.blade.php --}}
 
     <br>
-    <table class="table table-secondary">
+    <table class="table table-warning">
         <thead>
             <tr>
                 <th class="table-text fs-6 fw-bold" width="50%">ニックネーム</th>
@@ -35,7 +35,7 @@
             </tr>
         </tbody>
     </table>
-    <table class="table table-warning">
+    <table class="table table-secondary">
         <thead>
             <tr>
                 <th class="table-text fs-6 fw-bold" width="50%">登録日</th>
@@ -95,7 +95,6 @@
         <!--</svg>-->
     </div>
     <div class="delete">
-        <!--<a href = "{{action('Admin\ProfileController@delete', ['id'=>$logged_in_user->profile->id]) }}">削除/Delete</a>-->
         <form method="post" action="{{action('Admin\LatteController@delete', ['id'=>$logged_in_user->profile->id]) }}">
             @csrf
             <button type="button" class="btn btn-link">削除/Delete</button>
@@ -124,7 +123,7 @@
                         <div class="card col-12 col-md-4">
                             <a href="#!"><img class="card-img-top" src="{{ asset('storage/image/' . $latte->image_path) }}" width="350%" height="350" alt="..." /></a>
                             <div class="card-body">
-                                <div class="small text-muted">
+                                <div class="text-muted mb-2">
                                     @php
                                         $row_date = \Carbon\Carbon::parse($latte->created_at);
                                         $row_date->setToStringFormat('Y/m/d H:i');
@@ -163,10 +162,8 @@
                                     <!--  <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>-->
                                     <!--  <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>-->
                                     <!--</svg>-->
-                                <br>
-                                <!--<a href = "{{action('Admin\LatteController@delete', ['id' => $latte -> id]) }}">削除/Delete</a>-->
                                 <form method="post" action="{{ action('Admin\LatteController@delete', ['id' => $latte -> id]) }}" onSubmit="return check()">
-                                      @csrf
+                                    @csrf
                                     <button type="submit" class="btn btn-link">削除/Delete</button>
                                 </form>
                                     <!--<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">-->
@@ -184,8 +181,8 @@
     </div>
 </div>
 
+{{-- 削除確認のダイアログ --}}
 <script type="text/javascript"> 
-
 function check(){
 
 	if(window.confirm('本当に削除しますか / Sure to delete?')){ // 確認ダイアログを表示
@@ -202,23 +199,6 @@ function check(){
 
 }
 </script>
-
-<!--<script>-->
-<!--    'use strict';-->
-
-<!--    {-->
-<!--        document.getElementById('delete_latte').addEventListener('submit', e => {-->
-<!--            e.preventDefault();-->
-
-<!--            if (!confirm('本当に削除しますか / Sure to delete?')) {-->
-<!--                return;-->
-<!--            }-->
-
-<!--            e.target.submit();-->
-<!--        });-->
-<!--    }-->
-<!--</script>-->
-
 
 {{-- 「topに戻る」アニメーション実装 --}}
 <a class="pagetop" id="top">TOPに戻る</a>

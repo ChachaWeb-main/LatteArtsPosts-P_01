@@ -40,9 +40,9 @@
                     </div>
                     
                     <div class="form-group row">
-                        <label class="col-md-8 fw-bold">得意なラテアート<br>Good at your LatteArt</label>
+                        <label class="col-md-10 fw-bold">得意なラテアートや好きなコーヒー等<span class="require"> [必須]</span><br>Good at your LatteArt and Favorite coffee etc<span class="require"> [require]</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" placeholder="50字以内 / Within 50 characters" name="latteart" rows="2" required>{{ old('latteart') }} </textarea>
+                            <textarea class="form-control" placeholder="100字以内 / Within 100 characters" name="latteart" rows="2" required>{{ old('latteart') }} </textarea>
                         </div>
                     </div>
                     
