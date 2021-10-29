@@ -79,6 +79,7 @@
             <div class="row">
                 @foreach($targetUser->lattes as $latte)
                     <div class="card col-12 col-md-4">
+                        {{-- ローカル環境でのコード → src="{{ asset('storage/image/' . $latte->image_path) }} --}}
                         <a href="#!"><img class="card-img-top" src="{{ $latte->image_path }}" width="350%" height="350" alt="..." /></a>
                         <div class="card-body">
                             <div class="small text-muted">

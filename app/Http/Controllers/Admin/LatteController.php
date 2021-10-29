@@ -36,6 +36,7 @@ class LatteController extends Controller
             //保存先をS3に
             $path = Storage::disk('s3')->putFile('/', $request->file('image'),'public');
             $latte->image_path = Storage::disk('s3')->url($path);
+            //ローカルでのコード
             // $path = $request->file('image')->store('public/image');
             // $latte->image_path = basename($path);
         } else {
@@ -105,8 +106,9 @@ class LatteController extends Controller
             //保存先をS3に
             $path = Storage::disk('s3')->putFile('/',$request->file('image'),'public');
             $latte->image_path = Storage::disk('s3')->url($path);
-        //   $path = $request->file('image')->store('public/image');
-        //   $latte_form['image_path'] = basename($path);
+            // ローカルでのコード
+            // $path = $request->file('image')->store('public/image');
+            // $latte_form['image_path'] = basename($path);
         } else {
             $latte_form['image_path'] = $latte->image_path;
         }
