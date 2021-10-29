@@ -47,7 +47,7 @@
         </thead>
         <tbody>
             <tr>
-                <td>{{ \Str::limit($targetUser->profile->latteart, 50) }}</td>
+                <td>{{ $targetUser->profile->latteart, 50 }}</td>
             </tr>
         </tbody>
     </table>
@@ -60,7 +60,7 @@
         </thead>
         <tbody>
             <tr>
-                <td>{{ \Str::limit($targetUser->profile->introduction, 100) }}</td>
+                <td>{{ $targetUser->profile->introduction, 100 }}</td>
             </tr>
         </tbody>
     </table>
