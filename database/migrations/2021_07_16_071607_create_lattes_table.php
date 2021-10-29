@@ -15,7 +15,8 @@ class CreateLattesTable extends Migration
     {
         Schema::create('lattes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id');  //userと紐付け
+            //※※※ローカルではstringのままだがmysqlは上手く処理してくれエラーが出ていない。herokuではダメであった
+            $table->bigInteger('user_id');  //userと紐付け 
             $table->timestamps();
             $table->string('design'); //ラテデザインのタイトルを保存するカラム
             $table->string('draw'); //描き方を保存するカラム
