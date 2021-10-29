@@ -49,7 +49,7 @@
         <div class="col-lg-8">
             @if (!is_null($latest_post))
                 <div class="card mb-4 bg-light">
-                    <a href="#!"><img class="card-img-top" src="{{ asset('storage/image/' . $latest_post->image_path) }}" width="550" height="500" alt="..." /></a>
+                    <a href="#!"><img class="card-img-top" src="{{ $latest_post->image_path }}" width="550" height="500" alt="..." /></a>
                     <div class="card-body">
                       　<div class="date small text-muted">{{ \Str::limit($latest_post->created_at) }}</div>
                         <h2 class="card-title h4">投稿者
@@ -104,7 +104,7 @@
                                 $row_date->setToStringFormat('Y/m/d H:i');
                             @endphp
                             <div class="card col-lg-6 bg-light">
-                                <a href="#!"><img class="card-img-top" src="{{ asset('storage/image/' . $latte->image_path) }}" width="600" height="300" alt="..." /></a>
+                                <a href="#!"><img class="card-img-top" src="{{ $latte->image_path }}" width="600" height="300" alt="..." /></a>
                                 <div class="card-body">
                                     <div class="date small text-muted">{{ \Str::limit($latte->created_at) }}</div>
                                     <h2 class="card-title h4">投稿者

@@ -121,7 +121,7 @@
                     {{--BootsStrapのcardを利用してラテ投稿一覧を表示--}}
                     @foreach($logged_in_user->lattes as $latte)
                         <div class="card col-12 col-md-4">
-                            <a href="#!"><img class="card-img-top" src="{{ asset('storage/image/' . $latte->image_path) }}" width="350%" height="350" alt="..." /></a>
+                            <a href="#!"><img class="card-img-top" src="{{ $latte->image_path }}" width="350%" height="350" alt="..." /></a>
                             <div class="card-body">
                                 <div class="text-muted mb-2">
                                     @php

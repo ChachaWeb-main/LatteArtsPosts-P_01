@@ -10,6 +10,7 @@ use App\User;
 use App\Profile;
 use App\Like;
 use Carbon\Carbon; //保存日時
+use Storage; //S3
 use Illuminate\Support\Facades\Auth;
 
 class LatteController extends Controller
@@ -32,8 +33,11 @@ class LatteController extends Controller
              // フォームから画像が送信されてきたら保存して、$latte->image_path に画像のパスを保存する
         if (isset($form['image'])) 
         {
-            $path = $request->file('image')->store('public/image');
-            $latte->image_path = basename($path);
+            //保存先をS3に
+            $path = Storage::disk('s3')->putFile('/', $request->file('image'),'public');
+            $latte->image_path = Storage::disk('s3')->url($path);
+            // $path = $request->file('image')->store('public/image');
+            // $latte->image_path = basename($path);
         } else {
             $latte->image_path = null;
         }
@@ -96,12 +100,15 @@ class LatteController extends Controller
         // }
         
         if ($request->remove == 'true') {
-          $latte_form['image_path'] = null;
+            $latte_form['image_path'] = null;
         } elseif ($request->file('image')) {
-          $path = $request->file('image')->store('public/image');
-          $latte_form['image_path'] = basename($path);
+            //保存先をS3に
+            $path = Storage::disk('s3')->putFile('/',$request->file('image'),'public');
+            $latte->image_path = Storage::disk('s3')->url($path);
+        //   $path = $request->file('image')->store('public/image');
+        //   $latte_form['image_path'] = basename($path);
         } else {
-          $latte_form['image_path'] = $latte->image_path;
+            $latte_form['image_path'] = $latte->image_path;
         }
         // フォームから送信されてきた _token を削除する
         unset($latte_form['_token']);
