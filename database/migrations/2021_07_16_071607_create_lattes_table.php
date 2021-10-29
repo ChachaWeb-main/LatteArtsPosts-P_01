@@ -15,7 +15,7 @@ class CreateLattesTable extends Migration
     {
         Schema::create('lattes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('user_id');  //userと紐付け
+            $table->bigInteger('user_id');  //userと紐付け
             $table->timestamps();
             $table->string('design'); //ラテデザインのタイトルを保存するカラム
             $table->string('draw'); //描き方を保存するカラム
