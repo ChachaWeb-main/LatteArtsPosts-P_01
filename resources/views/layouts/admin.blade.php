@@ -40,6 +40,7 @@
                 <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
                     <div class="container">
                         <a class="navbar-brand" href="/"><span class="title">Post & Sharing Latte Arts<br>☕️ラテアート投稿・共有サイト☕️</a></spaa>
+                        {{-- ラテアート画像 --}}
                         <img class="header-image" src="{{ asset('images/latteart_wb.png') }}" alt="">
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
@@ -55,14 +56,14 @@
                                       <a class="dropdown-item" href="/admin/latte/create">新規投稿/New Post</a>
                                     </div>
                                 </li> 
-                                <li class="nav-item dropdown">
+                                {{--<li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">How to draw<br>描き方について</a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                       <a class="dropdown-item" href="/term#latte_kind_01">フリーポア/Free Pour</a>
                                       <a class="dropdown-item" href="/term#latte_kind_02">エッチング/Etching</a>
                                       <a class="dropdown-item" href="/term#latte_kind_03">3D</a>
                                     </div>
-                                </li> 
+                                </li>--}}
                             </ul>
                         </div>
                     </div>
@@ -77,7 +78,7 @@
         </main>
         
         {{-- footer --}}
-        <footer class="py-5 bg-secondary">
+        <footer class="py-4 bg-secondary">
             <!--<div class="container-footer">-->
             <!--    <p class="float-end mb-1"><a href="#">ページ上部へ<br>Back to top</a>-->
             <!--</div>-->
@@ -96,9 +97,9 @@
               scrollValue = document.scrollingElement.scrollTop;
             
               {{--設定したスクロール量を超えるかどうかでボタンの表示・非表示を切り替える--}}
-              if (scrollValue >= 2500) {
+              if (scrollValue >= 1000) {
                 topLink.style.display = "inline"; {{--ボタンを表示--}}
-              } else if (scrollValue < 2500) {
+              } else if (scrollValue < 1000) {
                 topLink.style.display = "none"; {{--ボタンを非表示--}}
               }
             });

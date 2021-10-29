@@ -133,8 +133,7 @@
                                     @auth
                                     @if(in_array(Auth::user()->id, $latte->likes->pluck('user_id')->toArray()))
                                         <br>
-                                            <span class="like-done mt-4">イイね済</span>
-                                        </a>
+                                        <span class="like-done mt-4">イイね済</span>
                                     @else
                                     {{-- もし押したユーザーのIDが存在しないなら、そのままイイねボタン表示 --}}
                                         {{--<i class="good far fa-thumbs-up"></i>
@@ -142,9 +141,7 @@
                                                {{ $latte->likes->count() }} 
                                             </span>--}}
                                         <br>
-                                        <a href="{{ route('like', $latte) }}" class="like btn btn-success btn-sm fw-bold">
-                                            イイね/Like
-                                        </a>
+                                        <a href="{{ route('like', $latte) }}" class="like btn btn-success btn-sm fw-bold">イイね/Like</a>
                                     @endif
                                     @endauth
                                     
@@ -169,32 +166,32 @@
         {{-- Side widgets--}}
         <div class="col-lg-4">
             {{-- Search widget--}}
-            <div class="card mb-4">
-                <div class="card-header">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                    </svg> 
-                    検索/Search
+            <div class="card mb-4 text-center">
+                <div class="explanation card-header">
+                    【解説/ ️Explanation】<br><span>ラテアートの種類️<br>Variety of LatteArts</span>
                 </div>
-                <div class="card-body">
-                    <div class="input-group">
+                <div class="card-body fs-5">
+                    <a class="" href="/term#latte_kind_01">フリーポア/Free Pour</a><br>
+                    <a class="" href="/term#latte_kind_02">エッチング/Etching</a><br>
+                    <a class="" href="/term#latte_kind_03">3D</a>
+                    {{--<div class="input-group">
                         <form>
                         <input class="form-control" type="text" placeholder="検索ワード" aria-label="Enter search term..." aria-describedby="button-search" />
                         <input class="btn btn-primary" id="button-search" type="submit" value="検索" >
                         </form>
-                    </div>
+                    </div>--}}
                 </div>
             </div>
             
             {{-- Side widget--}}
             <div class="card mb-4">
                 <div class="card-header">
-                    <i class="ranking fas fa-crown"></i> <span class="text">投稿数上位メンバー !<br>Top members by number of posts !</span>
+                    <i class="ranking fas fa-crown"></i><span class="text">投稿数上位メンバー!<br>Top members by number of posts!</span>
                 </div>
-                    @foreach($users as $user)
-                        <a class="side-widget-name" href="/info?user_id={{ $user->id }}">{{ \Str::limit($user->profile->name) }}</a>
-                        <p class="side-widget-count">投稿数 <span class="post-count">{{ $user->lattes_count }}</span></p>
-                    @endforeach
+                @foreach($users as $user)
+                    <a class="side-widget-name" href="/info?user_id={{ $user->id }}">{{ \Str::limit($user->profile->name) }}</a>
+                    <p class="side-widget-count">投稿/Posts <span class="post-count">{{ $user->lattes_count }}</span></p>
+                @endforeach
             </div>
         </div>
     </div>

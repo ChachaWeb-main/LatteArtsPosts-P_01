@@ -7,8 +7,8 @@
 }
 
 .header-image {
-  width: 220px;
-  height: 120px;
+  width: 240px;
+  height: 130px;
 }
 
 .navbar-brand {
@@ -80,6 +80,15 @@ body {
 }
 
 /* --------- Side widget ---------*/
+
+.explanation {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.explanation > span {
+  color: #cc9966;
+}
 
 .side-widget-name {
   font-size: 22px;
