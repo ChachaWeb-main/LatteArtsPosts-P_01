@@ -11,7 +11,6 @@
 // header Dropdown がcontainerと重なってしまうのを修正。
 .container{
     z-index: 1; // 数値が低い方が表示が上にくる
-
 }
 
 .dropdown-menu{
@@ -69,7 +68,7 @@ ul.errors > li {
 
 .mypf-submit-button {
     font-family: YuGo;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
@@ -82,13 +81,26 @@ ul.errors > li {
 
 .mypf-login-text {
     font-family: YuGo;
-    font-size: 17px;
+    font-size: 15px;
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
     letter-spacing: normal;
     color: #0fbe9f;
+}
+
+.mypf-login-text-register {
+    font-family: YuGo;
+    font-size: 17px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: white;
+    background-color: #F4A460;
+    padding: 6px;
 }
 
 
@@ -110,7 +122,6 @@ ul.errors > li {
   bottom: 15px;
   right: 15px;
 }
-
 
 .pagetop:hover {
 //   background-color: #33ccff;

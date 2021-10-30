@@ -74,6 +74,7 @@
                             <span class="badge">
                                {{ $latest_post->likes->count() }} 
                             </span>
+                        <p class="text-danger">※イイね機能は登録メンバーのみが利用できます<br>※The "like function" can only be used by registered members.</p>
                         {{-- ユーザ毎に押されたイイねは済表示になるように pluck(user_id)で押したユーザーIDを取得し,
                         collection型になっているため、toArray()で取得したIDを連想配列に、in_arrayで押したユーザーのIDがあるか--}}
                         @auth

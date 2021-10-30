@@ -10999,7 +10999,7 @@ ul.errors > li {
 
 .mypf-submit-button {
   font-family: YuGo;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
@@ -11012,13 +11012,26 @@ ul.errors > li {
 
 .mypf-login-text {
   font-family: YuGo;
-  font-size: 17px;
+  font-size: 15px;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
   line-height: normal;
   letter-spacing: normal;
   color: #0fbe9f;
+}
+
+.mypf-login-text-register {
+  font-family: YuGo;
+  font-size: 17px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: white;
+  background-color: #F4A460;
+  padding: 6px;
 }
 
 /* ---------- javascript ----------*/

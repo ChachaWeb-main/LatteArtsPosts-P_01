@@ -54,7 +54,7 @@
             <hr>
 
             <div class="form-group">
-                <a class="btn-link mt-3 d-flex justify-content-center mypf-login-text" href="{{ route('register') }}">
+                <a class="btn-link mt-3 d-flex justify-content-center mypf-login-text-register" href="{{ route('register') }}">
                     新規登録/Register
                 </a>
             </div>
