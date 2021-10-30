@@ -1,0 +1,10 @@
+/* スマホ向けレイアウト */
+@media (max-width: 670px) {
+    .term {
+        width: 100%;
+    }
+    
+    .term p {
+        font-size: 10px;
+    }
+}

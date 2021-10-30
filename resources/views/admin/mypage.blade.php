@@ -66,7 +66,7 @@
     <table class="table table-danger">
         <thead>
             <tr>
-                <th class="table-text fs-6 fw-bold" width="50%">得意なラテアート</th>
+                <th class="table-text fs-6 fw-bold" width="50%">得意なラテアートや好きなコーヒー等</th>
             </tr>
         </thead>
         <tbody>

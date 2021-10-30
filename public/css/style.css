@@ -219,10 +219,11 @@ i {
 
 .term {
   font-family: "Noto Serif JP", sans-serif;
+  padding: 5px;
 }
 
 .term h2 {
-  font-size: 35px;
+  font-size: 30px;
   margin-bottom: 15px;
   color: #cc9966;
 }
@@ -234,5 +235,17 @@ i {
 
 .term ul {
   list-style: none;
+}
+
+/* スマホ向けレイアウト */
+
+@media (max-width: 670px) {
+  .term {
+    width: 100%;
+  }
+
+  .term p {
+    font-size: 15px;
+  }
 }
 
