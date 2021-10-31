@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="container">
-    <h1>{{ \Str::limit($logged_in_user->name, 20) }} さんのマイページ</h1>
+    <h1>{{ $logged_in_user->name, 20 }} さんのマイページ</h1>
         <div>
         @guest
             <a class="nav-link" href="/login">{{ __('Login') }}</a>
@@ -31,7 +31,7 @@
         <tbody>
             <tr>
                 {{--profileから指定した値を都度取得 User → Profile １対１のリレーション--}}
-                <td>{{ \Str::limit($logged_in_user->profile->name, 30) }}</td>
+                <td>{{ $logged_in_user->profile->name, 30 }}</td>
             </tr>
         </tbody>
     </table>
@@ -71,7 +71,7 @@
         </thead>
         <tbody>
             <tr>
-                <td>{{ \Str::limit($logged_in_user->profile->latteart, 100) }}</td>
+                <td>{{ $logged_in_user->profile->latteart, 100 }}</td>
             </tr>
         </tbody>
     </table>
@@ -95,7 +95,7 @@
         <!--</svg>-->
     </div>
     <div class="delete">
-        <form method="post" action="{{action('Admin\LatteController@delete', ['id'=>$logged_in_user->profile->id]) }}">
+        <form method="post" action="{{action('Admin\ProfileController@delete', ['id'=>$logged_in_user->profile->id]) }}">
             @csrf
             <button type="button" class="btn btn-link">削除/Delete</button>
         </form>
