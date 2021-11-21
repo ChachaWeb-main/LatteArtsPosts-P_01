@@ -41,7 +41,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::post('profile/create', 'Admin\ProfileController@create');//メンバー登録
     Route::get('profile/edit', 'Admin\ProfileController@edit');//登録情報の編集
     Route::post('profile/edit', 'Admin\ProfileController@update');//登録情報の更新
-    Route::post('profile/delete', 'Admin\ProfileController@delete');//登録情報の削除
+    Route::get('profile/delete', 'Admin\ProfileController@delete');//登録情報の削除
     // Route::get('profile', 'Admin\ProfileController@index');//登録情報の一覧
     Route::get('mypage', 'Admin\ProfileController@mypage');//ユーザーマイページ表示
     

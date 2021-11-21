@@ -30,6 +30,12 @@ class HomeController extends Controller
     //全てのラテ投稿データをメインページに表示
     public function index(Request $request)
     {
+        // Auth::user()->name;
+        if (empty(Auth::user())) {
+            Auth::logout();
+            // return redirect('main');
+        } 
+        
         // ページネーションの実装
         $sort = $request->sort;
         // 投稿を表示する
